@@ -14,7 +14,7 @@
 		742A43A62CE88EAA00535185 /* Exceptions for "TWOSOMEHEART-iOS" folder in "TWOSOMEHEART-iOS" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Application/Info.plist,
 			);
 			target = 742A43932CE88EA700535185 /* TWOSOMEHEART-iOS */;
 		};
