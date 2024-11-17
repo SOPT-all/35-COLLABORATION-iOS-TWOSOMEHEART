@@ -86,7 +86,6 @@
 			name = "TWOSOMEHEART-iOS";
 			packageProductDependencies = (
 				742A43C92CE8918600535185 /* SnapKit */,
-				742A43CB2CE8918600535185 /* SnapKit-Dynamic */,
 				742A43CE2CE8919300535185 /* Then */,
 			);
 			productName = "TWOSOMEHEART-iOS";
@@ -372,11 +371,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 742A43C82CE8918600535185 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		742A43CB2CE8918600535185 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 742A43C82CE8918600535185 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
 		};
 		742A43CE2CE8919300535185 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
