@@ -109,7 +109,7 @@ private extension CustomSegmentControlView {
     
     func setPlainButton(_ button: UIButton) {
         button.do {
-            $0.backgroundColor = UIColor(resource: .white)
+            $0.backgroundColor = UIColor(resource: .tsWhite)
             $0.layer.borderColor = segmentType.borderColor.cgColor
         }
         
@@ -126,7 +126,7 @@ private extension CustomSegmentControlView {
             $0.layer.borderColor = segmentType.selectedBackgroundColor.cgColor
         }
         let selectedTextAttributes: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor(resource: .white),
+            .foregroundColor: UIColor(resource: .tsWhite),
             .font: segmentType.selectedTextFont
         ]
         setTextStyle(button, attributes: selectedTextAttributes)

@@ -82,7 +82,7 @@ class CounterView : UIView {
         
         for views in stackView.arrangedSubviews {
             views.do {
-                $0.backgroundColor = UIColor(resource: .white)
+                $0.backgroundColor = UIColor(resource: .tsWhite)
             }
         }
         
@@ -103,7 +103,7 @@ class CounterView : UIView {
             $0.layer.borderWidth = 1
             $0.layer.borderColor = UIColor(resource: .gray20).cgColor
             $0.font = counterType.countLabelFont
-            $0.textColor = UIColor(resource: .black)
+            $0.textColor = UIColor(resource: .tsBlack)
             $0.textAlignment = .center
             $0.text = "\(0)"
         }
