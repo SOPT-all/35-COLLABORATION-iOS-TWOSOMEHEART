@@ -173,6 +173,10 @@ extension BaseNavViewController {
         setButtonStyle(button: rightButton, image: UIImage(resource: .bagNumbered))
     }
     
+    func setPlusButton() {
+        setButtonStyle(button: rightButton, image: UIImage(resource: .mymenuPlus))
+    }
+    
     func setReceiptButton() {
         setButtonStyle(button: secondRightButton, image: UIImage(resource: .menuReceipt))
     }
