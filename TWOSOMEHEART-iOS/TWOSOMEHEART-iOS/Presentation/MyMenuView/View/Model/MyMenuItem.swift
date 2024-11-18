@@ -27,7 +27,7 @@ extension MyMenuItem {
             menuImage: UIImage(resource: .imgMymenu2),
             name: "디카페인 오트밀 콜드브루",
             price: 6300,
-            options: ["아이스", "미디엄", "블랙그라운드"]
+            options: ["아이스", "라지", "블랙그라운드", "일회용컵"]
         )
     ]
 }

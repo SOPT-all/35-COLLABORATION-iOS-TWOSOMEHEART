@@ -71,12 +71,16 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
             $0.setTitle("장바구니 담기", for: .normal)
             $0.titleLabel?.font = TSFont.c2b
             $0.setTitleColor(UIColor(resource: .black), for: .normal)
+            $0.layer.borderWidth = 1.0
+            $0.layer.borderColor = UIColor(resource: .black).cgColor
         }
         
         orderNowButton.do{
             $0.setTitle("지금 바로 주문", for: .normal)
             $0.titleLabel?.font = TSFont.c2b
             $0.setTitleColor(UIColor(resource: .black), for: .normal)
+            $0.layer.borderWidth = 1.0
+            $0.layer.borderColor = UIColor(resource: .black).cgColor
         }
         
     }
@@ -94,15 +98,15 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
     
     private func setLayout(){
         checkboxButton.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(10)
-            $0.leading.equalToSuperview().offset(16)
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview()
             $0.size.equalTo(20)
         }
         
         menuImageView.snp.makeConstraints {
             $0.top.equalTo(checkboxButton.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().offset(16)
-            $0.size.equalTo(CGSize(width: 80, height: 80))
+            $0.leading.equalToSuperview()
+            $0.size.equalTo(84)
         }
         
         menuNameLabel.snp.makeConstraints {
@@ -112,33 +116,34 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         }
         
         menuPriceLabel.snp.makeConstraints {
-            $0.top.equalTo(menuNameLabel.snp.bottom).offset(-3)
+            $0.top.equalTo(menuNameLabel.snp.bottom)
             $0.leading.equalTo(menuNameLabel)
         }
         
         menuOptionsLabel.snp.makeConstraints {
-            $0.top.equalTo(menuPriceLabel.snp.bottom).offset(3)
+            $0.top.equalTo(menuPriceLabel.snp.bottom).offset(5)
             $0.leading.equalTo(menuNameLabel)
         }
         
         dragMenuButton.snp.makeConstraints {
-            $0.trailing.equalToSuperview().offset(-19)
+            $0.trailing.equalToSuperview()
             $0.centerY.equalTo(menuImageView.snp.centerY)
             $0.size.equalTo(48)
         }
         
         cartButton.snp.makeConstraints {
             $0.top.equalTo(menuImageView.snp.bottom).offset(15)
-            $0.leading.equalTo(menuImageView)
-            $0.trailing.equalToSuperview().offset(-10)
+            $0.leading.equalTo(menuImageView.snp.leading)
+            $0.width.equalTo(136)
             $0.height.equalTo(38)
         }
         
         orderNowButton.snp.makeConstraints {
-            $0.top.equalTo(menuImageView.snp.bottom).offset(15)
-            $0.leading.equalTo(cartButton.snp.trailing)
+            $0.top.equalTo(cartButton.snp.top)
+            $0.leading.equalTo(cartButton.snp.trailing).offset(3)
+            $0.width.equalTo(136)
             $0.height.equalTo(38)
-            $0.bottom.equalToSuperview().offset(-10)
+            $0.bottom.equalToSuperview()
         }
     }
     
@@ -146,8 +151,8 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
     func bind(_ myMenuItem: MyMenuItem){
         menuImageView.image = myMenuItem.menuImage
         menuNameLabel.text = myMenuItem.name
-        menuPriceLabel.text = String(myMenuItem.price) // 원 변경
-        menuOptionsLabel.text = myMenuItem.options.joined(separator: " / ")
+        menuPriceLabel.text = myMenuItem.price.formattedPrice()
+        menuOptionsLabel.text = myMenuItem.options.joined(separator: "/")
     }
     
 }
