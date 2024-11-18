@@ -105,7 +105,7 @@ class BaseNavViewController: UIViewController {
     }
     
     func setStyle() {
-        self.view.backgroundColor = UIColor(resource: .white)
+        self.view.backgroundColor = UIColor(resource: .tsWhite)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         
@@ -149,7 +149,7 @@ extension BaseNavViewController {
             $0.isHidden = false
             $0.text = title
             $0.font = TSFont.h3b
-            $0.textColor = .black
+            $0.textColor = UIColor(resource: .tsBlack)
             $0.textAlignment = alignment
         }
     }
@@ -171,6 +171,10 @@ extension BaseNavViewController {
     
     func setBagButton() {
         setButtonStyle(button: rightButton, image: UIImage(resource: .bagNumbered))
+    }
+    
+    func setPlusButton() {
+        setButtonStyle(button: rightButton, image: UIImage(resource: .mymenuPlus))
     }
     
     func setReceiptButton() {
