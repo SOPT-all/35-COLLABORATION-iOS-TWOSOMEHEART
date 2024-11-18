@@ -69,12 +69,9 @@ class CounterView : UIView {
             $0.verticalEdges.trailing.equalToSuperview()
             $0.width.equalToSuperview().multipliedBy(0.31)
         }
-
-        
     }
     
     func setStyle() {
-        
         stackView.do {
             $0.axis = .horizontal
             $0.distribution = .fillEqually
@@ -121,7 +118,6 @@ class CounterView : UIView {
                                     self?.updateNumberCount(1)},
                          for: .touchUpInside)
         }
-        
     }
 
 }

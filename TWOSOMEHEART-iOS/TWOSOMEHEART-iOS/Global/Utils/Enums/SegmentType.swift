@@ -8,6 +8,7 @@
 import UIKit
 
 enum SegmentType {
+    
     case modal
     case option
     
