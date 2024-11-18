@@ -7,10 +7,17 @@
 
 import UIKit
 
+protocol MyMenuCollectionViewCellDelegate: AnyObject {
+    func checkboxTapped(at index: Int, isSelected: Bool)
+}
+
 class MyMenuCollectionViewCell: UICollectionViewCell {
     // MARK: - Properties
     
     static let identifier: String = "MyMenuTableCell"
+    weak var delegate: MyMenuCollectionViewCellDelegate?
+    private var index: Int = 0
+    private var isSelectedCheckbox = false
     private var myMenuItems: MyMenuItem?
     
     // MARK: - Components
@@ -40,6 +47,7 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         checkboxButton.do {
             $0.setImage(UIImage(resource: .modalCheckboxDeselect), for: .normal)
             $0.setImage(UIImage(resource: .mymenuCheckboxSelect), for: .selected)
+            $0.addTarget(self, action: #selector(checkboxButtonTapped), for: .touchUpInside)
         }
         
         menuImageView.do {
@@ -155,4 +163,15 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         menuOptionsLabel.text = myMenuItem.options.joined(separator: "/")
     }
     
+    func configure(with index: Int) {
+        self.index = index
+    }
+    
+    // MARK: - Button Action 
+    @objc private func checkboxButtonTapped() {
+        checkboxButton.isSelected.toggle()
+        isSelectedCheckbox.toggle()
+        checkboxButton.isSelected = isSelectedCheckbox
+        delegate?.checkboxTapped(at: index, isSelected: isSelectedCheckbox)
+    }
 }

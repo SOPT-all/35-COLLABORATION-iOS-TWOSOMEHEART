@@ -18,19 +18,26 @@ class MyMenuViewController: BaseViewController {
         collectionViewLayout: UICollectionViewFlowLayout()
     )
     
+    private let myMenuModalView = MyMenuModalView().then {
+        $0.isHidden = true
+    }
+    
     // MARK: - Properties
-    private let myMenuItems = MyMenuItem.myMenuItems
+    
+    let myMenuItems = MyMenuItem.myMenuItems
+    var selectedIndexes: Set<Int> = []
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setCollectionView()
+        setModal()
     }
     
     override func setHierarchy() {
         super.setHierarchy()
-        view.addSubview(myMenuCollectionView)
+        view.addSubviews(myMenuCollectionView, myMenuModalView)
     }
     
     override func setLayout() {
@@ -38,10 +45,16 @@ class MyMenuViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(16)
             $0.leading.trailing.bottom.equalToSuperview()
         }
+        
+        myMenuModalView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(147)
+            $0.bottom.equalToSuperview().offset(147)
+        }
     }
 }
 
-// MARK: - CollectionView Setting
+// MARK: - UI Setting
 private extension MyMenuViewController {
     func setCollectionView() {
         let flowLayout = UICollectionViewFlowLayout()
@@ -58,7 +71,43 @@ private extension MyMenuViewController {
             $0.showsHorizontalScrollIndicator = false
         }
     }
+    
+    func setModal() {
+        myMenuModalView.orderButton.addTarget(self, action: #selector(hideModal), for: .touchUpInside)
+    }
+    
+    func showModal() {
+        guard !selectedIndexes.isEmpty else { return }
+        
+        let totalQuantity = selectedIndexes.count
+        let totalPrice = selectedIndexes.reduce(0) { result, index in
+            result + myMenuItems[index].price
+        }
+        
+        myMenuModalView.configure(price: totalPrice, quantity: totalQuantity)
+        
+        myMenuModalView.isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            self.myMenuModalView.snp.updateConstraints {
+                $0.bottom.equalToSuperview()
+            }
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc private func hideModal() {
+        UIView.animate(withDuration: 0.3) {
+            self.myMenuModalView.snp.updateConstraints {
+                $0.bottom.equalToSuperview().offset(self.myMenuModalView.frame.height)
+            }
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            self.myMenuModalView.isHidden = true
+        }
+    }
 }
+
+
 
 // MARK: - CollectionView Method
 extension MyMenuViewController: UICollectionViewDataSource {
@@ -71,7 +120,26 @@ extension MyMenuViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
+        item.delegate = self
+        item.configure(with: indexPath.row)
         item.bind(myMenuItems[indexPath.item])
         return item
+    }
+}
+
+// MARK: - CollectionView Delegate
+extension MyMenuViewController: MyMenuCollectionViewCellDelegate {
+    func checkboxTapped(at index: Int, isSelected: Bool) {
+        if isSelected {
+            selectedIndexes.insert(index)
+        } else {
+            selectedIndexes.remove(index)
+        }
+        
+        if !selectedIndexes.isEmpty {
+            showModal()
+        } else {
+            hideModal()
+        }
     }
 }
