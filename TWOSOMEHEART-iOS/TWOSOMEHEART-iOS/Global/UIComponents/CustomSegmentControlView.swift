@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class CustomSegmentControl: UIView {
+class CustomSegmentControlView: UIView {
     
     private var stackView: UIStackView = UIStackView()
     
@@ -74,14 +74,13 @@ class CustomSegmentControl: UIView {
                 }
             }
         }
-        
         updateSegments()
 
     }
     
 }
 
-private extension CustomSegmentControl {
+private extension CustomSegmentControlView {
     
     @objc
     func buttonTapped(_ sender: UIButton) {
@@ -97,7 +96,7 @@ private extension CustomSegmentControl {
     }
 }
 
-private extension CustomSegmentControl {
+private extension CustomSegmentControlView {
     
     func setTextStyle(_ button: UIButton, attributes: [NSAttributedString.Key: Any]) {
         button.do {
