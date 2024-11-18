@@ -52,11 +52,7 @@ class CustomSegmentControlView: UIView {
     
     private func setStyle() {
         stackView.do {
-            $0.axis = .horizontal
-            $0.distribution = .fillEqually
-            $0.alignment = .fill
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.spacing = -1
+            $0.setStackView(spacng: -1)
         }
         
         buttons.enumerated().forEach { index, button in
