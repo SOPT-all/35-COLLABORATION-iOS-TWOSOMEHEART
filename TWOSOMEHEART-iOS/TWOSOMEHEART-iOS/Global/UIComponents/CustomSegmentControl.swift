@@ -56,12 +56,22 @@ class CustomSegmentControl: UIView {
             $0.distribution = .fillEqually
             $0.alignment = .fill
             $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.spacing = -1
         }
         
         buttons.enumerated().forEach { index, button in
             button.do {
                 $0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
                 $0.tag = index
+                $0.layer.borderWidth = 1
+                
+                if index == 0 {
+                    $0.layer.cornerRadius = 5
+                    $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+                } else if index == buttons.count - 1 {
+                    $0.layer.cornerRadius = 5
+                    $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+                }
             }
         }
         
@@ -102,8 +112,6 @@ private extension CustomSegmentControl {
         button.do {
             $0.backgroundColor = UIColor(resource: .white)
             $0.layer.borderColor = segmentType.borderColor.cgColor
-            $0.layer.cornerRadius = 5
-            $0.layer.borderWidth = 1
         }
         
         let plainTextAttributes: [NSAttributedString.Key: Any] = [
@@ -117,8 +125,6 @@ private extension CustomSegmentControl {
         button.do {
             $0.backgroundColor = segmentType.selectedBackgroundColor
             $0.layer.borderColor = segmentType.selectedBackgroundColor.cgColor
-            $0.layer.cornerRadius = 5
-            $0.layer.borderWidth = 1
         }
         let selectedTextAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor(resource: .white),
