@@ -98,7 +98,7 @@ private extension MyMenuViewController {
     @objc private func hideModal() {
         UIView.animate(withDuration: 0.3) {
             self.myMenuModalView.snp.updateConstraints {
-                $0.bottom.equalToSuperview().offset(self.myMenuModalView.frame.height)
+                $0.bottom.equalToSuperview().offset(self.myMenuModalView.frame.height + self.view.safeAreaInsets.bottom)
             }
             self.view.layoutIfNeeded()
         } completion: { _ in

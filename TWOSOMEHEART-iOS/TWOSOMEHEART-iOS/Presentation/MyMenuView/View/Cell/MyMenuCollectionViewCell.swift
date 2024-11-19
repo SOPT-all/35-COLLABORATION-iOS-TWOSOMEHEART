@@ -57,12 +57,12 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         
         menuNameLabel.do{
             $0.font = TSFont.b2r
-            $0.textColor = UIColor(resource: .black)
+            $0.textColor = UIColor(resource: .tsBlack)
         }
         
         menuPriceLabel.do {
             $0.font = TSFont.t1b
-            $0.textColor = UIColor(resource: .black)
+            $0.textColor = UIColor(resource: .tsBlack)
         }
         
         menuOptionsLabel.do {
@@ -78,17 +78,17 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         cartButton.do{
             $0.setTitle("장바구니 담기", for: .normal)
             $0.titleLabel?.font = TSFont.c2b
-            $0.setTitleColor(UIColor(resource: .black), for: .normal)
+            $0.setTitleColor(UIColor(resource: .tsBlack), for: .normal)
             $0.layer.borderWidth = 1.0
-            $0.layer.borderColor = UIColor(resource: .black).cgColor
+            $0.layer.borderColor = UIColor(resource: .tsBlack).cgColor
         }
         
         orderNowButton.do{
             $0.setTitle("지금 바로 주문", for: .normal)
             $0.titleLabel?.font = TSFont.c2b
-            $0.setTitleColor(UIColor(resource: .black), for: .normal)
+            $0.setTitleColor(UIColor(resource: .tsBlack), for: .normal)
             $0.layer.borderWidth = 1.0
-            $0.layer.borderColor = UIColor(resource: .black).cgColor
+            $0.layer.borderColor = UIColor(resource: .tsBlack).cgColor
         }
         
     }

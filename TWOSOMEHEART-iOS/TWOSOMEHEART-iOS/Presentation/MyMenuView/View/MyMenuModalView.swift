@@ -12,6 +12,7 @@ import Then
 
 class MyMenuModalView: UIView {
     // MARK: - UI Components
+    private let containerView = UIView()
     private let storeLabel = UILabel()
     private let storeNameLabel = UILabel()
     private let priceTitleLabel = UILabel()
@@ -33,51 +34,55 @@ class MyMenuModalView: UIView {
     
     // MARK: - Style, UI, Layout
     private func setStyle(){
-        layer.do {
-            $0.shadowColor = UIColor.black.cgColor
-            $0.shadowOpacity = 0.15
-            $0.shadowOffset = CGSize(width: 0, height: -2)
-            $0.shadowRadius = 16
+        containerView.do {
+            $0.backgroundColor = .white
+            $0.layer.cornerRadius = 16
+            $0.layer.shadowColor = UIColor(resource: .tsBlack).cgColor
+            $0.layer.shadowOpacity = 0.15
+            $0.layer.shadowOffset = CGSize(width: 0, height: 0)
+            $0.layer.shadowRadius = 8
+            $0.layer.masksToBounds = false
         }
         
         storeLabel.do {
             $0.text = "주문매장"
             $0.font = TSFont.c1r
-            $0.textColor = UIColor(resource: .black)
+            $0.textColor = UIColor(resource: .tsBlack)
         }
         
         storeNameLabel.do {
             $0.text = "삼성역점"
             $0.font = TSFont.t1b
-            $0.textColor = UIColor(resource: .black)
+            $0.textColor = UIColor(resource: .tsBlack)
         }
         
         priceTitleLabel.do {
             $0.text = "주문금액"
             $0.font = TSFont.c1r
-            $0.textColor = UIColor(resource: .black)
+            $0.textColor = UIColor(resource: .tsBlack)
         }
         
         priceLabel.do {
             $0.font = TSFont.t1b
-            $0.textColor = UIColor(resource: .black)
+            $0.textColor = UIColor(resource: .tsBlack)
         }
         
         quantityLabel.do {
             $0.font = TSFont.c2b
-            $0.textColor = UIColor(resource: .black)
+            $0.textColor = UIColor(resource: .tsBlack)
         }
         
         orderButton.do {
             $0.setTitle("주문하기", for: .normal)
             $0.setTitleColor(UIColor(resource: .red30), for: .normal)
             $0.titleLabel?.font = TSFont.btn1s
-            $0.backgroundColor = UIColor(resource: .black)
+            $0.backgroundColor = UIColor(resource: .tsBlack)
         }
     }
     
     private func setUI(){
-        addSubviews(
+        addSubview(containerView)
+        containerView.addSubviews(
             storeLabel,
             storeNameLabel,
             priceTitleLabel,
@@ -88,6 +93,10 @@ class MyMenuModalView: UIView {
     }
     
     private func setLayout(){
+        containerView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
         storeLabel.snp.makeConstraints {
             $0.top.equalToSuperview().offset(20)
             $0.leading.equalToSuperview().offset(15)
@@ -99,7 +108,7 @@ class MyMenuModalView: UIView {
         }
         
         priceTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(storeLabel.snp.bottom).offset(13)
+            $0.top.equalTo(storeLabel.snp.bottom).offset(5)
             $0.leading.equalTo(storeLabel)
         }
         
