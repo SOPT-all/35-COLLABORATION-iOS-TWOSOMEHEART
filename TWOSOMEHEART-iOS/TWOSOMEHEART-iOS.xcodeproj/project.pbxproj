@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
+		7441B8312CEC5F74000B5AA8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CB2CE8918600535185 /* SnapKit-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7441B8312CEC5F74000B5AA8 /* SnapKit-Dynamic in Frameworks */,
 				742A43CA2CE8918600535185 /* SnapKit in Frameworks */,
 				742A43CF2CE8919300535185 /* Then in Frameworks */,
 			);
