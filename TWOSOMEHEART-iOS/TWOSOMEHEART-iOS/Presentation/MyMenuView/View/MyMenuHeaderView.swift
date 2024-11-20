@@ -19,7 +19,7 @@ class MyMenuHeaderView: UIView {
     private let deleteButton = UIButton()
     private let separatorLine = UIView()
     
-    // MARK: Properties 
+    // MARK: Properties
     private var isAllSelected: Bool = false
     
     // MARK: - Initializer
@@ -66,6 +66,7 @@ class MyMenuHeaderView: UIView {
         selectAllCheckbox.do {
             $0.setImage(UIImage(resource: .modalCheckboxDeselect), for: .normal)
             $0.setImage(UIImage(resource: .mymenuCheckboxSelect), for: .selected)
+            $0.addTarget(self, action: #selector(selectAllCheckboxTapped), for: .touchUpInside)
         }
         
         selectAllLabel.do {
@@ -126,5 +127,11 @@ class MyMenuHeaderView: UIView {
             $0.leading.trailing.bottom.equalToSuperview()
             $0.height.equalTo(1)
         }
+    }
+    
+    // MARK: - Action
+    @objc private func selectAllCheckboxTapped() {
+        isAllSelected.toggle()
+        selectAllCheckbox.isSelected = isAllSelected
     }
 }

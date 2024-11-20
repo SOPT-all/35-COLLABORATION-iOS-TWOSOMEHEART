@@ -93,7 +93,6 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
             $0.layer.borderWidth = 1.0
             $0.layer.borderColor = UIColor(resource: .tsBlack).cgColor
         }
-        
     }
     
     private func setUI(){
