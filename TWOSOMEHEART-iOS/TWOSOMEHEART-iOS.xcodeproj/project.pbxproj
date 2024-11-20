@@ -38,6 +38,7 @@
 		059C45812CEE199300FB00DC /* MenuOptionSyrupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45802CEE199300FB00DC /* MenuOptionSyrupCell.swift */; };
 		059C45832CEE19EA00FB00DC /* MenuOptionWhippedCreamCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45822CEE19EA00FB00DC /* MenuOptionWhippedCreamCell.swift */; };
 		059C45852CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45842CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift */; };
+		059C45872CEE1A9F00FB00DC /* MenuOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45862CEE1A9F00FB00DC /* MenuOptionViewController.swift */; };
 		059C45892CEE1BBB00FB00DC /* CounterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
@@ -76,6 +77,7 @@
 		059C45802CEE199300FB00DC /* MenuOptionSyrupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionSyrupCell.swift; sourceTree = "<group>"; };
 		059C45822CEE19EA00FB00DC /* MenuOptionWhippedCreamCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionWhippedCreamCell.swift; sourceTree = "<group>"; };
 		059C45842CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionDrizzleCell.swift; sourceTree = "<group>"; };
+		059C45862CEE1A9F00FB00DC /* MenuOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionViewController.swift; sourceTree = "<group>"; };
 		059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewDelegate.swift; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -235,6 +237,7 @@
 		059C456A2CEE0F4A00FB00DC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				059C45862CEE1A9F00FB00DC /* MenuOptionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				059C45592CEE0B5A00FB00DC /* CustomSegmentControlView.swift in Sources */,
 				059C45812CEE199300FB00DC /* MenuOptionSyrupCell.swift in Sources */,
 				059C455A2CEE0B5A00FB00DC /* CounterType.swift in Sources */,
+				059C45872CEE1A9F00FB00DC /* MenuOptionViewController.swift in Sources */,
 				059C45762CEE10D800FB00DC /* MenuOption.swift in Sources */,
 				059C457A2CEE16A200FB00DC /* MenuOptionHeaderView.swift in Sources */,
 				059C455B2CEE0B5A00FB00DC /* SegmentType.swift in Sources */,
