@@ -8,6 +8,8 @@
 import UIKit
 
 class MenuInfoView: UIView {
+    // MARK: - UI Components
+    
     private let menuImageView = UIImageView()
     private let newLabel = UILabel()
     private let menuNameLabel = UILabel()
@@ -166,7 +168,7 @@ class MenuInfoView: UIView {
         
         seperateLineView.snp.makeConstraints {
             $0.top.equalTo(cautionLabel2.snp.bottom).offset(12)
-            $0.horizontalEdges.equalToSuperview()
+            $0.horizontalEdges.bottom.equalToSuperview()
             $0.height.equalTo(4)
         }
     }

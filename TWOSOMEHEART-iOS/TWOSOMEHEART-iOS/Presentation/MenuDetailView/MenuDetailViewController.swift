@@ -16,6 +16,7 @@ class MenuDetailViewController: BaseViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let menuInfoView = MenuInfoView()
+    lazy var orderButton = UIButton()
     
     
     // MARK: - View Lifecycle
@@ -26,6 +27,13 @@ class MenuDetailViewController: BaseViewController {
     
     override func setStyle() {
         super.setStyle()
+        
+        orderButton.do {
+            $0.setTitle("주문하기", for: .normal)
+            $0.setTitleColor(UIColor(resource: .tsWhite), for: .normal)
+            $0.titleLabel?.font = TSFont.btn1s
+            $0.backgroundColor = UIColor(resource: .tsBlack)
+        }
     }
     
     override func setHierarchy() {
@@ -33,7 +41,8 @@ class MenuDetailViewController: BaseViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubviews(
-            menuInfoView
+            menuInfoView,
+            orderButton
         )
     }
     
@@ -53,6 +62,13 @@ class MenuDetailViewController: BaseViewController {
         menuInfoView.snp.makeConstraints{
             $0.top.equalTo(contentView.snp.top)
             $0.horizontalEdges.equalToSuperview()
+        }
+        
+        orderButton.snp.makeConstraints {
+            $0.top.equalTo(menuInfoView.snp.bottom).offset(67)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(54)
+            $0.bottom.equalToSuperview()
         }
     }
 }
