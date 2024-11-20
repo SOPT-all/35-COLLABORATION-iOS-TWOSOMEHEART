@@ -34,6 +34,7 @@
 		059C45762CEE10D800FB00DC /* MenuOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45752CEE10D800FB00DC /* MenuOption.swift */; };
 		059C45782CEE113D00FB00DC /* MenuOptionSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45772CEE113D00FB00DC /* MenuOptionSectionType.swift */; };
 		059C457A2CEE16A200FB00DC /* MenuOptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45792CEE16A200FB00DC /* MenuOptionHeaderView.swift */; };
+		059C457E2CEE18EF00FB00DC /* MenuOptionShotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C457D2CEE18EF00FB00DC /* MenuOptionShotCell.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
 /* End PBXBuildFile section */
@@ -67,6 +68,7 @@
 		059C45752CEE10D800FB00DC /* MenuOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOption.swift; sourceTree = "<group>"; };
 		059C45772CEE113D00FB00DC /* MenuOptionSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionSectionType.swift; sourceTree = "<group>"; };
 		059C45792CEE16A200FB00DC /* MenuOptionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionHeaderView.swift; sourceTree = "<group>"; };
+		059C457D2CEE18EF00FB00DC /* MenuOptionShotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionShotCell.swift; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -258,6 +260,7 @@
 		059C456E2CEE0F6600FB00DC /* TableViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				059C457D2CEE18EF00FB00DC /* MenuOptionShotCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				059C455E2CEE0B5A00FB00DC /* BaseNavViewController.swift in Sources */,
 				059C455F2CEE0B5A00FB00DC /* BaseViewController.swift in Sources */,
 				059C45602CEE0B5A00FB00DC /* ViewController.swift in Sources */,
+				059C457E2CEE18EF00FB00DC /* MenuOptionShotCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
