@@ -7,6 +7,9 @@
 
 import UIKit
 
+import SnapKit
+import Then
+
 protocol MyMenuCollectionViewCellDelegate: AnyObject {
     func checkboxTapped(at index: Int, isSelected: Bool)
 }

@@ -13,6 +13,8 @@ import Then
 class MyMenuViewController: BaseViewController {
     // MARK: - UI Properties
     
+    private let myMenuHeaderView = MyMenuHeaderView()
+    
     private lazy var myMenuCollectionView = UICollectionView(
         frame: .zero,
         collectionViewLayout: UICollectionViewFlowLayout()
@@ -37,17 +39,26 @@ class MyMenuViewController: BaseViewController {
     
     override func setHierarchy() {
         super.setHierarchy()
-        view.addSubviews(myMenuCollectionView, myMenuModalView)
+        view.addSubviews(myMenuHeaderView,
+                         myMenuCollectionView,
+                         myMenuModalView)
     }
     
     override func setLayout() {
+        myMenuHeaderView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.height.equalTo(82)
+        }
+        
         myMenuCollectionView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(16)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(myMenuHeaderView.snp.bottom).offset(20)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview()
         }
         
         myMenuModalView.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(147)
             $0.bottom.equalToSuperview().offset(147)
         }
@@ -106,8 +117,6 @@ private extension MyMenuViewController {
         }
     }
 }
-
-
 
 // MARK: - CollectionView Method
 extension MyMenuViewController: UICollectionViewDataSource {
