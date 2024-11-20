@@ -303,6 +303,71 @@ extension MenuOptionViewController: MenuOptionHeaderViewDelegate {
     }
 }
 
+// MARK: - PriceUpdateDelegate
+
+extension MenuOptionViewController: PriceUpdateDelegate {
+
+    func priceDidChange(section: Int, itemIndex: Int, count: Int) {
+        guard section < headerItems.count else {
+            print("Error: Invalid section index in priceDidChange")
+            return
+        }
+
+        var header = headerItems[section]
+
+        guard itemIndex < header.itemPrices.count else {
+            print("Error: Invalid itemIndex in priceDidChange")
+            return
+        }
+
+        header.itemPrices[itemIndex] = count * 500
+        header.price = header.itemPrices.reduce(0, +)
+        header.addedOptions = applyAddedOptionsDescription(
+            for: section,
+            with: header.itemPrices,
+            using: menuOptions
+        )
+
+        headerItems[section] = header
+
+        updateTotalPrice()
+        updateHeaderView(for: section, with: header)
+    }
+
+    private func applyAddedOptionsDescription(
+        for section: Int,
+        with prices: [Int],
+        using menuOptions: [MenuOption]
+    ) -> String? {
+        guard let menuOption = menuOptions.first(where: { $0.section == section }) else {
+            return nil
+        }
+
+        return prices.enumerated()
+            .filter { $0.element > 0 }
+            .map { "\(menuOption.options[$0.offset])x\($0.element / 500)" }
+            .joined(separator: ",")
+    }
+
+    private func updateTotalPrice() {
+        let totalPrice = headerItems.reduce(0) { $0 + $1.price }
+        totalPriceLabel.text = "\(totalPrice)"
+    }
+
+    private func updateHeaderView(
+        for section: Int,
+        with header: MenuOptionHeader
+    ) {
+        guard let headerView = tableView.headerView(
+            forSection: section
+        ) as? MenuOptionHeaderView else {
+            return
+        }
+
+        headerView.configure(header)
+    }
+}
+
 // MARK: - Helper Methods for TableView Configuration
 
 private extension MenuOptionViewController {
@@ -338,15 +403,19 @@ private extension MenuOptionViewController {
     func configureCell(_ cell: UITableViewCell, for section: Int) {
         switch cell {
         case let cell as MenuOptionShotCell:
+            cell.priceDelegate = self
             configureCommonCellStyle(for: cell)
 
         case let cell as MenuOptionSyrupCell:
+            cell.priceDelegate = self
             configureCommonCellStyle(for: cell)
 
         case let cell as MenuOptionWhippedCreamCell:
+            cell.priceDelegate = self
             configureCommonCellStyle(for: cell)
 
         case let cell as MenuOptionDrizzleCell:
+            cell.priceDelegate = self
             configureCommonCellStyle(for: cell)
 
         default:
