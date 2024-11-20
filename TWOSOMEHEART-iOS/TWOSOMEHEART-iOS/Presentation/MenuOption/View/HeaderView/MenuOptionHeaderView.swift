@@ -25,6 +25,11 @@ final class MenuOptionHeaderView: UITableViewHeaderFooterView {
     private let arrowImageView = UIImageView()
     private let addedOptionLabel = UILabel()
 
+    // MARK: - Properties
+
+    weak var delegate: MenuOptionHeaderViewDelegate?
+    private var section: Int?
+
     // MARK: - Initializers
 
     override init(reuseIdentifier: String?) {
@@ -39,6 +44,13 @@ final class MenuOptionHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Actions
+
+    @objc private func headerTapped() {
+        guard let section = section else { return }
+        delegate?.didTapHeader(section: section)
+    }
+
     // MARK: - Helpers
 
     func configure(_ item: MenuOptionHeader) {
@@ -47,6 +59,18 @@ final class MenuOptionHeaderView: UITableViewHeaderFooterView {
         updateArrowImage(isExpanded: item.isExpanded)
         updatePrice(price: item.price)
         addedOptionLabel.text = item.addedOptions
+    }
+
+    func configureGesture(delegate: MenuOptionHeaderViewDelegate?, section: Int) {
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(headerTapped)
+        )
+
+        contentView.addGestureRecognizer(tapGesture)
+
+        self.section = section
+        self.delegate = delegate
     }
 
     // MARK: - UI
