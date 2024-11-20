@@ -288,7 +288,7 @@ extension MenuOptionViewController: UITableViewDelegate {
     }
 }
 
-// MARK: - HeaderViewDelegate
+// MARK: - MenuOptionHeaderViewDelegate
 
 extension MenuOptionViewController: MenuOptionHeaderViewDelegate {
 
