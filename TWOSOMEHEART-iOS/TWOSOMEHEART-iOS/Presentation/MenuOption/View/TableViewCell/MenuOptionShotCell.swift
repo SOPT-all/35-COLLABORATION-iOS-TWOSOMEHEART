@@ -32,15 +32,34 @@ final class MenuOptionShotCell: BaseTableViewCell {
 
     let counterView = CounterView(counterType: .option)
 
+    // MARK: - Properties
+
+    weak var priceDelegate: PriceUpdateDelegate?
+
     // MARK: - Initializer
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        updatePriceForCounterChange()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Actions
+
+    private func updatePriceForCounterChange() {
+        counterView.onValueChanged = { [weak self] count in
+            guard let self = self else { return }
+
+            self.priceDelegate?.priceDidChange(
+                section: 0,
+                itemIndex: 0,
+                count: count
+            )
+        }
     }
 
     // MARK: - UI
