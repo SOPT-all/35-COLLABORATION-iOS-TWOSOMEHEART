@@ -73,7 +73,7 @@ class CounterView : UIView {
     
     func setStyle() {
         stackView.do {
-            $0.setStackView(spacng: -1)
+            $0.setStackView(spacing: -1)
         }
         
         for views in stackView.arrangedSubviews {
