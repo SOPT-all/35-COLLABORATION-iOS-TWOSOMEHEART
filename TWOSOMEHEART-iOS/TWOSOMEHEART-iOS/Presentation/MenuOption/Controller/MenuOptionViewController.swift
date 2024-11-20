@@ -32,32 +32,29 @@ final class MenuOptionViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setAddTargets()
         setDelegates()
         registerCells()
         initializeHeaderItems()
     }
 
+    // MARK: - Actions
+
+    @objc private func resetAllItems() {
+        resetItemData()
+        resetVisibleCells()
+        resetHiddenCells()
+        tableView.reloadData()
+    }
+
     // MARK: - Helpers
 
-    private func initializeHeaderItems() {
-        headerItems = sections.map { sectionType in
-            let itemCount: Int
-            switch sectionType {
-            case .shot: itemCount = 1
-            case .syrup: itemCount = 3
-            case .whippedCream: itemCount = 1
-            case .drizzle: itemCount = 2
-            }
-
-            return MenuOptionHeader(
-                title: sectionType.rawValue,
-                arrowImage: UIImage(resource: .optionArrowDown),
-                price: 0,
-                itemPrices: Array(repeating: 0, count: itemCount),
-                isExpanded: false,
-                addedOptions: nil
-            )
-        }
+    private func setAddTargets() {
+        resetButton.addTarget(
+            self,
+            action: #selector(resetAllItems),
+            for: .touchUpInside
+        )
     }
 
     private func setDelegates() {
@@ -90,6 +87,27 @@ final class MenuOptionViewController: BaseViewController {
             MenuOptionDrizzleCell.self,
             forCellReuseIdentifier: MenuOptionDrizzleCell.identifier
         )
+    }
+
+    private func initializeHeaderItems() {
+        headerItems = sections.map { sectionType in
+            let itemCount: Int
+            switch sectionType {
+            case .shot: itemCount = 1
+            case .syrup: itemCount = 3
+            case .whippedCream: itemCount = 1
+            case .drizzle: itemCount = 2
+            }
+
+            return MenuOptionHeader(
+                title: sectionType.rawValue,
+                arrowImage: UIImage(resource: .optionArrowDown),
+                price: 0,
+                itemPrices: Array(repeating: 0, count: itemCount),
+                isExpanded: false,
+                addedOptions: nil
+            )
+        }
     }
 
     // MARK: - UI
@@ -420,6 +438,56 @@ private extension MenuOptionViewController {
 
         default:
             break
+        }
+    }
+
+    func createCellForSection(section: Int) -> UITableViewCell {
+        let identifier = identifier(for: section)
+        let indexPath = IndexPath(row: 0, section: section)
+        return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath)
+    }
+
+    func isSectionVisible(section: Int) -> Bool {
+        tableView.indexPathsForVisibleRows?.contains { $0.section == section } ?? false
+    }
+}
+
+// MARK: - Helper Methods for Resetting Data
+
+private extension MenuOptionViewController {
+
+    func resetItemData() {
+        for index in 0..<headerItems.count {
+            headerItems[index].price = 0
+            headerItems[index].itemPrices = Array(
+                repeating: 0,
+                count: headerItems[index].itemPrices.count
+            )
+            headerItems[index].addedOptions = nil
+        }
+    }
+
+    func resetVisibleCells() {
+        for cell in tableView.visibleCells {
+            if let indexPath = tableView.indexPath(for: cell) {
+                resetCounterForCell(
+                    cell: cell,
+                    section: indexPath.section
+                )
+            }
+        }
+    }
+
+    func resetHiddenCells() {
+        for section in 0..<sections.count where !isSectionVisible(section: section) {
+            let cell = createCellForSection(section: section)
+            resetCounterForCell(cell: cell, section: section)
+        }
+    }
+
+    func resetCounterForCell(cell: UITableViewCell, section: Int) {
+        if let resettableCell = cell as? ResetCounterDelegate {
+            resettableCell.resetCounters()
         }
     }
 }
