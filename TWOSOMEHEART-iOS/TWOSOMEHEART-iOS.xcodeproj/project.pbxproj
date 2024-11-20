@@ -28,6 +28,7 @@
 		059C45642CEE0B5A00FB00DC /* AppleSDGothicNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 059C45392CEE0B5A00FB00DC /* AppleSDGothicNeo-Regular.ttf */; };
 		059C45652CEE0B5A00FB00DC /* AppleSDGothicNeo-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 059C453A2CEE0B5A00FB00DC /* AppleSDGothicNeo-SemiBold.ttf */; };
 		059C45662CEE0B5A00FB00DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 059C453D2CEE0B5A00FB00DC /* Assets.xcassets */; };
+		059C45682CEE0E6600FB00DC /* ReusableIdentifier+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45672CEE0E6600FB00DC /* ReusableIdentifier+.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		059C45492CEE0B5A00FB00DC /* BaseNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavViewController.swift; sourceTree = "<group>"; };
 		059C454A2CEE0B5A00FB00DC /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		059C454C2CEE0B5A00FB00DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		059C45672CEE0E6600FB00DC /* ReusableIdentifier+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReusableIdentifier+.swift"; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -89,6 +91,7 @@
 				059C45342CEE0B5A00FB00DC /* UILabel+.swift */,
 				059C45352CEE0B5A00FB00DC /* UIStackView+.swift */,
 				059C45362CEE0B5A00FB00DC /* UIView+.swift */,
+				059C45672CEE0E6600FB00DC /* ReusableIdentifier+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				059C45512CEE0B5A00FB00DC /* AppDelegate.swift in Sources */,
 				059C45522CEE0B5A00FB00DC /* SceneDelegate.swift in Sources */,
+				059C45682CEE0E6600FB00DC /* ReusableIdentifier+.swift in Sources */,
 				059C45532CEE0B5A00FB00DC /* String+.swift in Sources */,
 				059C45542CEE0B5A00FB00DC /* UILabel+.swift in Sources */,
 				059C45552CEE0B5A00FB00DC /* UIStackView+.swift in Sources */,
