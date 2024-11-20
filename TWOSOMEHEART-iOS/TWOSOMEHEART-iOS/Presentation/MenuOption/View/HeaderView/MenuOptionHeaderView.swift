@@ -35,6 +35,16 @@ final class MenuOptionHeaderView: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Helpers
+
+    func configure(_ item: MenuOptionHeader) {
+        titleLabel.text = item.title
+        updateTitleFont(isExpanded: item.isExpanded)
+        updateArrowImage(isExpanded: item.isExpanded)
+        updatePrice(price: item.price)
+        addedOptionLabel.text = item.addedOptions
+    }
+
     // MARK: - UI
 
     private func setStyle() {
@@ -112,6 +122,29 @@ final class MenuOptionHeaderView: UITableViewHeaderFooterView {
             $0.leading.equalTo(titleLabel)
             $0.bottom.equalTo(-12)
             $0.height.equalTo(18)
+        }
+    }
+}
+
+// MARK: - Update Methods
+
+private extension MenuOptionHeaderView {
+
+    func updateTitleFont(isExpanded: Bool) {
+        titleLabel.font = isExpanded ? TSFont.h3b : TSFont.h3r
+    }
+
+    func updateArrowImage(isExpanded: Bool) {
+        arrowImageView.image = UIImage(
+            resource: isExpanded ? .optionArrowUp : .optionArrowDown
+        )
+    }
+
+    func updatePrice(price: Int) {
+        if price > 0 {
+            priceLabel.text = "+ \(price)"
+        } else {
+            priceLabel.text = "\(price)"
         }
     }
 }
