@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
+protocol MenuOptionHeaderViewDelegate: AnyObject {
+    func didTapHeader(section: Int)
+}
+
 final class MenuOptionHeaderView: UITableViewHeaderFooterView {
 
     // MARK: - UI Properties
