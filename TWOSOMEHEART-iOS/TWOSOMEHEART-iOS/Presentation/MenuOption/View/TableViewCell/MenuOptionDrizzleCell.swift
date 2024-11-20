@@ -17,15 +17,44 @@ final class MenuOptionDrizzleCell: BaseTableViewCell {
     private let chocolateLabel = UILabel()
     let chocolateCounterView = CounterView(counterType: .option)
 
+    // MARK: - Properties
+
+    weak var priceDelegate: PriceUpdateDelegate?
+
     // MARK: - Initializer
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
+        updatePriceForCounterChange()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Helpers
+
+    private func updatePriceForCounterChange() {
+        caramelCounterView.onValueChanged = { [weak self] count in
+            guard let self = self else { return }
+
+            self.priceDelegate?.priceDidChange(
+                section: 3,
+                itemIndex: 0,
+                count: count
+            )
+        }
+
+        chocolateCounterView.onValueChanged = { [weak self] count in
+            guard let self = self else { return }
+
+            self.priceDelegate?.priceDidChange(
+                section: 3,
+                itemIndex: 1,
+                count: count
+            )
+        }
     }
 
     // MARK: - UI
