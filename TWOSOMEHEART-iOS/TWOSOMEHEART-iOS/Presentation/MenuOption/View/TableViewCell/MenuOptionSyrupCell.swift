@@ -125,3 +125,14 @@ final class MenuOptionSyrupCell: BaseTableViewCell {
         }
     }
 }
+
+// MARK: - ResetCounterDelegate
+
+extension MenuOptionSyrupCell: ResetCounterDelegate {
+
+    func resetCounters() {
+        vanillaCounterView.resetCounter()
+        hazelCounterView.resetCounter()
+        caramelCounterView.resetCounter()
+    }
+}

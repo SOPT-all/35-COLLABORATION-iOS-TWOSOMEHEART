@@ -67,3 +67,12 @@ final class MenuOptionWhippedCreamCell: BaseTableViewCell {
         }
     }
 }
+
+// MARK: - ResetCounterDelegate
+
+extension MenuOptionWhippedCreamCell: ResetCounterDelegate {
+
+    func resetCounters() {
+        whippedCreamCounterView.resetCounter()
+    }
+}

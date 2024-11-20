@@ -129,3 +129,12 @@ final class MenuOptionShotCell: BaseTableViewCell {
         }
     }
 }
+
+// MARK: - ResetCounterDelegate
+
+extension MenuOptionShotCell: ResetCounterDelegate {
+
+    func resetCounters() {
+        counterView.resetCounter()
+    }
+}

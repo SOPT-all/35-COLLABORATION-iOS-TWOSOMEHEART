@@ -96,3 +96,13 @@ final class MenuOptionDrizzleCell: BaseTableViewCell {
         }
     }
 }
+
+// MARK: - ResetCounterDelegate
+
+extension MenuOptionDrizzleCell: ResetCounterDelegate {
+
+    func resetCounters() {
+        caramelCounterView.resetCounter()
+        chocolateCounterView.resetCounter()
+    }
+}
