@@ -257,6 +257,7 @@ extension MenuOptionViewController: UITableViewDelegate {
 
         let data = headerItems[section]
         headerView.configure(data)
+        headerView.configureGesture(delegate: self, section: section)
 
         return headerView
     }
@@ -284,6 +285,21 @@ extension MenuOptionViewController: UITableViewDelegate {
         _ tableView: UITableView,
         heightForHeaderInSection section: Int) -> CGFloat {
         return 86
+    }
+}
+
+// MARK: - HeaderViewDelegate
+
+extension MenuOptionViewController: MenuOptionHeaderViewDelegate {
+
+    func didTapHeader(section: Int) {
+        headerItems.enumerated().forEach { index, _ in
+            headerItems[index].isExpanded = (index == section) ?
+            !headerItems[index].isExpanded : false
+        }
+
+        expandedSection = headerItems[section].isExpanded ? section : nil
+        tableView.reloadData()
     }
 }
 
