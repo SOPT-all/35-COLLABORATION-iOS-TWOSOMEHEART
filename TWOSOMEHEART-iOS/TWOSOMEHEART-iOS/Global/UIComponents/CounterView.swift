@@ -33,7 +33,7 @@ class CounterView : UIView {
         
         super.init(frame: .zero)
         
-        setHierachy()
+        setHierarchy()
         setLayout()
         setStyle()
     }
@@ -42,7 +42,7 @@ class CounterView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setHierachy() {
+    func setHierarchy() {
         self.addSubviews(stackView)
         
         stackView.addSubviews(minusButton,
