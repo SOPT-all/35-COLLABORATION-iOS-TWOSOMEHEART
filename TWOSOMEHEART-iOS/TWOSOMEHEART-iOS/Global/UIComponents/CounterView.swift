@@ -23,11 +23,14 @@ class CounterView : UIView {
     private var numberCount: Int = 0 {
         didSet {
             updateUI()
+            onValueChanged?(numberCount)
         }
     }
     
     private var counterType: CounterType
-    
+
+    var onValueChanged: ((Int) -> Void)?
+
     init(counterType: CounterType) {
         self.counterType = counterType
         
@@ -129,5 +132,10 @@ extension CounterView {
         countLabel.text = "\(numberCount)"
         minusButton.isEnabled = (numberCount != 0)
     }
-    
+
+    func resetCounter() {
+        let change = -numberCount
+        updateNumberCount(change)
+    }
+
 }
