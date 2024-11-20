@@ -12,15 +12,17 @@ extension UIViewController {
     func setSheetLayout() {
         self.modalPresentationStyle = .pageSheet
         
-        let detentIdentifier = UISheetPresentationController.Detent.Identifier("customDetent")
+        let shortDetentIdentifier = UISheetPresentationController.Detent.Identifier("customShortDetent")
         
-        let customShortDetent = UISheetPresentationController.Detent.custom(identifier: detentIdentifier) { _ in
+        let customShortDetent = UISheetPresentationController.Detent.custom(identifier: shortDetentIdentifier) { _ in
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let safeAreaBottom = windowScene?.windows.first?.safeAreaInsets.bottom ?? 0
             return 526 - safeAreaBottom
         }
         
-        let customLongDetent = UISheetPresentationController.Detent.custom(identifier: detentIdentifier) { _ in
+        let longDetentIdentifier = UISheetPresentationController.Detent.Identifier("customLongDetent")
+        
+        let customLongDetent = UISheetPresentationController.Detent.custom(identifier: longDetentIdentifier) { _ in
             let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
             let safeAreaBottom = windowScene?.windows.first?.safeAreaInsets.bottom ?? 0
             return 592 - safeAreaBottom
@@ -30,6 +32,8 @@ extension UIViewController {
             sheet.detents = [customShortDetent, customLongDetent]
             sheet.prefersScrollingExpandsWhenScrolledToEdge = true
             sheet.prefersGrabberVisible = true
+            
+            sheet.selectedDetentIdentifier = customShortDetent.identifier
         }
     }
     
