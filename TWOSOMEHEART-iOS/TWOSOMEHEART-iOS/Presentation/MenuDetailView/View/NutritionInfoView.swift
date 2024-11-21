@@ -23,8 +23,10 @@ class NutritionInfoView: UIView {
     private let sizeUnderLineView = UIView()
     
     private let nutritionTextLabel = UILabel()
+    private let nutritionSeperateLineView = UIView()
     
-    private let seperateLine = UIView()
+    private let noticeLabel = UILabel()
+    private let seperateLineView = UIView()
     
     // MARK: - Properties
     private var menuItems: MenuDetail?
@@ -99,9 +101,23 @@ class NutritionInfoView: UIView {
         
         nutritionTextLabel.do {
             $0.numberOfLines = 0
-            $0.text = "나와라..영양정보.."
             $0.font = TSFont.b2r
             $0.textColor = UIColor(resource: .gray80)
+        }
+        
+        nutritionSeperateLineView.do {
+            $0.backgroundColor = UIColor(resource: .gray30)
+        }
+        
+        noticeLabel.do {
+            $0.numberOfLines = 0
+            $0.font = TSFont.b2r
+            $0.textColor = UIColor(resource: .gray60)
+            $0.attributedText = StringLiterals.MenuDetailType.noticeText.setLineSpacing(10)
+        }
+        
+        seperateLineView.do {
+            $0.backgroundColor = UIColor(resource: .gray30)
         }
     }
     
@@ -113,7 +129,10 @@ class NutritionInfoView: UIView {
             sizeSegmentControl,
             sizeUnderLineView,
             sizeSeperateLineView,
-            nutritionTextLabel
+            nutritionTextLabel,
+            nutritionSeperateLineView,
+            noticeLabel,
+            seperateLineView
         )
     }
     
@@ -152,15 +171,32 @@ class NutritionInfoView: UIView {
         
         sizeSeperateLineView.snp.makeConstraints {
             $0.top.equalTo(sizeUnderLineView.snp.bottom)
-            $0.leading.trailing.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(1)
         }
         
         nutritionTextLabel.snp.makeConstraints{
             $0.top.equalTo(sizeSeperateLineView.snp.bottom).offset(18)
-            $0.leading.trailing.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(16)
         }
+        
+        nutritionSeperateLineView.snp.makeConstraints {
+            $0.top.equalTo(nutritionTextLabel.snp.bottom).offset(27)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(1)
+        }
+        
+        noticeLabel.snp.makeConstraints{
+            $0.top.equalTo(nutritionSeperateLineView.snp.bottom).offset(13)
+            $0.horizontalEdges.equalToSuperview().inset(16)
+        }
+        
+        seperateLineView.snp.makeConstraints{
+            $0.top.equalTo(noticeLabel.snp.bottom).offset(62)
+            $0.horizontalEdges.bottom.equalToSuperview()
+            $0.height.equalTo(4)
+        }
+        
     }
     
     // MARK: - Actions

@@ -112,7 +112,7 @@ class MenuInfoView: UIView {
     }
     
     private func setHierarchy(){
-        addSubviews( menuImageView,
+        addSubviews(menuImageView,
                      statusLabel,
                      menuNameLabel,
                      menuDescriptionLabel,

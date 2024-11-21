@@ -85,7 +85,6 @@ class MenuDetailViewController: BaseViewController {
     }
 }
 
-
 // MARK: - Delegate
 extension MenuDetailViewController: NutritionInfoHeaderViewDelegate {
     func headerViewTapped(_ headerView: NutritionInfoHeaderView){
