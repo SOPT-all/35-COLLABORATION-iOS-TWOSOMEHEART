@@ -38,7 +38,7 @@ enum StringLiterals {
         static let icecream = "아이스크림/빙수"
         
     }
-<<<<<<< HEAD
+
     
     enum MyMenuType {
         
@@ -59,7 +59,7 @@ enum StringLiterals {
         static let goOrder = "주문하기"
         
     }
-=======
+
 
     enum MenuOptionType {
 
@@ -83,5 +83,5 @@ enum StringLiterals {
 
     }
 
->>>>>>> develop
+
 }
