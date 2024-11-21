@@ -96,7 +96,7 @@ final class MenuOptionHeaderView: UITableViewHeaderFooterView {
                 text: "원",
                 numberOfLines: 1,
                 textColor: .gray80,
-                font: TSFont.b1b
+                font: TSFont.c1r
             )
         }
 
