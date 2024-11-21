@@ -301,7 +301,8 @@ extension MenuOptionViewController: UITableViewDelegate {
 
     func tableView(
         _ tableView: UITableView,
-        heightForHeaderInSection section: Int) -> CGFloat {
+        heightForHeaderInSection section: Int
+    ) -> CGFloat {
         return 86
     }
 }
