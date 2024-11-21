@@ -23,17 +23,20 @@ class CounterView : UIView {
     private var numberCount: Int = 0 {
         didSet {
             updateUI()
+            onValueChanged?(numberCount)
         }
     }
     
     private var counterType: CounterType
-    
+
+    var onValueChanged: ((Int) -> Void)?
+
     init(counterType: CounterType) {
         self.counterType = counterType
         
         super.init(frame: .zero)
         
-        setHierachy()
+        setHierarchy()
         setLayout()
         setStyle()
     }
@@ -42,7 +45,7 @@ class CounterView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setHierachy() {
+    func setHierarchy() {
         self.addSubviews(stackView)
         
         stackView.addSubviews(minusButton,
@@ -73,7 +76,7 @@ class CounterView : UIView {
     
     func setStyle() {
         stackView.do {
-            $0.setStackView(spacng: -1)
+            $0.setStackView(spacing: -1)
         }
         
         for views in stackView.arrangedSubviews {
@@ -129,5 +132,10 @@ extension CounterView {
         countLabel.text = "\(numberCount)"
         minusButton.isEnabled = (numberCount != 0)
     }
-    
+
+    func resetCounter() {
+        let change = -numberCount
+        updateNumberCount(change)
+    }
+
 }
