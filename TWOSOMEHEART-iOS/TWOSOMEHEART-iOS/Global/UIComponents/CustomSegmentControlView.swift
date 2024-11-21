@@ -118,8 +118,8 @@ private extension CustomSegmentControlView {
     
     func setSelectedButton(_ button: UIButton) {
         button.do {
-            $0.backgroundColor = segmentType.selectedBackgroundColor
-            $0.layer.borderColor = segmentType.selectedBackgroundColor.cgColor
+            $0.backgroundColor = segmentType.selectedBackgroundColor[button.tag]
+            $0.layer.borderColor = segmentType.selectedBackgroundColor[button.tag].cgColor
         }
         let selectedTextAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: UIColor(resource: .tsWhite),
