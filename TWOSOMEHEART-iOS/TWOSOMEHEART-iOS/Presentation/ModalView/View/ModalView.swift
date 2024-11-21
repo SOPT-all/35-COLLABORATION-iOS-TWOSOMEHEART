@@ -34,6 +34,8 @@ class ModalView: UIView {
     
     private let footerView : UIView = UIView()
     
+    private let blackLineView : UIView = UIView()
+    
     private var priceLabel : UILabel = UILabel()
     
     private let counterView : CounterView = CounterView(counterType: .modal)
@@ -72,7 +74,9 @@ class ModalView: UIView {
                                 personalCupExplainLabel,
                                 personalOptionButton)
         
-        footerView.addSubviews(counterView,
+        footerView.addSubviews(blackLineView,
+                               priceLabel,
+                               counterView,
                                shopButton,
                                starButton,
                                orderButton)
@@ -81,6 +85,7 @@ class ModalView: UIView {
     private func setLayout() {
         headerView.snp.makeConstraints {
             $0.top.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(55)
         }
         
@@ -92,6 +97,7 @@ class ModalView: UIView {
         scrollView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
             $0.top.equalTo(headerView.snp.bottom)
+            $0.bottom.equalToSuperview().inset(139)
             $0.height.equalTo(572)
         }
         
@@ -137,15 +143,57 @@ class ModalView: UIView {
         
         footerView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.bottom.equalToSuperview()
+            $0.top.equalTo(scrollView.snp.bottom)
+            $0.bottom.equalToSuperview().inset(safeAreaInsets.bottom)
         }
         
+        blackLineView.snp.makeConstraints{
+            $0.top.width.equalToSuperview()
+            $0.height.equalTo(1)
+        }
+        
+        priceLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(14)
+            $0.leading.equalToSuperview()
+            $0.height.equalTo(48)
+        }
+        
+        counterView.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(21)
+            $0.trailing.equalToSuperview()
+            $0.width.equalTo(100)
+            $0.height.equalTo(31)
+        }
+        
+        shopButton.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(12)
+            $0.width.equalTo(57)
+            $0.height.equalTo(54)
+        }
+        
+        starButton.snp.makeConstraints {
+            $0.leading.equalTo(shopButton.snp.trailing).offset(8)
+            $0.bottom.equalToSuperview().inset(12)
+            $0.width.equalTo(57)
+            $0.height.equalTo(54)
+        }
+        
+        orderButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(12)
+            $0.leading.equalTo(starButton.snp.trailing).offset(8)
+            $0.height.equalTo(54)
+        }
         
     }
     
     private func setStyle() {
         headerLabel.do {
-            $0.text = "바닐라 샷 라떼"
+            $0.setLabel(text: "바닐라샷라떼",
+                        alignment: .center,
+                        textColor: UIColor(resource: .tsBlack),
+                        font: TSFont.b1b)
         }
         
         scrollView.do {
@@ -154,6 +202,37 @@ class ModalView: UIView {
         
         contentView.do {
             $0.backgroundColor = .red
+        }
+        
+        blackLineView.do {
+            $0.backgroundColor = UIColor(resource: .tsBlack)
+        }
+        
+        priceLabel.do {
+            $0.setLabel(text: "5900원",
+                        alignment: .center,
+                        textColor: UIColor(resource: .tsBlack),
+                        font: TSFont.h3b)
+        }
+        
+        shopButton.do {
+            $0.setImage(.modalShopDisable, for: .disabled)
+            $0.setImage(.modalShopAble, for: .normal)
+            $0.backgroundColor = UIColor(resource: .red40)
+        }
+        
+        starButton.do {
+            $0.setImage(.modalStarDisable, for: .disabled)
+            $0.setImage(.modalStarAble, for: .normal)
+            $0.layer.borderColor = UIColor(resource: .red40).cgColor
+            $0.layer.borderWidth = 1
+        }
+        
+        orderButton.do {
+            $0.backgroundColor = UIColor(resource: .tsBlack)
+            $0.setTitle("주문하기", for: .normal)
+            $0.titleLabel?.font = TSFont.btn1s
+            $0.titleLabel?.textColor = UIColor(resource: .tsWhite)
         }
         
         
