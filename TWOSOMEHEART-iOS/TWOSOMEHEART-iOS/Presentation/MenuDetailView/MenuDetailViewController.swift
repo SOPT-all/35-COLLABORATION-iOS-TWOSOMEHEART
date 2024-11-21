@@ -16,13 +16,14 @@ class MenuDetailViewController: BaseViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let menuInfoView = MenuInfoView()
+    private let nutritionInfoHeaderView = NutritionInfoHeaderView()
+    
     lazy var orderButton = UIButton()
     
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     override func setStyle() {
@@ -42,7 +43,8 @@ class MenuDetailViewController: BaseViewController {
         scrollView.addSubview(contentView)
         contentView.addSubviews(
             menuInfoView,
-            orderButton
+            orderButton,
+            nutritionInfoHeaderView
         )
     }
     
@@ -64,8 +66,13 @@ class MenuDetailViewController: BaseViewController {
             $0.horizontalEdges.equalToSuperview()
         }
         
+        nutritionInfoHeaderView.snp.makeConstraints{
+            $0.top.equalTo(menuInfoView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
+        }
+        
         orderButton.snp.makeConstraints {
-            $0.top.equalTo(menuInfoView.snp.bottom).offset(67)
+            $0.top.equalTo(nutritionInfoHeaderView.snp.bottom).offset(67)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(54)
             $0.bottom.equalToSuperview()

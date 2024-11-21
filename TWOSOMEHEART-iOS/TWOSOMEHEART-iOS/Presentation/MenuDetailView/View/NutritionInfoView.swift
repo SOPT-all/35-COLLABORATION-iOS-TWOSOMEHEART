@@ -10,7 +10,7 @@ import UIKit
 class NutritionInfoView: UIView {
     
     // MARK: - UI Components
-    
+    private let label = UILabel()
 
     // MARK: - Initializer
     
@@ -28,11 +28,13 @@ class NutritionInfoView: UIView {
     // MARK: - Style, UI, Layout
     
     private func setStyle(){
-        
+        label.do {
+            $0.text = "하이"
+        }
     }
     
     private func setUI(){
-        
+        addSubviews(label)
     }
     
     private func setLayout(){

@@ -11,7 +11,7 @@ class MenuInfoView: UIView {
     // MARK: - UI Components
     
     private let menuImageView = UIImageView()
-    private let newLabel = UILabel()
+    private let statusLabel = UILabel()
     private let menuNameLabel = UILabel()
     private let menuDescriptionLabel = UILabel()
     private let priceLabel = UILabel()
@@ -40,7 +40,7 @@ class MenuInfoView: UIView {
             $0.contentMode = .scaleAspectFill
         }
         
-        newLabel.do {
+        statusLabel.do {
             $0.setLabel(
                 text: "New",
                 alignment: .center,
@@ -113,7 +113,7 @@ class MenuInfoView: UIView {
     
     private func setUI(){
         addSubviews( menuImageView,
-                     newLabel,
+                     statusLabel,
                      menuNameLabel,
                      menuDescriptionLabel,
                      priceLabel,
@@ -130,7 +130,7 @@ class MenuInfoView: UIView {
             $0.height.equalTo(375)
         }
         
-        newLabel.snp.makeConstraints {
+        statusLabel.snp.makeConstraints {
             $0.top.equalTo(menuImageView.snp.bottom).offset(22)
             $0.leading.equalToSuperview().offset(16)
             $0.width.equalTo(28)
@@ -138,7 +138,7 @@ class MenuInfoView: UIView {
         }
         
         menuNameLabel.snp.makeConstraints {
-            $0.top.equalTo(newLabel.snp.bottom).offset(5)
+            $0.top.equalTo(statusLabel.snp.bottom).offset(5)
             $0.leading.equalToSuperview().offset(16)
         }
         
