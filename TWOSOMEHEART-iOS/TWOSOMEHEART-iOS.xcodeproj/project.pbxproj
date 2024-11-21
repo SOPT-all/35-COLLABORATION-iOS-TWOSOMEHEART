@@ -44,6 +44,8 @@
 		059C46432CEF406900FB00DC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46422CEF406900FB00DC /* BaseView.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
+		74AEDF342CEFA0F800EB13A2 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEDF312CEFA0F800EB13A2 /* ModalView.swift */; };
+		74AEDF352CEFA0F800EB13A2 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEDF2E2CEFA0F800EB13A2 /* ModalViewController.swift */; };
 		B8D1B4212CEF8A80008B3871 /* MyMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41D2CEF8A80008B3871 /* MyMenuHeaderView.swift */; };
 		B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41B2CEF8A80008B3871 /* MyMenuCollectionViewCell.swift */; };
 		B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */; };
@@ -90,6 +92,8 @@
 		059C46402CEF383A00FB00DC /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		059C46422CEF406900FB00DC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		74AEDF2E2CEFA0F800EB13A2 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		74AEDF312CEFA0F800EB13A2 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
 		B8D1B4192CEF8A80008B3871 /* MyMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuItem.swift; sourceTree = "<group>"; };
 		B8D1B41B2CEF8A80008B3871 /* MyMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 		059C454F2CEE0B5A00FB00DC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				74AEDF332CEFA0F800EB13A2 /* ModalView */,
 				B8D1B4202CEF8A80008B3871 /* MyMenuView */,
 				059C45692CEE0F3A00FB00DC /* MenuOption */,
 				059C454B2CEE0B5A00FB00DC /* Base */,
@@ -330,6 +335,39 @@
 				742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		74AEDF2F2CEFA0F800EB13A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				74AEDF2E2CEFA0F800EB13A2 /* ModalViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		74AEDF302CEFA0F800EB13A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		74AEDF322CEFA0F800EB13A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74AEDF312CEFA0F800EB13A2 /* ModalView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		74AEDF332CEFA0F800EB13A2 /* ModalView */ = {
+			isa = PBXGroup;
+			children = (
+				74AEDF2F2CEFA0F800EB13A2 /* Controller */,
+				74AEDF302CEFA0F800EB13A2 /* Model */,
+				74AEDF322CEFA0F800EB13A2 /* View */,
+			);
+			path = ModalView;
 			sourceTree = "<group>";
 		};
 		B8D1B4182CEF8A80008B3871 /* Controller */ = {
@@ -491,6 +529,8 @@
 				059C455E2CEE0B5A00FB00DC /* BaseNavViewController.swift in Sources */,
 				059C455F2CEE0B5A00FB00DC /* BaseViewController.swift in Sources */,
 				059C45602CEE0B5A00FB00DC /* ViewController.swift in Sources */,
+				74AEDF342CEFA0F800EB13A2 /* ModalView.swift in Sources */,
+				74AEDF352CEFA0F800EB13A2 /* ModalViewController.swift in Sources */,
 				059C46432CEF406900FB00DC /* BaseView.swift in Sources */,
 				059C45852CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift in Sources */,
 				059C457E2CEE18EF00FB00DC /* MenuOptionShotCell.swift in Sources */,
