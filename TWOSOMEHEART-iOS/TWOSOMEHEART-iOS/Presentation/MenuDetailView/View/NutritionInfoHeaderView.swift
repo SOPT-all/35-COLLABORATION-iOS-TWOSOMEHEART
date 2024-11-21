@@ -106,7 +106,7 @@ class NutritionInfoHeaderView: UIView {
         detailArrowButton.isSelected = isExpanded
         
         UIView.animate(withDuration: 0.3) {
-            self.seperateLine.isHidden = !self.isExpanded
+            self.seperateLine.isHidden = self.isExpanded
             self.nutritionInfoView.isHidden = !self.isExpanded
             self.layoutIfNeeded()
         }
