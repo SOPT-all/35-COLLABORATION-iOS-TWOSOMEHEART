@@ -34,7 +34,7 @@ class NutritionInfoHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
-        setUI()
+        setHierarchy()
         setLayout()
     }
     
@@ -73,7 +73,7 @@ class NutritionInfoHeaderView: UIView {
         }
     }
     
-    private func setUI() {
+    private func setHierarchy() {
         headerView.addSubviews(nutrionInfoLabel, detailArrowButton)
         self.addSubviews(headerView, seperateLine, nutritionInfoView)
     }

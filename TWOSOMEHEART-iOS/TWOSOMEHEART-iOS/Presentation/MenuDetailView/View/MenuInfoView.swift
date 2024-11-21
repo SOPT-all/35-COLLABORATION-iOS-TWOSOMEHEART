@@ -25,7 +25,7 @@ class MenuInfoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
-        setUI()
+        setHierarchy()
         setLayout()
     }
     
@@ -111,7 +111,7 @@ class MenuInfoView: UIView {
         }
     }
     
-    private func setUI(){
+    private func setHierarchy(){
         addSubviews( menuImageView,
                      statusLabel,
                      menuNameLabel,

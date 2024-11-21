@@ -24,6 +24,8 @@ class NutritionInfoView: UIView {
     
     private let nutritionTextLabel = UILabel()
     
+    private let seperateLine = UIView()
+    
     // MARK: - Properties
     private var menuItems: MenuDetail?
     
@@ -32,7 +34,7 @@ class NutritionInfoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
-        setUI()
+        setHierarchy()
         setLayout()
     }
     
@@ -103,7 +105,7 @@ class NutritionInfoView: UIView {
         }
     }
     
-    private func setUI(){
+    private func setHierarchy(){
         self.addSubviews(
             temperatureSegmentControl,
             temperatureUnderLineView,
