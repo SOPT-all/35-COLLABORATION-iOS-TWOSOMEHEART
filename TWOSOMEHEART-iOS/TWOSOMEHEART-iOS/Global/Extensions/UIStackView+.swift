@@ -16,7 +16,7 @@ extension UIStackView {
     func setStackView(axis: NSLayoutConstraint.Axis = .horizontal,
                       distribution: UIStackView.Distribution = .fillEqually,
                       alignment: UIStackView.Alignment = .fill,
-                      spacng: Int?) {
+                      spacing: CGFloat = 0) {
         self.axis = axis
         self.distribution = distribution
         self.alignment = alignment
