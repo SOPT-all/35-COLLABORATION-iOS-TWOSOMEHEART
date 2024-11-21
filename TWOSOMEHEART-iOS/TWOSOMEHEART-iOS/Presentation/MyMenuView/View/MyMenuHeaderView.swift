@@ -70,13 +70,13 @@ class MyMenuHeaderView: UIView {
         }
         
         selectAllLabel.do {
-            $0.text = "전체 선택"
+            $0.text = StringLiterals.MyMenuType.selectAll
             $0.font = TSFont.t1r
             $0.textColor = UIColor(resource: .gray90)
         }
         
         deleteButton.do {
-            let text = "선택 삭제"
+            let text = StringLiterals.MyMenuType.selectDelete
             let attributedString = NSAttributedString(
                 string: text,
                 attributes: [

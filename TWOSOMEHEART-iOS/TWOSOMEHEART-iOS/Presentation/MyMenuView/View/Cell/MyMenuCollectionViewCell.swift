@@ -80,7 +80,7 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         }
         
         cartButton.do{
-            $0.setTitle("장바구니 담기", for: .normal)
+            $0.setTitle(StringLiterals.MyMenuType.cart , for: .normal)
             $0.titleLabel?.font = TSFont.c2b
             $0.setTitleColor(UIColor(resource: .tsBlack), for: .normal)
             $0.layer.borderWidth = 1.0
@@ -88,7 +88,7 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         }
         
         orderNowButton.do{
-            $0.setTitle("지금 바로 주문", for: .normal)
+            $0.setTitle(StringLiterals.MyMenuType.orderNow, for: .normal)
             $0.titleLabel?.font = TSFont.c2b
             $0.setTitleColor(UIColor(resource: .tsBlack), for: .normal)
             $0.layer.borderWidth = 1.0
@@ -170,7 +170,7 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         self.index = index
     }
     
-    // MARK: - Button Action 
+    // MARK: - Button Action
     @objc private func checkboxButtonTapped() {
         checkboxButton.isSelected.toggle()
         isSelectedCheckbox.toggle()

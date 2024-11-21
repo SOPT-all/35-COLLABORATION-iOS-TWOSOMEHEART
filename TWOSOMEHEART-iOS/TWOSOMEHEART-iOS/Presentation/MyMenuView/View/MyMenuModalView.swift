@@ -45,19 +45,19 @@ class MyMenuModalView: UIView {
         }
         
         storeLabel.do {
-            $0.text = "주문매장"
+            $0.text = StringLiterals.MyMenuType.orderStore
             $0.font = TSFont.c1r
             $0.textColor = UIColor(resource: .tsBlack)
         }
         
         storeNameLabel.do {
-            $0.text = "삼성역점"
+            $0.text = StringLiterals.MyMenuType.orderStore
             $0.font = TSFont.t1b
             $0.textColor = UIColor(resource: .tsBlack)
         }
         
         priceTitleLabel.do {
-            $0.text = "주문금액"
+            $0.text = StringLiterals.MyMenuType.orderPrice
             $0.font = TSFont.c1r
             $0.textColor = UIColor(resource: .tsBlack)
         }
@@ -73,7 +73,7 @@ class MyMenuModalView: UIView {
         }
         
         orderButton.do {
-            $0.setTitle("주문하기", for: .normal)
+            $0.setTitle(StringLiterals.MyMenuType.goOrder, for: .normal)
             $0.setTitleColor(UIColor(resource: .red30), for: .normal)
             $0.titleLabel?.font = TSFont.btn1s
             $0.backgroundColor = UIColor(resource: .tsBlack)

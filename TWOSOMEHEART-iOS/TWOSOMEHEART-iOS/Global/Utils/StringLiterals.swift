@@ -38,4 +38,24 @@ enum StringLiterals {
         static let icecream = "아이스크림/빙수"
         
     }
+    
+    enum MyMenuType {
+        
+        static let selectAll = "전체 선택"
+        
+        static let selectDelete = "선택 삭제"
+        
+        static let cart = "장바구니"
+        
+        static let orderNow = "지금 바로 주문"
+        
+        static let orderStore = "주문매장"
+        
+        static let storeName = "삼성역점"
+        
+        static let orderPrice = "주문금액"
+        
+        static let goOrder = "주문하기"
+        
+    }
 }
