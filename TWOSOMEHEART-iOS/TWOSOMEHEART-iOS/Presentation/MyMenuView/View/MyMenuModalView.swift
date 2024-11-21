@@ -133,7 +133,7 @@ class MyMenuModalView: UIView {
 
 extension MyMenuModalView {
     func configure(price: Int, quantity: Int) {
-        priceLabel.text = "\(price.formattedPrice())"
+        priceLabel.text = "\(price.formattedPrice())원"
         quantityLabel.text = "(\(quantity)EA)"
     }
 }

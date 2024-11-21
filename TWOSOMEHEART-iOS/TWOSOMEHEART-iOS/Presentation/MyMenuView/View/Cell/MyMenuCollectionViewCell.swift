@@ -161,7 +161,7 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
     func bind(_ myMenuItem: MyMenuItem){
         menuImageView.image = myMenuItem.menuImage
         menuNameLabel.text = myMenuItem.name
-        menuPriceLabel.text = myMenuItem.price.formattedPrice()
+        menuPriceLabel.text = "\(myMenuItem.price.formattedPrice())원"
         menuOptionsLabel.text = myMenuItem.options.joined(separator: "/")
     }
     
