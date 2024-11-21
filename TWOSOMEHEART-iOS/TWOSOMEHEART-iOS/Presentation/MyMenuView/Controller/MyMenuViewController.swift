@@ -145,11 +145,6 @@ extension MyMenuViewController: MyMenuCollectionViewCellDelegate {
             selectedIndexes.remove(index)
         }
         
-        if !selectedIndexes.isEmpty {
-            showModal()
-        } else {
-            hideModal()
-        }
+        selectedIndexes.isEmpty ? hideModal() : showModal()
     }
 }
-
