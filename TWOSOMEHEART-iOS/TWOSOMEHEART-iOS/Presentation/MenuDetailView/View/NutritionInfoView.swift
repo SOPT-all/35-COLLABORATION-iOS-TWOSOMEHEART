@@ -184,6 +184,7 @@ class NutritionInfoView: UIView {
     
     // MARK: - Bind
     func bind(_ menuItem: MenuDetail) {
-        nutritionTextLabel.text = menuItem.nutrition
+        let formattedNutritionText = menuItem.nutrition.setLineSpacing(19)
+        nutritionTextLabel.attributedText = formattedNutritionText
     }
 }
