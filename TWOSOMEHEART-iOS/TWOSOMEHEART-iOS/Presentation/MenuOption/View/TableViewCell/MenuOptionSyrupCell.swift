@@ -75,10 +75,10 @@ final class MenuOptionSyrupCell: BaseTableViewCell {
     override func setStyle() {
         vanillaLabel.do {
             $0.setAttributedText(
-                fullText: "바닐라시럽 (+1에 500원)",
+                fullText: "\(SLMenuOption.vanillaSyrup) \(SLMenuOption.pricePerPlusOne)",
                 styles: [
-                    (text: "바닐라시럽", font: TSFont.b2s, color: .gray90),
-                    (text: "(+1에 500원)", font: TSFont.c2b, color: .gray60)
+                    (text: SLMenuOption.vanillaSyrup, font: TSFont.b2s, color: .gray90),
+                    (text: SLMenuOption.pricePerPlusOne, font: TSFont.c2b, color: .gray60)
                 ]
             )
 
@@ -87,10 +87,10 @@ final class MenuOptionSyrupCell: BaseTableViewCell {
 
         hazelLabel.do {
             $0.setAttributedText(
-                fullText: "헤이즐넛시럽 (+1에 500원)",
+                fullText: "\(SLMenuOption.hazelnutSyrup) \(SLMenuOption.pricePerPlusOne)",
                 styles: [
-                    (text: "헤이즐넛시럽", font: TSFont.b2s, color: .gray90),
-                    (text: "(+1에 500원)", font: TSFont.c2b, color: .gray60)
+                    (text: SLMenuOption.hazelnutSyrup, font: TSFont.b2s, color: .gray90),
+                    (text: SLMenuOption.pricePerPlusOne, font: TSFont.c2b, color: .gray60)
                 ]
             )
 
@@ -99,10 +99,10 @@ final class MenuOptionSyrupCell: BaseTableViewCell {
 
         caramelLabel.do {
             $0.setAttributedText(
-                fullText: "카라멜시럽 (+1에 500원)",
+                fullText: "\(SLMenuOption.caramelSyrup) \(SLMenuOption.pricePerPlusOne)",
                 styles: [
-                    (text: "카라멜시럽", font: TSFont.b2s, color: .gray90),
-                    (text: "(+1에 500원)", font: TSFont.c2b, color: .gray60)
+                    (text: SLMenuOption.caramelSyrup, font: TSFont.b2s, color: .gray90),
+                    (text: SLMenuOption.pricePerPlusOne, font: TSFont.c2b, color: .gray60)
                 ]
             )
 

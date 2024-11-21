@@ -62,10 +62,10 @@ final class MenuOptionDrizzleCell: BaseTableViewCell {
     override func setStyle() {
         caramelLabel.do {
             $0.setAttributedText(
-                fullText: "카라멜드리즐 (+1에 500원)",
+                fullText: "\(SLMenuOption.caramelDrizzle) \(SLMenuOption.pricePerPlusOne)",
                 styles: [
-                    (text: "카라멜드리즐", font: TSFont.b2s, color: .gray90),
-                    (text: "(+1에 500원)", font: TSFont.c2b, color: .gray60)
+                    (text: SLMenuOption.caramelDrizzle, font: TSFont.b2s, color: .gray90),
+                    (text: SLMenuOption.pricePerPlusOne, font: TSFont.c2b, color: .gray60)
                 ]
             )
 
@@ -74,10 +74,10 @@ final class MenuOptionDrizzleCell: BaseTableViewCell {
 
         chocolateLabel.do {
             $0.setAttributedText(
-                fullText: "초콜릿드리즐 (+1에 500원)",
+                fullText: "\(SLMenuOption.chocolateDrizzle) \(SLMenuOption.pricePerPlusOne)",
                 styles: [
-                    (text: "초콜릿드리즐", font: TSFont.b2s, color: .gray90),
-                    (text: "(+1에 500원)", font: TSFont.c2b, color: .gray60)
+                    (text: SLMenuOption.chocolateDrizzle, font: TSFont.b2s, color: .gray90),
+                    (text: SLMenuOption.pricePerPlusOne, font: TSFont.c2b, color: .gray60)
                 ]
             )
 

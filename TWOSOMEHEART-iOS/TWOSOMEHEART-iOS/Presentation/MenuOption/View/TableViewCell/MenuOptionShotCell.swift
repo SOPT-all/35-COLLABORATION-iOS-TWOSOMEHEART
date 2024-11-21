@@ -67,7 +67,7 @@ final class MenuOptionShotCell: BaseTableViewCell {
     override func setStyle() {
         densityLabel.do {
             $0.setLabel(
-                text: "농도",
+                text: SLMenuOption.density,
                 alignment: .left,
                 numberOfLines: 1,
                 textColor: .gray90,
@@ -77,10 +77,10 @@ final class MenuOptionShotCell: BaseTableViewCell {
 
         addShotLabel.do {
             $0.setAttributedText(
-                fullText: "샷 추가 (+1에 500원)",
+                fullText: "\(SLMenuOption.addShot) \(SLMenuOption.pricePerPlusOne)",
                 styles: [
-                    (text: "샷 추가", font: TSFont.b2s, color: .gray90),
-                    (text: "(+1에 500원)", font: TSFont.c2b, color: .gray60)
+                    (text: SLMenuOption.addShot, font: TSFont.b2s, color: .gray90),
+                    (text: SLMenuOption.pricePerPlusOne, font: TSFont.c2b, color: .gray60)
                 ]
             )
 

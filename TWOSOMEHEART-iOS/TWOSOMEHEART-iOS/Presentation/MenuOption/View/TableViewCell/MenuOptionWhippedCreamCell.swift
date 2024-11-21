@@ -49,10 +49,10 @@ final class MenuOptionWhippedCreamCell: BaseTableViewCell {
     override func setStyle() {
         whippedCreamLabel.do {
             $0.setAttributedText(
-                fullText: "휘핑크림 (+1에 500원)",
+                fullText: "\(SLMenuOption.whippedCream) \(SLMenuOption.pricePerPlusOne)",
                 styles: [
-                    (text: "휘핑크림", font: TSFont.b2s, color: .gray90),
-                    (text: "(+1에 500원)", font: TSFont.c2b, color: .gray60)
+                    (text: SLMenuOption.whippedCream, font: TSFont.b2s, color: .gray90),
+                    (text: SLMenuOption.pricePerPlusOne, font: TSFont.c2b, color: .gray60)
                 ]
             )
 
