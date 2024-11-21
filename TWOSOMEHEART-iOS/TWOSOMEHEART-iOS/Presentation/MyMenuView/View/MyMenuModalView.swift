@@ -24,7 +24,7 @@ class MyMenuModalView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
-        setUI()
+        setHierarchy()
         setLayout()
     }
     
@@ -80,7 +80,7 @@ class MyMenuModalView: UIView {
         }
     }
     
-    private func setUI(){
+    private func         setHierarchy(){
         addSubview(containerView)
         containerView.addSubviews(
             storeLabel,

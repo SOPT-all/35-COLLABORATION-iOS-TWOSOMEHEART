@@ -27,7 +27,7 @@ class MyMenuHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setStyle()
-        setUI()
+        setHierarchy()
         setLayout()
     }
     
@@ -93,7 +93,7 @@ class MyMenuHeaderView: UIView {
         }
     }
     
-    private func setUI() {
+    private func setHierarchy() {
         addSubviews(totalQuantityLabel,
                     selectAllCheckbox,
                     selectAllLabel,

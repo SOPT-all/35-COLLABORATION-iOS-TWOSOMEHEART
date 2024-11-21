@@ -36,8 +36,9 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
     // MARK: - Initializer
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setStyle()
-        setUI()
+        setHierarchy()
         setLayout()
     }
     
@@ -95,7 +96,7 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private func setUI(){
+    private func setHierarchy(){
         contentView.addSubviews(checkboxButton,
                                 menuImageView,
                                 menuNameLabel,
