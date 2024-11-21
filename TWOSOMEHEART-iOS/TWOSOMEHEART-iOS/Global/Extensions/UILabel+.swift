@@ -20,5 +20,31 @@ extension UILabel {
         self.textColor = textColor
         self.font = font
     }
-    
+
+    func setAttributedText(
+        fullText: String,
+        styles: [(text: String, font: UIFont, color: UIColor)]
+    ) {
+        let attributedString = NSMutableAttributedString(string: fullText)
+
+        styles.forEach { style in
+            if let range = fullText.range(of: style.text) {
+                let nsRange = NSRange(range, in: fullText)
+                attributedString.addAttribute(
+                    .font,
+                    value: style.font,
+                    range: nsRange
+                )
+
+                attributedString.addAttribute(
+                    .foregroundColor,
+                    value: style.color,
+                    range: nsRange
+                )
+            }
+        }
+
+        self.attributedText = attributedString
+    }
+
 }
