@@ -137,7 +137,7 @@ final class MenuOptionViewController: BaseViewController {
 
         currencyUnitLabel.do {
             $0.setLabel(
-                text: " 원",
+                text: "원",
                 alignment: .left,
                 textColor: .tsBlack,
                 font: TSFont.h2r
