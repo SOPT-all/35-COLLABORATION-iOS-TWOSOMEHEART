@@ -10,16 +10,23 @@ import UIKit
 import SnapKit
 import Then
 
+protocol NutritionInfoHeaderViewDelegate : AnyObject {
+    func headerViewTapped(_ headerView: NutritionInfoHeaderView)
+}
+
 class NutritionInfoHeaderView: UIView {
+    // MARK: - Delegate
+    weak var delegate: NutritionInfoHeaderViewDelegate?
     
     // MARK: - UI Components
     private let headerView = UIView()
     private let nutrionInfoLabel = UILabel()
     lazy var detailArrowButton = UIButton()
     private let seperateLine = UIView()
-    private let nutritionInfoView = NutritionInfoView()
+    let nutritionInfoView = NutritionInfoView()
     
     // MARK: - Properties
+    
     private var isExpanded = false
     
     // MARK: - Initializer
@@ -110,5 +117,9 @@ class NutritionInfoHeaderView: UIView {
             self.nutritionInfoView.isHidden = !self.isExpanded
             self.layoutIfNeeded()
         }
+        
+        if isExpanded {
+            delegate?.headerViewTapped(self)
+         }
     }
 }

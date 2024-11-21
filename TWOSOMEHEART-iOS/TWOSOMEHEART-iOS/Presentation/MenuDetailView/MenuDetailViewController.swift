@@ -20,10 +20,10 @@ class MenuDetailViewController: BaseViewController {
     
     lazy var orderButton = UIButton()
     
-    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDelegates()
     }
     
     override func setStyle() {
@@ -76,6 +76,21 @@ class MenuDetailViewController: BaseViewController {
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(54)
             $0.bottom.equalToSuperview()
+        }
+    }
+    
+    // MARK: - Delegates
+    private func setDelegates(){
+        nutritionInfoHeaderView.delegate = self
+    }
+}
+
+
+// MARK: - Delegate
+extension MenuDetailViewController: NutritionInfoHeaderViewDelegate {
+    func headerViewTapped(_ headerView: NutritionInfoHeaderView){
+        if let menuItem = MenuDetail.menuItems.first {
+            headerView.nutritionInfoView.bind(menuItem)
         }
     }
 }

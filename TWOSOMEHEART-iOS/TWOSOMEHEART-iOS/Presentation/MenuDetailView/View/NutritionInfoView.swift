@@ -22,6 +22,11 @@ class NutritionInfoView: UIView {
     private let temperatureUnderLineView = UIView()
     private let sizeUnderLineView = UIView()
     
+    private let nutritionTextLabel = UILabel()
+    
+    // MARK: - Properties
+    private var menuItems: MenuDetail?
+    
     // MARK: - Initializer
     
     override init(frame: CGRect) {
@@ -89,6 +94,13 @@ class NutritionInfoView: UIView {
         sizeUnderLineView.do {
             $0.backgroundColor = UIColor(resource: .red40)
         }
+        
+        nutritionTextLabel.do {
+            $0.numberOfLines = 0
+            $0.text = "나와라..영양정보.."
+            $0.font = TSFont.b2r
+            $0.textColor = UIColor(resource: .gray80)
+        }
     }
     
     private func setUI(){
@@ -98,7 +110,8 @@ class NutritionInfoView: UIView {
             temperatureSeperateLineView,
             sizeSegmentControl,
             sizeUnderLineView,
-            sizeSeperateLineView
+            sizeSeperateLineView,
+            nutritionTextLabel
         )
     }
     
@@ -121,7 +134,7 @@ class NutritionInfoView: UIView {
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(1)
         }
-
+        
         sizeSegmentControl.snp.makeConstraints {
             $0.top.equalTo(temperatureSeperateLineView.snp.bottom).offset(12)
             $0.leading.equalToSuperview().inset(16)
@@ -137,11 +150,18 @@ class NutritionInfoView: UIView {
         
         sizeSeperateLineView.snp.makeConstraints {
             $0.top.equalTo(sizeUnderLineView.snp.bottom)
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(1)
+        }
+        
+        nutritionTextLabel.snp.makeConstraints{
+            $0.top.equalTo(sizeSeperateLineView.snp.bottom).offset(18)
+            $0.leading.trailing.equalToSuperview().inset(16)
+            $0.bottom.equalToSuperview()
         }
     }
     
+    // MARK: - Actions
     @objc private func temperatureSegmentChanged() {
         UIView.animate(withDuration: 0.3) {
             self.temperatureUnderLineView.snp.updateConstraints {
@@ -160,5 +180,10 @@ class NutritionInfoView: UIView {
             }
             self.layoutIfNeeded()
         }
+    }
+    
+    // MARK: - Bind
+    func bind(_ menuItem: MenuDetail) {
+        nutritionTextLabel.text = menuItem.nutrition
     }
 }
