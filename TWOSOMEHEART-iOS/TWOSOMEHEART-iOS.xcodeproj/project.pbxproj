@@ -40,6 +40,7 @@
 		059C45852CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45842CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift */; };
 		059C45872CEE1A9F00FB00DC /* MenuOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45862CEE1A9F00FB00DC /* MenuOptionViewController.swift */; };
 		059C45892CEE1BBB00FB00DC /* CounterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */; };
+		059C46412CEF383A00FB00DC /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46402CEF383A00FB00DC /* Aliases.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		059C45842CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionDrizzleCell.swift; sourceTree = "<group>"; };
 		059C45862CEE1A9F00FB00DC /* MenuOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionViewController.swift; sourceTree = "<group>"; };
 		059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewDelegate.swift; sourceTree = "<group>"; };
+		059C46402CEF383A00FB00DC /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				059C45442CEE0B5A00FB00DC /* Enums */,
+				059C46402CEF383A00FB00DC /* Aliases.swift */,
 				059C45452CEE0B5A00FB00DC /* ScreenUtils.swift */,
 				059C45462CEE0B5A00FB00DC /* StringLiterals.swift */,
 			);
@@ -397,6 +400,7 @@
 			files = (
 				059C45512CEE0B5A00FB00DC /* AppDelegate.swift in Sources */,
 				059C45522CEE0B5A00FB00DC /* SceneDelegate.swift in Sources */,
+				059C46412CEF383A00FB00DC /* Aliases.swift in Sources */,
 				059C45892CEE1BBB00FB00DC /* CounterViewDelegate.swift in Sources */,
 				059C45782CEE113D00FB00DC /* MenuOptionSectionType.swift in Sources */,
 				059C45682CEE0E6600FB00DC /* ReusableIdentifier+.swift in Sources */,
