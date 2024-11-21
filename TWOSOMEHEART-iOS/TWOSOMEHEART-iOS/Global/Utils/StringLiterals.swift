@@ -38,6 +38,7 @@ enum StringLiterals {
         static let icecream = "아이스크림/빙수"
         
     }
+<<<<<<< HEAD
     
     
     enum MenuDetailType {
@@ -45,4 +46,29 @@ enum StringLiterals {
         • 제품 이미지는 실제 제품과 다소 차이가 있을 수 있습니다.\n(매장 계절에 따라 대체 과일 데코레이션으로 운영될 수 있습니다.)\n• 제품의 취급여부는 매장별로 상이할 수 있습니다.\n• 어린이, 임산부 등 카페인 민감자는 섭취에 주의해주시기 바랍니다.\n        
         """
     }
+=======
+
+    enum MenuOptionType {
+
+        static let density = "농도"
+
+        static let addShot = "샷 추가"
+
+        static let vanillaSyrup = "바닐라시럽"
+
+        static let hazelnutSyrup = "헤이즐넛시럽"
+
+        static let caramelSyrup = "카라멜시럽"
+
+        static let whippedCream = "휘핑크림"
+
+        static let caramelDrizzle = "카라멜드리즐"
+
+        static let chocolateDrizzle = "초콜릿드리즐"
+
+        static let pricePerPlusOne = "(+1에 500원)"
+
+    }
+
+>>>>>>> develop
 }

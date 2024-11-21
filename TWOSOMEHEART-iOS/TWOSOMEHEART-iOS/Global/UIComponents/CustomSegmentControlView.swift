@@ -52,7 +52,7 @@ class CustomSegmentControlView: UIView {
     
     private func setStyle() {
         stackView.do {
-            $0.setStackView(spacng: -1)
+            $0.setStackView(spacing: -1)
         }
         
         buttons.enumerated().forEach { index, button in
