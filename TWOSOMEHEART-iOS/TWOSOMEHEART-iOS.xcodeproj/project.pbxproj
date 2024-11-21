@@ -41,6 +41,7 @@
 		059C45872CEE1A9F00FB00DC /* MenuOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45862CEE1A9F00FB00DC /* MenuOptionViewController.swift */; };
 		059C45892CEE1BBB00FB00DC /* CounterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */; };
 		059C46412CEF383A00FB00DC /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46402CEF383A00FB00DC /* Aliases.swift */; };
+		059C46432CEF406900FB00DC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46422CEF406900FB00DC /* BaseView.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,7 @@
 		059C45862CEE1A9F00FB00DC /* MenuOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuOptionViewController.swift; sourceTree = "<group>"; };
 		059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewDelegate.swift; sourceTree = "<group>"; };
 		059C46402CEF383A00FB00DC /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
+		059C46422CEF406900FB00DC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				059C45492CEE0B5A00FB00DC /* BaseNavViewController.swift */,
+				059C46422CEF406900FB00DC /* BaseView.swift */,
 				059C454A2CEE0B5A00FB00DC /* BaseViewController.swift */,
 				059C45712CEE0F9B00FB00DC /* BaseTableViewCell.swift */,
 			);
@@ -425,6 +428,7 @@
 				059C455E2CEE0B5A00FB00DC /* BaseNavViewController.swift in Sources */,
 				059C455F2CEE0B5A00FB00DC /* BaseViewController.swift in Sources */,
 				059C45602CEE0B5A00FB00DC /* ViewController.swift in Sources */,
+				059C46432CEF406900FB00DC /* BaseView.swift in Sources */,
 				059C45852CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift in Sources */,
 				059C457E2CEE18EF00FB00DC /* MenuOptionShotCell.swift in Sources */,
 			);
