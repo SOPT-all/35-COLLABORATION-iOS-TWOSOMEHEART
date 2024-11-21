@@ -66,7 +66,8 @@ final class MenuOptionWhippedCreamCell: BaseTableViewCell {
 
     override func setHierarchy() {
         contentView.addSubviews(
-            whippedCreamLabel, whippedCreamCounterView
+            whippedCreamLabel,
+            whippedCreamCounterView
         )
     }
 

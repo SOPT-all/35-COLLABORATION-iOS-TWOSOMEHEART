@@ -116,9 +116,12 @@ final class MenuOptionSyrupCell: BaseTableViewCell {
 
     override func setHierarchy() {
         contentView.addSubviews(
-            vanillaLabel, vanillaCounterView,
-            hazelLabel, hazelCounterView,
-            caramelLabel, caramelCounterView
+            vanillaLabel,
+            vanillaCounterView,
+            hazelLabel,
+            hazelCounterView,
+            caramelLabel,
+            caramelCounterView
         )
     }
 

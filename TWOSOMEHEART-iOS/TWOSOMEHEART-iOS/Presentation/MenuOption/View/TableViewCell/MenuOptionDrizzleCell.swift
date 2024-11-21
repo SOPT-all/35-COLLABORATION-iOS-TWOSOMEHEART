@@ -91,8 +91,10 @@ final class MenuOptionDrizzleCell: BaseTableViewCell {
 
     override func setHierarchy() {
         contentView.addSubviews(
-            caramelLabel, caramelCounterView,
-            chocolateLabel, chocolateCounterView
+            caramelLabel,
+            caramelCounterView,
+            chocolateLabel,
+            chocolateCounterView
         )
     }
 
