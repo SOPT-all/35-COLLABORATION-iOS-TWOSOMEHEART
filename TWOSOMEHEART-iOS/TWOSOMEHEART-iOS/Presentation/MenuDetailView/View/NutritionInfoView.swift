@@ -113,7 +113,7 @@ class NutritionInfoView: UIView {
             $0.numberOfLines = 0
             $0.font = TSFont.b2r
             $0.textColor = UIColor(resource: .gray60)
-            $0.attributedText = StringLiterals.MenuDetailType.noticeText.setLineSpacing(10)
+            $0.attributedText = StringLiterals.MenuDetailType.noticeText1.setLineSpacing(10)
         }
         
         seperateLineView.do {

@@ -17,39 +17,35 @@ class MenuDetailViewController: BaseViewController {
     private let contentView = UIView()
     private let menuInfoView = MenuInfoView()
     private let nutritionInfoHeaderView = NutritionInfoHeaderView()
+    private let menuDetailBottomView = MenuDetailBottomView()
     
-    lazy var orderButton = UIButton()
-    
+
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setDelegates()
     }
     
     override func setStyle() {
         super.setStyle()
-        
-        orderButton.do {
-            $0.setTitle("주문하기", for: .normal)
-            $0.setTitleColor(UIColor(resource: .tsWhite), for: .normal)
-            $0.titleLabel?.font = TSFont.btn1s
-            $0.backgroundColor = UIColor(resource: .tsBlack)
-        }
     }
     
     override func setHierarchy() {
         super.setHierarchy()
+        
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubviews(
             menuInfoView,
-            orderButton,
-            nutritionInfoHeaderView
+            nutritionInfoHeaderView,
+            menuDetailBottomView
         )
     }
     
     override func setLayout() {
         super.setLayout()
+        
         scrollView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalToSuperview()
@@ -71,11 +67,9 @@ class MenuDetailViewController: BaseViewController {
             $0.horizontalEdges.equalToSuperview()
         }
         
-        orderButton.snp.makeConstraints {
-            $0.top.equalTo(nutritionInfoHeaderView.snp.bottom).offset(67)
-            $0.leading.trailing.equalToSuperview().inset(16)
-            $0.height.equalTo(54)
-            $0.bottom.equalToSuperview()
+        menuDetailBottomView.snp.makeConstraints{
+            $0.top.equalTo(nutritionInfoHeaderView.snp.bottom)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
     

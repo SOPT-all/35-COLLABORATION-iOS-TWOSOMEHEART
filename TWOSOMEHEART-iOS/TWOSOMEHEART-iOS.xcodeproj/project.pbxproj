@@ -50,6 +50,7 @@
 		B8B04A8D2CF0520900B9777B /* NutritionSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A862CF0520900B9777B /* NutritionSegmentControl.swift */; };
 		B8B04A8E2CF0520900B9777B /* MenuInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A832CF0520900B9777B /* MenuInfoView.swift */; };
 		B8B04A8F2CF0520900B9777B /* MenuDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A812CF0520900B9777B /* MenuDetail.swift */; };
+		B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A902CF056C500B9777B /* MenuDetailBottomView.swift */; };
 		B8D1B4212CEF8A80008B3871 /* MyMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41D2CEF8A80008B3871 /* MyMenuHeaderView.swift */; };
 		B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41B2CEF8A80008B3871 /* MyMenuCollectionViewCell.swift */; };
 		B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */; };
@@ -102,6 +103,7 @@
 		B8B04A852CF0520900B9777B /* NutritionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionInfoView.swift; sourceTree = "<group>"; };
 		B8B04A862CF0520900B9777B /* NutritionSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionSegmentControl.swift; sourceTree = "<group>"; };
 		B8B04A882CF0520900B9777B /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
+		B8B04A902CF056C500B9777B /* MenuDetailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailBottomView.swift; sourceTree = "<group>"; };
 		B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
 		B8D1B4192CEF8A80008B3871 /* MyMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuItem.swift; sourceTree = "<group>"; };
 		B8D1B41B2CEF8A80008B3871 /* MyMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				B8B04A842CF0520900B9777B /* NutritionInfoHeaderView.swift */,
 				B8B04A852CF0520900B9777B /* NutritionInfoView.swift */,
 				B8B04A862CF0520900B9777B /* NutritionSegmentControl.swift */,
+				B8B04A902CF056C500B9777B /* MenuDetailBottomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				B8D1B4212CEF8A80008B3871 /* MyMenuHeaderView.swift in Sources */,
 				B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */,
 				B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */,
+				B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */,
 				B8D1B4242CEF8A80008B3871 /* MyMenuModalView.swift in Sources */,
 				B8D1B4252CEF8A80008B3871 /* MyMenuItem.swift in Sources */,
 				059C45572CEE0B5A00FB00DC /* TSFont.swift in Sources */,

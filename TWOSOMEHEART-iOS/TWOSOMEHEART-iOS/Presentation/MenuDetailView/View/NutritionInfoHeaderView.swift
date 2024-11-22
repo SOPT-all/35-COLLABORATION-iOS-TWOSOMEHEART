@@ -25,6 +25,7 @@ class NutritionInfoHeaderView: UIView {
     private let seperateLine = UIView()
     let nutritionInfoView = NutritionInfoView()
     
+    
     // MARK: - Properties
     
     private var isExpanded = false
