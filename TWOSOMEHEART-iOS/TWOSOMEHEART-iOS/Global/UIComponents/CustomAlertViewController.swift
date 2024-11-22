@@ -63,7 +63,7 @@ final class CustomAlertViewController: BaseViewController {
 
         alertLabel.do {
             $0.setLabel(
-                text: "선택된 상품을 My 투썸에서 삭제할까요?",
+                text: SLAlert.title,
                 numberOfLines: 1,
                 textColor: .tsBlack,
                 font: TSFont.b1r
@@ -75,13 +75,13 @@ final class CustomAlertViewController: BaseViewController {
         }
 
         cancelButton.do {
-            $0.setTitle("취소", for: .normal)
+            $0.setTitle(SLAlert.cancel, for: .normal)
             $0.setTitleColor(.tsBlack, for: .normal)
             $0.titleLabel?.font = TSFont.b1r
         }
 
         confirmButton.do {
-            $0.setTitle("확인", for: .normal)
+            $0.setTitle(SLAlert.confirm, for: .normal)
             $0.setTitleColor(.red40, for: .normal)
             $0.titleLabel?.font = TSFont.b1r
         }
