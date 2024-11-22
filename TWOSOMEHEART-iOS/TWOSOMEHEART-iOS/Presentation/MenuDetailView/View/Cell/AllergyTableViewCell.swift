@@ -41,13 +41,14 @@ class AllergyTableViewCell: BaseTableViewCell {
     
     override func setLayout(){
         allergyTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
+            $0.top.equalToSuperview().offset(30)
             $0.leading.equalToSuperview().offset(16)
         }
         
         allergyLabel.snp.makeConstraints {
             $0.top.equalTo(allergyTitleLabel.snp.bottom).offset(13)
-            $0.leading.bottom.equalToSuperview()
+            $0.leading.equalToSuperview().offset(16)
+            $0.bottom.equalToSuperview()
         }
     }
     

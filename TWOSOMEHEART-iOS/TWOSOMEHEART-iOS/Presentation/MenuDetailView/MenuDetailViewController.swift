@@ -86,16 +86,13 @@ class MenuDetailViewController: BaseViewController {
 extension MenuDetailViewController: NutritionHeaderTableViewCellDelegate {
     func headerViewTapped() {
         isExpanded.toggle()
-        tableView.reloadData()
-        
-        
-    }
+        tableView.reloadData()    }
 }
 
 // MARK: - UITableViewDataSource
 extension MenuDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return isExpanded ? 3 : 2
+        return isExpanded ? 4 : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -127,18 +124,27 @@ extension MenuDetailViewController: UITableViewDataSource {
             return headerCell
             
         case 2:
-            guard let nutritionInfoCell = tableView.dequeueReusableCell(
-                withIdentifier: NutritionInfoTableViewCell.identifier,
-                for: indexPath
-            ) as? NutritionInfoTableViewCell else { return UITableViewCell() }
-            
-            if let menuItem = menuItem {
-                nutritionInfoCell.bind(menuItem)
+            if isExpanded {
+                guard let nutritionInfoCell = tableView.dequeueReusableCell(
+                    withIdentifier: NutritionInfoTableViewCell.identifier,
+                    for: indexPath
+                ) as? NutritionInfoTableViewCell else { return UITableViewCell() }
+                
+                if let menuItem = menuItem {
+                    nutritionInfoCell.bind(menuItem)
+                }
+                
+                nutritionInfoCell.selectionStyle = .none
+                return nutritionInfoCell
+            } else {
+                guard let allergyInfoCell = tableView.dequeueReusableCell(
+                    withIdentifier: AllergyTableViewCell.identifier,
+                    for: indexPath
+                ) as? AllergyTableViewCell else { return UITableViewCell() }
+                
+                allergyInfoCell.selectionStyle = .none
+                return allergyInfoCell
             }
-            
-            nutritionInfoCell.selectionStyle = .none
-            
-            return nutritionInfoCell
             
         case 3:
             guard let allergyInfoCell = tableView.dequeueReusableCell(
@@ -159,4 +165,13 @@ extension MenuDetailViewController: UITableViewDataSource {
     }
 }
 
-extension MenuDetailViewController: UITableViewDelegate { }
+extension MenuDetailViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.row {
+        case 1:
+            return 68
+        default:
+            return UITableView.automaticDimension 
+        }
+    }
+}

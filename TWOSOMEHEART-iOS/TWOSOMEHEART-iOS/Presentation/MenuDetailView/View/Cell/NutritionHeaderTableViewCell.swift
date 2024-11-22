@@ -18,6 +18,7 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
     // MARK: - UI Components
     private let nutrionInfoLabel = UILabel()
     lazy var detailArrowImageView = UIImageView()
+    private let seperateLineView = UIView()
     
     // MARK: - Properties
     
@@ -49,10 +50,14 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
             $0.image = UIImage(resource: .detailArrowDown)
             $0.isUserInteractionEnabled = true
         }
+        
+        seperateLineView.do {
+            $0.backgroundColor = UIColor(resource: .gray10)
+        }
     }
     
     override func setHierarchy() {
-        contentView.addSubviews(nutrionInfoLabel, detailArrowImageView)
+        contentView.addSubviews(nutrionInfoLabel, detailArrowImageView, seperateLineView)
     }
     
     override func setLayout() {
@@ -65,7 +70,12 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
         
         detailArrowImageView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.bottom.equalToSuperview().inset(16)
+            $0.trailing.equalToSuperview().inset(16)
+        }
+        
+        seperateLineView.snp.makeConstraints{
+            $0.height.equalTo(1)
+            $0.horizontalEdges.bottom.equalToSuperview()
         }
     }
     
@@ -86,5 +96,6 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
         
         let imageFile = isExpanded ? UIImage(resource: .detailArrowDown): UIImage(resource: .detailArrowUp)
         detailArrowImageView.image = imageFile
+        seperateLineView.isHidden = !isExpanded
     }
 }
