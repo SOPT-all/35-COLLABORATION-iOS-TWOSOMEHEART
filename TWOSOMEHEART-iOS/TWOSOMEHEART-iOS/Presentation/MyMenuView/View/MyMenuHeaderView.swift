@@ -16,7 +16,7 @@ class MyMenuHeaderView: UIView {
     private let totalQuantityLabel = UILabel()
     private let selectAllCheckbox = UIButton(type: .custom)
     private let selectAllLabel = UILabel()
-    private let deleteButton = UIButton()
+    let deleteButton = UIButton()
     private let separatorLine = UIView()
     
     // MARK: Properties
