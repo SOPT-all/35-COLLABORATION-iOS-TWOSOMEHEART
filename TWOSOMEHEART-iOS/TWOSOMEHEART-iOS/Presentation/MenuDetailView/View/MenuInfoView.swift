@@ -42,7 +42,6 @@ class MenuInfoView: UIView {
         
         statusLabel.do {
             $0.setLabel(
-                text: "New",
                 alignment: .center,
                 textColor: .tsWhite,
                 font: TSFont.c3r
@@ -55,7 +54,6 @@ class MenuInfoView: UIView {
         
         menuNameLabel.do {
             $0.setLabel(
-                text: "바나나 샷 라떼",
                 alignment: .center,
                 textColor: .tsBlack,
                 font: TSFont.h2b
@@ -64,7 +62,6 @@ class MenuInfoView: UIView {
         
         menuDescriptionLabel.do {
             $0.setLabel(
-                text: "달콤한 바나나 라떼에 에스프레소 샷 추가!",
                 alignment: .center,
                 textColor: .tsBlack,
                 font: TSFont.b1r
@@ -73,7 +70,6 @@ class MenuInfoView: UIView {
         
         priceLabel.do{
             $0.setLabel(
-                text: "5,500원",
                 alignment: .center,
                 textColor: .tsBlack,
                 font : TSFont.h1b
@@ -82,7 +78,6 @@ class MenuInfoView: UIView {
         
         cautionLabel.do {
             $0.setLabel(
-                text: "고카페인",
                 alignment: .center,
                 textColor: .gray10,
                 font: TSFont.c2b
@@ -95,7 +90,6 @@ class MenuInfoView: UIView {
         
         cautionLabel2.do {
             $0.setLabel(
-                text: "우유",
                 alignment: .center,
                 textColor: .gray10,
                 font: TSFont.c2b
@@ -171,5 +165,21 @@ class MenuInfoView: UIView {
             $0.horizontalEdges.bottom.equalToSuperview()
             $0.height.equalTo(4)
         }
+    }
+    
+    // MARK: - Bind
+    func bind(_ menuDetail: MenuDetail) {
+        menuImageView.image = menuDetail.imageURL
+        statusLabel.text = menuDetail.status
+        statusLabel.backgroundColor = menuDetail.status == "New" ? UIColor(resource: .red40) : UIColor(resource: .gray20)
+        menuNameLabel.text = menuDetail.name
+        menuDescriptionLabel.text = menuDetail.description
+        priceLabel.text = "\(menuDetail.price)원"
+        
+        let cautions = menuDetail.caution.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
+        cautionLabel.isHidden = cautions.isEmpty
+        cautionLabel.text = cautions.first
+        cautionLabel2.isHidden = cautions.count <= 1
+        cautionLabel2.text = cautions.count > 1 ? cautions[1] : nil
     }
 }

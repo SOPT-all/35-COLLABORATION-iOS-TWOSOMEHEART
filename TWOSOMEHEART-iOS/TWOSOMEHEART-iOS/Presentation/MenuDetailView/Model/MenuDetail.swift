@@ -18,7 +18,7 @@ struct MenuDetail {
     let caution: String
     let nutrition: String
     let allergy: String
-    let imageURL: UIImage // 나중에 string으로 변경 
+    let imageURL: UIImage // TODO: 나중에 명세서에 맞게 string으로 변경
 }
 
 extension MenuDetail {

@@ -25,6 +25,7 @@ class MenuDetailViewController: BaseViewController {
         super.viewDidLoad()
         
         setDelegates()
+        bindMenuInfo()
     }
     
     override func setStyle() {
@@ -79,7 +80,16 @@ class MenuDetailViewController: BaseViewController {
     }
 }
 
-// MARK: - Delegate
+// MARK: - Extensions
+extension MenuDetailViewController {
+    func bindMenuInfo() {
+        if let menuItem = MenuDetail.menuItems.first {
+            menuInfoView.bind(menuItem)
+        }
+    }
+}
+
+// MARK: - NutritionInfoHeaderViewDelegate
 extension MenuDetailViewController: NutritionInfoHeaderViewDelegate {
     func headerViewTapped(_ headerView: NutritionInfoHeaderView){
         if let menuItem = MenuDetail.menuItems.first {
@@ -87,3 +97,4 @@ extension MenuDetailViewController: NutritionInfoHeaderViewDelegate {
         }
     }
 }
+
