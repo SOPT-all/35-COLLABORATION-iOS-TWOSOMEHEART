@@ -42,6 +42,7 @@
 		059C45892CEE1BBB00FB00DC /* CounterViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */; };
 		059C46412CEF383A00FB00DC /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46402CEF383A00FB00DC /* Aliases.swift */; };
 		059C46432CEF406900FB00DC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46422CEF406900FB00DC /* BaseView.swift */; };
+		05F736BA2CF0659D0030B7F5 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
 		B8D1B4212CEF8A80008B3871 /* MyMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41D2CEF8A80008B3871 /* MyMenuHeaderView.swift */; };
@@ -89,6 +90,7 @@
 		059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewDelegate.swift; sourceTree = "<group>"; };
 		059C46402CEF383A00FB00DC /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		059C46422CEF406900FB00DC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
 		B8D1B4192CEF8A80008B3871 /* MyMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuItem.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			children = (
 				059C453F2CEE0B5A00FB00DC /* CounterView.swift */,
 				059C45402CEE0B5A00FB00DC /* CustomSegmentControlView.swift */,
+				05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				059C45742CEE107700FB00DC /* MenuOptionHeader.swift in Sources */,
 				059C45582CEE0B5A00FB00DC /* CounterView.swift in Sources */,
 				059C45592CEE0B5A00FB00DC /* CustomSegmentControlView.swift in Sources */,
+				05F736BA2CF0659D0030B7F5 /* CustomAlertViewController.swift in Sources */,
 				059C45812CEE199300FB00DC /* MenuOptionSyrupCell.swift in Sources */,
 				059C455A2CEE0B5A00FB00DC /* CounterType.swift in Sources */,
 				B8D1B4272CEF8A97008B3871 /* Int+.swift in Sources */,
