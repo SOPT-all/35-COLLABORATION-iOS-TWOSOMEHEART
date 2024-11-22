@@ -56,7 +56,8 @@ final class CustomAlertViewController: BaseViewController {
     // MARK: - UI
 
     override func setStyle() {
-        view.backgroundColor = .tsBlack.withAlphaComponent(0.5)
+        view.backgroundColor = .tsBlack.withAlphaComponent(0.85)
+
 
         alertView.backgroundColor = .tsWhite
 
