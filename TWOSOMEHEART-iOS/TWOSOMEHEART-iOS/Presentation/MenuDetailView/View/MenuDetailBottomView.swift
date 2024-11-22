@@ -7,11 +7,9 @@
 
 import UIKit
 
-class MenuDetailBottomView: UIView {
+class MenuDetailBottomView: BaseView {
     // MARK: - UI Components
-    
-    private let allergensTitleLabel = UILabel()
-    private let allergensLabel = UILabel()
+    private let orderButtonContainerView = UIView()
     lazy var orderButton = UIButton()
     
     // MARK: - Initializer
@@ -28,19 +26,8 @@ class MenuDetailBottomView: UIView {
     }
     
     // MARK: - Style, UI, Layout
-    private func setStyle(){
-        
-        allergensTitleLabel.do {
-            $0.text = "알레르기 유발요인"
-            $0.font = TSFont.b1b
-            $0.textColor = UIColor(resource: .tsBlack)
-        }
-        
-        allergensLabel.do {
-            $0.text = "우유"
-            $0.font = TSFont.b2r
-            $0.textColor = UIColor(resource: .gray80)
-        }
+    override func setStyle(){
+        orderButtonContainerView.backgroundColor = .tsWhite
         
         orderButton.do {
             $0.setTitle("주문하기", for: .normal)
@@ -48,32 +35,25 @@ class MenuDetailBottomView: UIView {
             $0.titleLabel?.font = TSFont.btn1s
             $0.backgroundColor = UIColor(resource: .tsBlack)
         }
-        
     }
     
-    private func setHierarchy(){
-        self.addSubviews(allergensTitleLabel,
-                    allergensLabel,
-                    orderButton
-        )
+    override func setHierarchy() {
+        orderButtonContainerView.addSubviews(orderButton)
+
+        addSubview(orderButtonContainerView)
     }
     
-    private func setLayout(){
-        allergensTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(30)
-            $0.leading.equalToSuperview().inset(16)
-        }
-        
-        allergensLabel.snp.makeConstraints {
-            $0.top.equalTo(allergensTitleLabel.snp.bottom).offset(13)
-            $0.leading.equalTo(allergensTitleLabel.snp.leading)
+    override func setLayout(){
+        orderButtonContainerView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+            
         }
         
         orderButton.snp.makeConstraints {
-            $0.top.equalTo(allergensLabel.snp.bottom).offset(67)
+            $0.top.equalToSuperview().offset(16)
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(54)
-            $0.bottom.equalToSuperview()
+            $0.bottom.equalTo(orderButtonContainerView.snp.bottom).inset(30)
         }
     }
 }

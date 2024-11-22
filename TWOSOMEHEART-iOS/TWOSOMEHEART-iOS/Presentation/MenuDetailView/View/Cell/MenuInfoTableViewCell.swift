@@ -1,13 +1,14 @@
 //
-//  MenuInfoView.swift
+//  MenuInfoTableViewCell.swift
 //  TWOSOMEHEART-iOS
 //
-//  Created by 김예지 on 11/21/24.
+//  Created by 김예지 on 11/22/24.
 //
 
 import UIKit
 
-class MenuInfoView: UIView {
+class MenuInfoTableViewCell: BaseTableViewCell {
+
     // MARK: - UI Components
     
     private let menuImageView = UIImageView()
@@ -21,12 +22,9 @@ class MenuInfoView: UIView {
     
     
     // MARK: - Initializer
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setStyle()
-        setHierarchy()
-        setLayout()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -34,7 +32,7 @@ class MenuInfoView: UIView {
     }
     
     // MARK: - Style, UI, Layout
-    private func setStyle(){
+    override func setStyle(){
         menuImageView.do{
             $0.image = UIImage(resource: .imgDetail)
             $0.contentMode = .scaleAspectFill
@@ -105,8 +103,8 @@ class MenuInfoView: UIView {
         }
     }
     
-    private func setHierarchy(){
-        addSubviews(menuImageView,
+    override func setHierarchy(){
+        contentView.addSubviews(menuImageView,
                      statusLabel,
                      menuNameLabel,
                      menuDescriptionLabel,
@@ -117,7 +115,7 @@ class MenuInfoView: UIView {
         )
     }
     
-    private func setLayout(){
+    override func setLayout(){
         menuImageView.snp.makeConstraints {
             $0.top.equalToSuperview().offset(10)
             $0.horizontalEdges.equalToSuperview()
@@ -174,7 +172,7 @@ class MenuInfoView: UIView {
         statusLabel.backgroundColor = menuDetail.status == "New" ? UIColor(resource: .red40) : UIColor(resource: .gray20)
         menuNameLabel.text = menuDetail.name
         menuDescriptionLabel.text = menuDetail.description
-        priceLabel.text = "\(menuDetail.price)원"
+        priceLabel.text = "\(menuDetail.price.formattedPrice())원"
         
         let cautions = menuDetail.caution.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
         cautionLabel.isHidden = cautions.isEmpty

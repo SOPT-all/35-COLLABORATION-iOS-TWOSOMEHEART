@@ -45,12 +45,12 @@
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
 		B8B04A8A2CF0520900B9777B /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A882CF0520900B9777B /* MenuDetailViewController.swift */; };
-		B8B04A8B2CF0520900B9777B /* NutritionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A852CF0520900B9777B /* NutritionInfoView.swift */; };
-		B8B04A8C2CF0520900B9777B /* NutritionInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A842CF0520900B9777B /* NutritionInfoHeaderView.swift */; };
-		B8B04A8D2CF0520900B9777B /* NutritionSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A862CF0520900B9777B /* NutritionSegmentControl.swift */; };
-		B8B04A8E2CF0520900B9777B /* MenuInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A832CF0520900B9777B /* MenuInfoView.swift */; };
 		B8B04A8F2CF0520900B9777B /* MenuDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A812CF0520900B9777B /* MenuDetail.swift */; };
 		B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A902CF056C500B9777B /* MenuDetailBottomView.swift */; };
+		B8B04A942CF0664700B9777B /* NutritionInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A932CF0664700B9777B /* NutritionInfoTableViewCell.swift */; };
+		B8B04A962CF0722400B9777B /* MenuInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A952CF0722400B9777B /* MenuInfoTableViewCell.swift */; };
+		B8B04A9A2CF0772300B9777B /* NutritionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A992CF0772300B9777B /* NutritionHeaderTableViewCell.swift */; };
+		B8B04A9F2CF0C7E100B9777B /* AllergyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A9E2CF0C7E100B9777B /* AllergyTableViewCell.swift */; };
 		B8D1B4212CEF8A80008B3871 /* MyMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41D2CEF8A80008B3871 /* MyMenuHeaderView.swift */; };
 		B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41B2CEF8A80008B3871 /* MyMenuCollectionViewCell.swift */; };
 		B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */; };
@@ -98,12 +98,12 @@
 		059C46422CEF406900FB00DC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8B04A812CF0520900B9777B /* MenuDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetail.swift; sourceTree = "<group>"; };
-		B8B04A832CF0520900B9777B /* MenuInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInfoView.swift; sourceTree = "<group>"; };
-		B8B04A842CF0520900B9777B /* NutritionInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionInfoHeaderView.swift; sourceTree = "<group>"; };
-		B8B04A852CF0520900B9777B /* NutritionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionInfoView.swift; sourceTree = "<group>"; };
-		B8B04A862CF0520900B9777B /* NutritionSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionSegmentControl.swift; sourceTree = "<group>"; };
 		B8B04A882CF0520900B9777B /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		B8B04A902CF056C500B9777B /* MenuDetailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailBottomView.swift; sourceTree = "<group>"; };
+		B8B04A932CF0664700B9777B /* NutritionInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionInfoTableViewCell.swift; sourceTree = "<group>"; };
+		B8B04A952CF0722400B9777B /* MenuInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInfoTableViewCell.swift; sourceTree = "<group>"; };
+		B8B04A992CF0772300B9777B /* NutritionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		B8B04A9E2CF0C7E100B9777B /* AllergyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyTableViewCell.swift; sourceTree = "<group>"; };
 		B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
 		B8D1B4192CEF8A80008B3871 /* MyMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuItem.swift; sourceTree = "<group>"; };
 		B8D1B41B2CEF8A80008B3871 /* MyMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -358,10 +358,7 @@
 		B8B04A872CF0520900B9777B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B8B04A832CF0520900B9777B /* MenuInfoView.swift */,
-				B8B04A842CF0520900B9777B /* NutritionInfoHeaderView.swift */,
-				B8B04A852CF0520900B9777B /* NutritionInfoView.swift */,
-				B8B04A862CF0520900B9777B /* NutritionSegmentControl.swift */,
+				B8B04A922CF0660900B9777B /* Cell */,
 				B8B04A902CF056C500B9777B /* MenuDetailBottomView.swift */,
 			);
 			path = View;
@@ -375,6 +372,17 @@
 				B8B04A882CF0520900B9777B /* MenuDetailViewController.swift */,
 			);
 			path = MenuDetailView;
+			sourceTree = "<group>";
+		};
+		B8B04A922CF0660900B9777B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B8B04A932CF0664700B9777B /* NutritionInfoTableViewCell.swift */,
+				B8B04A952CF0722400B9777B /* MenuInfoTableViewCell.swift */,
+				B8B04A992CF0772300B9777B /* NutritionHeaderTableViewCell.swift */,
+				B8B04A9E2CF0C7E100B9777B /* AllergyTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B8D1B4182CEF8A80008B3871 /* Controller */ = {
@@ -509,12 +517,14 @@
 				059C45892CEE1BBB00FB00DC /* CounterViewDelegate.swift in Sources */,
 				059C45782CEE113D00FB00DC /* MenuOptionSectionType.swift in Sources */,
 				059C45682CEE0E6600FB00DC /* ReusableIdentifier+.swift in Sources */,
+				B8B04A942CF0664700B9777B /* NutritionInfoTableViewCell.swift in Sources */,
 				059C45532CEE0B5A00FB00DC /* String+.swift in Sources */,
 				059C45722CEE0F9B00FB00DC /* BaseTableViewCell.swift in Sources */,
 				059C45542CEE0B5A00FB00DC /* UILabel+.swift in Sources */,
 				059C45552CEE0B5A00FB00DC /* UIStackView+.swift in Sources */,
 				059C45832CEE19EA00FB00DC /* MenuOptionWhippedCreamCell.swift in Sources */,
 				059C45562CEE0B5A00FB00DC /* UIView+.swift in Sources */,
+				B8B04A9F2CF0C7E100B9777B /* AllergyTableViewCell.swift in Sources */,
 				B8D1B4212CEF8A80008B3871 /* MyMenuHeaderView.swift in Sources */,
 				B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */,
 				B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */,
@@ -533,15 +543,13 @@
 				059C457A2CEE16A200FB00DC /* MenuOptionHeaderView.swift in Sources */,
 				059C455B2CEE0B5A00FB00DC /* SegmentType.swift in Sources */,
 				059C455C2CEE0B5A00FB00DC /* ScreenUtils.swift in Sources */,
+				B8B04A962CF0722400B9777B /* MenuInfoTableViewCell.swift in Sources */,
 				059C455D2CEE0B5A00FB00DC /* StringLiterals.swift in Sources */,
 				B8B04A8A2CF0520900B9777B /* MenuDetailViewController.swift in Sources */,
-				B8B04A8B2CF0520900B9777B /* NutritionInfoView.swift in Sources */,
-				B8B04A8C2CF0520900B9777B /* NutritionInfoHeaderView.swift in Sources */,
-				B8B04A8D2CF0520900B9777B /* NutritionSegmentControl.swift in Sources */,
-				B8B04A8E2CF0520900B9777B /* MenuInfoView.swift in Sources */,
 				B8B04A8F2CF0520900B9777B /* MenuDetail.swift in Sources */,
 				059C455E2CEE0B5A00FB00DC /* BaseNavViewController.swift in Sources */,
 				059C455F2CEE0B5A00FB00DC /* BaseViewController.swift in Sources */,
+				B8B04A9A2CF0772300B9777B /* NutritionHeaderTableViewCell.swift in Sources */,
 				059C45602CEE0B5A00FB00DC /* ViewController.swift in Sources */,
 				059C46432CEF406900FB00DC /* BaseView.swift in Sources */,
 				059C45852CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift in Sources */,

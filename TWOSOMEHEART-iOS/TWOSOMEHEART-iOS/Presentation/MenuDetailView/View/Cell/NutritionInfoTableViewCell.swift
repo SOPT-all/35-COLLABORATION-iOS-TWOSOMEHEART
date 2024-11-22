@@ -1,17 +1,13 @@
 //
-//  NutritionInfoView.swift
+//  NutritionInfoTableViewCell.swift
 //  TWOSOMEHEART-iOS
 //
-//  Created by 김예지 on 11/21/24.
+//  Created by 김예지 on 11/22/24.
 //
 
 import UIKit
 
-import SnapKit
-import Then
-
-class NutritionInfoView: UIView {
-    
+class NutritionInfoTableViewCell: BaseTableViewCell {
     // MARK: - UI Components
     private let temperatureSegmentControl = UISegmentedControl()
     private let sizeSegmentControl = UISegmentedControl()
@@ -32,21 +28,17 @@ class NutritionInfoView: UIView {
     private var menuItems: MenuDetail?
     
     // MARK: - Initializer
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setStyle()
-        setHierarchy()
-        setLayout()
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Style, UI, Layout
-    
-    private func setStyle(){
+    // MARK: - UI
+    override func setStyle() {
         temperatureSegmentControl.do {
             $0.insertSegment(withTitle: "핫", at: 0, animated: true)
             $0.insertSegment(withTitle: "아이스", at: 1, animated: true)
@@ -121,8 +113,9 @@ class NutritionInfoView: UIView {
         }
     }
     
-    private func setHierarchy(){
-        self.addSubviews(
+    
+    override func setHierarchy() {
+        contentView.addSubviews(
             temperatureSegmentControl,
             temperatureUnderLineView,
             temperatureSeperateLineView,
@@ -136,7 +129,7 @@ class NutritionInfoView: UIView {
         )
     }
     
-    private func setLayout(){
+    override func setLayout() {
         temperatureSegmentControl.snp.makeConstraints{
             $0.top.equalToSuperview()
             $0.horizontalEdges.equalToSuperview().inset(16)
@@ -196,7 +189,6 @@ class NutritionInfoView: UIView {
             $0.horizontalEdges.bottom.equalToSuperview()
             $0.height.equalTo(4)
         }
-        
     }
     
     // MARK: - Actions
