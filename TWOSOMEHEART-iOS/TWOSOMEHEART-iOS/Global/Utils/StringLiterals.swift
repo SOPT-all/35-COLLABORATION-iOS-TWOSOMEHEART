@@ -83,5 +83,14 @@ enum StringLiterals {
 
     }
 
+    enum AlertType {
+
+        static let title = "선택된 상품을 My 투썸에서 삭제할까요?"
+
+        static let cancel = "취소"
+
+        static let confirm = "확인"
+
+    }
 
 }
