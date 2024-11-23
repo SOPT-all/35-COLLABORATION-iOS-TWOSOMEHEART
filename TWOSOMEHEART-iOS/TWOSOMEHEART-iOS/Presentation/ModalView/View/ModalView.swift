@@ -20,7 +20,7 @@ class ModalView: UIView {
     
     private let contentView : UIView = UIView()
     
-    private let segmentChoiceView : UIStackView = UIStackView()
+    private let segmentControlStackView : SegmentControlStackView = SegmentControlStackView()
     
     private let personalCupButton : UIButton = UIButton()
     
@@ -67,7 +67,7 @@ class ModalView: UIView {
         
         scrollView.addSubviews(contentView)
         
-        contentView.addSubviews(segmentChoiceView,
+        contentView.addSubviews(segmentControlStackView,
                                 personalCupLabel,
                                 personalCupButton,
                                 personalCupPriceLabel,
@@ -97,34 +97,37 @@ class ModalView: UIView {
         scrollView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
             $0.top.equalTo(headerView.snp.bottom)
+            $0.height.equalTo(532)
             $0.bottom.equalToSuperview().inset(139)
-            $0.height.equalTo(572)
         }
         
+        // TODO :- 트슛 작성 : height 정의해서 Segment Button click 가능해짐
         contentView.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview().inset(16)
-            $0.verticalEdges.equalToSuperview()
+            $0.verticalEdges.equalTo(scrollView.contentLayoutGuide)
+            $0.width.equalTo(scrollView.frameLayoutGuide)
+            $0.height.equalTo(532)
         }
         
-        segmentChoiceView.snp.makeConstraints {
-            $0.horizontalEdges.top.equalToSuperview()
+        segmentControlStackView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(402)
         }
         
         personalCupButton.snp.makeConstraints {
-            $0.top.equalTo(segmentChoiceView.snp.bottom).offset(20)
+            $0.top.equalTo(segmentControlStackView.snp.bottom).offset(20)
             $0.leading.equalToSuperview()
             $0.height.width.equalTo(20)
         }
         
         personalCupLabel.snp.makeConstraints {
-            $0.top.equalTo(segmentChoiceView.snp.bottom).offset(20)
+            $0.top.equalTo(segmentControlStackView.snp.bottom).offset(20)
             $0.leading.equalToSuperview().offset(28)
             $0.height.equalTo(20)
         }
         
         personalCupPriceLabel.snp.makeConstraints {
-            $0.top.equalTo(segmentChoiceView.snp.bottom).offset(20)
+            $0.top.equalTo(segmentControlStackView.snp.bottom).offset(20)
             $0.trailing.equalToSuperview()
             $0.height.equalTo(20)
         }
@@ -196,14 +199,6 @@ class ModalView: UIView {
                         font: TSFont.b1b)
         }
         
-        scrollView.do {
-            $0.backgroundColor = .blue
-        }
-        
-        contentView.do {
-            $0.backgroundColor = .red
-        }
-        
         blackLineView.do {
             $0.backgroundColor = UIColor(resource: .tsBlack)
         }
@@ -234,8 +229,6 @@ class ModalView: UIView {
             $0.titleLabel?.font = TSFont.btn1s
             $0.titleLabel?.textColor = UIColor(resource: .tsWhite)
         }
-        
-        
         
     }
     
