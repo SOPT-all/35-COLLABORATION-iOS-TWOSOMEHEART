@@ -32,4 +32,14 @@ class ModalViewController: BaseViewController {
         }
     }
     
+    override func setStyle() {
+        modalView.personalCupButton.addTarget(self, action: #selector(personalCupButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func personalCupButtonTapped() {
+        modalView.personalCupButton.isSelected.toggle()
+        modalView.personalCupPriceLabel.isHidden.toggle()
+        modalView.personalCupExplainLabel.isHidden.toggle()
+    }
 }

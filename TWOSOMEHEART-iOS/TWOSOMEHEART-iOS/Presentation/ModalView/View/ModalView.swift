@@ -22,15 +22,21 @@ class ModalView: UIView {
     
     private let segmentControlStackView : SegmentControlStackView = SegmentControlStackView()
     
-    private let personalCupButton : UIButton = UIButton()
+    let personalCupButton : UIButton = UIButton()
     
     private let personalCupLabel : UILabel = UILabel()
     
-    private let personalCupPriceLabel : UILabel = UILabel()
+    let personalCupPriceLabel : UILabel = UILabel()
     
-    private let personalCupExplainLabel : UILabel = UILabel()
+    let personalCupExplainLabel : UILabel = UILabel()
     
     private let personalOptionButton : UIButton = UIButton()
+    
+    private let personalOptionLabel : UILabel = UILabel()
+    
+    private let rightArrowImageView : UIImageView = UIImageView()
+    
+    var personalOptionListLabel : UILabel = UILabel()
     
     private let footerView : UIView = UIView()
     
@@ -74,6 +80,10 @@ class ModalView: UIView {
                                 personalCupExplainLabel,
                                 personalOptionButton)
         
+        personalOptionButton.addSubviews(personalOptionLabel,
+                                         rightArrowImageView,
+                                         personalOptionListLabel)
+        
         footerView.addSubviews(blackLineView,
                                priceLabel,
                                counterView,
@@ -104,7 +114,7 @@ class ModalView: UIView {
         contentView.snp.makeConstraints {
             $0.verticalEdges.equalTo(scrollView.contentLayoutGuide)
             $0.width.equalTo(scrollView.frameLayoutGuide)
-            $0.height.equalTo(532)
+            $0.height.equalTo(552)
         }
         
         segmentControlStackView.snp.makeConstraints {
@@ -115,38 +125,56 @@ class ModalView: UIView {
         
         personalCupButton.snp.makeConstraints {
             $0.top.equalTo(segmentControlStackView.snp.bottom).offset(20)
-            $0.leading.equalToSuperview()
+            $0.leading.equalToSuperview().inset(16)
             $0.height.width.equalTo(20)
         }
         
         personalCupLabel.snp.makeConstraints {
             $0.top.equalTo(segmentControlStackView.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().offset(28)
+            $0.leading.equalToSuperview().offset(42)
             $0.height.equalTo(20)
         }
         
         personalCupPriceLabel.snp.makeConstraints {
             $0.top.equalTo(segmentControlStackView.snp.bottom).offset(20)
-            $0.trailing.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(20)
         }
         
         personalCupExplainLabel.snp.makeConstraints {
             $0.top.equalTo(personalCupPriceLabel.snp.bottom).offset(16)
-            $0.trailing.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(24)
             $0.width.equalTo(111)
         }
         
         personalOptionButton.snp.makeConstraints {
-            $0.bottom.horizontalEdges.equalToSuperview()
+            $0.bottom.equalToSuperview().inset(20)
+            $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(46)
+        }
+        
+        personalOptionLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.leading.equalToSuperview().inset(16)
+        }
+        
+        personalOptionListLabel.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(32)
+        }
+        
+        rightArrowImageView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.height.width.equalTo(24)
+            $0.trailing.equalToSuperview().inset(8)
         }
         
         footerView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.top.equalTo(scrollView.snp.bottom)
-            $0.bottom.equalToSuperview().inset(safeAreaInsets.bottom)
+            $0.height.equalTo(141)
+            //$0.bottom.equalToSuperview().inset(safeAreaInsets.bottom)
         }
         
         blackLineView.snp.makeConstraints{
@@ -191,11 +219,59 @@ class ModalView: UIView {
     }
     
     private func setStyle() {
+        self.backgroundColor = UIColor(resource: .tsWhite)
         headerLabel.do {
             $0.setLabel(text: "바닐라샷라떼",
                         alignment: .center,
                         textColor: UIColor(resource: .tsBlack),
                         font: TSFont.b1b)
+        }
+        
+        personalCupButton.do {
+            $0.setImage(UIImage(resource: .modalCheckboxDeselect), for: .normal)
+            $0.setImage(UIImage(resource: .modalCheckboxSelect), for: .selected)
+        }
+        
+        personalCupLabel.do {
+            $0.setLabel(text: "개인컵 사용",
+                        textColor: UIColor(resource: .tsBlack),
+                        font: TSFont.b2r)
+        }
+        
+        personalCupPriceLabel.do {
+            $0.setLabel(text: "-300원",
+                        textColor: UIColor(resource: .blue20),
+                        font: TSFont.b2r)
+            $0.isHidden = true
+        }
+        
+        personalCupExplainLabel.do {
+            $0.setLabel(text: "개인컵 사용 안내 >",
+                        textColor: UIColor(resource: .gray50),
+                        font: TSFont.b2s)
+            $0.isHidden = true
+        }
+        
+        personalOptionButton.do {
+            $0.layer.cornerRadius = 4
+            $0.layer.borderWidth = 1
+            $0.layer.borderColor = UIColor(resource: .red20).cgColor
+            
+            $0.backgroundColor = UIColor(resource: .red10)
+        }
+        
+        personalOptionLabel.do {
+            $0.setLabel(text: "퍼스널 옵션",
+                        textColor: UIColor(resource: .tsBlack),
+                        font: TSFont.b2r)
+        }
+        
+        rightArrowImageView.do {
+            $0.image = UIImage(resource: .modalArrowRight)
+        }
+        
+        personalOptionListLabel.do {
+            $0.setLabel(textColor: UIColor(resource: .red40), font: TSFont.c3r)
         }
         
         blackLineView.do {
