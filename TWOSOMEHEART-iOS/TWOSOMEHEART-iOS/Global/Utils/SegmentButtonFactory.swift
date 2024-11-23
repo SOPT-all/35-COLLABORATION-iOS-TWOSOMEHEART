@@ -47,7 +47,7 @@ class SegmentButtonFactory {
                 let attributedString = NSMutableAttributedString(
                     string: title + "\n",
                     attributes: [
-                        .font: type.textFont,
+                        .font: TSFont.c1r,
                         .paragraphStyle: titleParagraphStyle
                     ]
                 )
@@ -58,7 +58,8 @@ class SegmentButtonFactory {
                 let subtitleString = NSAttributedString(
                     string: subTitle,
                     attributes: [
-                        .font: UIFont.systemFont(ofSize: type.textFont.pointSize - 2),
+                        //TODO: - subTitle 폰트 적용 안됨
+                        .font: TSFont.c2r,
                         .paragraphStyle: subtitleParagraphStyle
                     ]
                 )

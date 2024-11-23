@@ -66,6 +66,12 @@ class SegmentControlStackView : UIStackView {
     }
     
     func setLayout() {
+        self.do {
+            $0.setCustomSpacing(16, after: tempSegmentControlView)
+            $0.setCustomSpacing(20, after: sizeSegmentControlView)
+            $0.setCustomSpacing(20, after: beanSegmentControlView)
+        }
+        
         tempSegmentControlView.snp.makeConstraints {
             $0.height.equalTo(69)
         }
@@ -81,7 +87,7 @@ class SegmentControlStackView : UIStackView {
     }
     
     func setStyle() {
-        self.setStackView(axis: .vertical, distribution: .fillProportionally, spacing: 20)
+        self.setStackView(axis: .vertical, distribution: .fillProportionally)
         self.backgroundColor = UIColor(resource: .tsWhite)
         self.isUserInteractionEnabled = true
         

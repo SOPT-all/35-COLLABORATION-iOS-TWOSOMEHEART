@@ -97,7 +97,6 @@ class ModalView: UIView {
         scrollView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
             $0.top.equalTo(headerView.snp.bottom)
-            $0.height.equalTo(532)
             $0.bottom.equalToSuperview().inset(139)
         }
         

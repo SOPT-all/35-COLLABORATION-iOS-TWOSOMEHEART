@@ -52,7 +52,12 @@ class CustomSegmentControlView: UIView {
     
     private func setStyle() {
         stackView.do {
-            $0.setStackView(spacing: -1)
+            switch segmentType {
+            case .size, .pickup:
+                $0.setStackView(spacing: 0)
+            default:
+                $0.setStackView(spacing: -1)
+            }
         }
         
         buttons.enumerated().forEach { index, button in
@@ -89,7 +94,6 @@ private extension CustomSegmentControlView {
     private func buttonTapped(_ sender: UIButton) {
         guard sender.tag != selectedIndex else { return }
         selectedIndex = sender.tag
-        print("🔥🔥🔥Button tapped: \(sender.tag)🔥")
     }
     
     func updateSegments() {
@@ -106,7 +110,6 @@ private extension CustomSegmentControlView {
     func setTextStyle(_ button: UIButton, attributes: [NSAttributedString.Key: Any]) {
         button.do {
             if segmentType == .pickup, let currentTitle = $0.currentAttributedTitle {
-                // pickup 타입일 경우 멀티라인 유지
                 let titleComponents = currentTitle.string.components(separatedBy: "\n")
                 if titleComponents.count > 1 {
                     let titleParagraphStyle = NSMutableParagraphStyle()
@@ -133,7 +136,6 @@ private extension CustomSegmentControlView {
                     $0.setAttributedTitle(attributedString, for: .normal)
                 }
             } else if let currentTitle = $0.title(for: .normal) {
-                // 일반적인 경우
                 let paragraphStyle = NSMutableParagraphStyle()
                 paragraphStyle.alignment = .center
                 
@@ -153,11 +155,12 @@ private extension CustomSegmentControlView {
         button.do {
             $0.backgroundColor = UIColor(resource: .tsWhite)
             $0.layer.borderColor = segmentType.borderColor.cgColor
+            $0.isSelected = false
         }
         
         let plainTextAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: segmentType.textColor,
-            .font: segmentType.textFont
+            .font: TSFont.c1r
         ]
         setTextStyle(button, attributes: plainTextAttributes)
     }
@@ -166,6 +169,7 @@ private extension CustomSegmentControlView {
         button.do {
             $0.backgroundColor = segmentType.selectedBackgroundColor[button.tag]
             $0.layer.borderColor = segmentType.selectedBorderColor[button.tag].cgColor
+            $0.isSelected = true
         }
         let selectedTextAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: segmentType.selectedTextColor,

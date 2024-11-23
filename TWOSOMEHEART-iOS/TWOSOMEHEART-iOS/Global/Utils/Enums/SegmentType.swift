@@ -54,15 +54,6 @@ enum SegmentType {
         }
     }
     
-    var textFont: UIFont {
-        switch self {
-        case .size, .pickup:
-            return TSFont.c1r
-        default:
-            return TSFont.c1s
-        }
-    }
-    
     var textColor: UIColor {
         switch self {
         case .option:
