@@ -169,7 +169,7 @@ class MenuInfoTableViewCell: BaseTableViewCell {
     func bind(_ menuDetail: MenuDetail) {
         menuImageView.image = menuDetail.imageURL
         statusLabel.text = menuDetail.status
-        statusLabel.backgroundColor = menuDetail.status == "New" ? UIColor(resource: .red40) : UIColor(resource: .gray20)
+        statusLabel.text = menuDetail.status
         menuNameLabel.text = menuDetail.name
         menuDescriptionLabel.text = menuDetail.description
         priceLabel.text = "\(menuDetail.price.formattedPrice())원"

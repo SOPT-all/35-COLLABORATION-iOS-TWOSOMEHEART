@@ -171,7 +171,7 @@ extension MenuDetailViewController: UITableViewDelegate {
         case 1:
             return 68
         default:
-            return UITableView.automaticDimension 
+            return UITableView.automaticDimension
         }
     }
 }

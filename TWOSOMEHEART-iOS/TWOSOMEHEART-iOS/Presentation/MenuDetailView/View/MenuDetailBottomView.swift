@@ -30,7 +30,7 @@ class MenuDetailBottomView: BaseView {
         orderButtonContainerView.backgroundColor = .tsWhite
         
         orderButton.do {
-            $0.setTitle("주문하기", for: .normal)
+            $0.setTitle(SLMenuDetail.order, for: .normal)
             $0.setTitleColor(UIColor(resource: .tsWhite), for: .normal)
             $0.titleLabel?.font = TSFont.btn1s
             $0.backgroundColor = UIColor(resource: .tsBlack)

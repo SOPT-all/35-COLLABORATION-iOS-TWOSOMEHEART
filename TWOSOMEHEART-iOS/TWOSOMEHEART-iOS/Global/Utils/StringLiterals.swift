@@ -52,6 +52,20 @@ enum StringLiterals {
         static let noticeText3 = """
         • 어린이, 임산부 등 카페인 민감자는 섭취에 주의해주시기 바랍니다.     
         """
+        
+        static let nutrionInfo = "제품 영양 정보"
+        
+        static let temperatureHot = "핫"
+        
+        static let temperatureIce = "아이스"
+        
+        static let sizeRegular = "레귤러"
+        
+        static let sizeLarge = "라지"
+        
+        static let allergy = "알레르기 유발요인"
+        
+        static let order = "주문하기"
     }
 
     

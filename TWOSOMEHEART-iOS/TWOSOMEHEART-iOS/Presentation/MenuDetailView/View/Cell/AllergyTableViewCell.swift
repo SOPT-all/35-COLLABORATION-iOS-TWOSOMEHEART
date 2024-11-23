@@ -23,7 +23,7 @@ class AllergyTableViewCell: BaseTableViewCell {
     
     override func setStyle() {
         allergyTitleLabel.do {
-            $0.text = "알레르기 유발요인"
+            $0.text = SLMenuDetail.allergy
             $0.font = TSFont.t1b
             $0.textColor = UIColor(resource: .tsBlack)
         }

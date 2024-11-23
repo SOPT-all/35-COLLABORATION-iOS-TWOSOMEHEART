@@ -39,7 +39,7 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
     override func setStyle(){
         nutrionInfoLabel.do {
             $0.setLabel(
-                text: "제품 영양 정보",
+                text: SLMenuDetail.nutrionInfo,
                 alignment: .left,
                 textColor: .tsBlack,
                 font: TSFont.t1b
@@ -86,7 +86,7 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
             action: #selector(headerViewTapped)
         )
         
-        contentView.addGestureRecognizer(tapGesture)        
+        contentView.addGestureRecognizer(tapGesture)
         self.delegate = delegate
         
     }

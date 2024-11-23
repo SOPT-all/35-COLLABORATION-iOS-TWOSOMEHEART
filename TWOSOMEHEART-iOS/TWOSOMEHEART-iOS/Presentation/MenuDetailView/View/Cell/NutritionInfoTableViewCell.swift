@@ -40,8 +40,8 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
     // MARK: - UI
     override func setStyle() {
         temperatureSegmentControl.do {
-            $0.insertSegment(withTitle: "핫", at: 0, animated: true)
-            $0.insertSegment(withTitle: "아이스", at: 1, animated: true)
+            $0.insertSegment(withTitle: SLMenuDetail.temperatureHot, at: 0, animated: true)
+            $0.insertSegment(withTitle: SLMenuDetail.temperatureIce, at: 1, animated: true)
             $0.selectedSegmentIndex = 0
             $0.selectedSegmentTintColor = .clear
             $0.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
@@ -58,8 +58,8 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
         }
         
         sizeSegmentControl.do {
-            $0.insertSegment(withTitle: "레귤러", at: 0, animated: true)
-            $0.insertSegment(withTitle: "라지", at: 1, animated: true)
+            $0.insertSegment(withTitle: SLMenuDetail.sizeRegular, at: 0, animated: true)
+            $0.insertSegment(withTitle: SLMenuDetail.sizeLarge, at: 1, animated: true)
             $0.selectedSegmentIndex = 0
             $0.selectedSegmentTintColor = .clear
             $0.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
