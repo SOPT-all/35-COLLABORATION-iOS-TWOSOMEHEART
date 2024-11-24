@@ -9,3 +9,4 @@ import Foundation
 
 typealias SLMenuOption = StringLiterals.MenuOptionType
 typealias SLAlert = StringLiterals.AlertType
+typealias SLMenuDetail = StringLiterals.MenuDetailType

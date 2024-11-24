@@ -5,7 +5,7 @@
 //  Created by 이수민 on 11/17/24.
 //
 
-import Foundation
+import UIKit
 
 extension String {
     
@@ -22,4 +22,15 @@ extension String {
       return attributedString
     }
     
+    // MARK: - 행간설정
+    func setLineSpacing(_ lineSpacing: CGFloat) -> NSMutableAttributedString {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        
+        let attributedString = NSMutableAttributedString(string: self)
+        attributedString.addAttribute(.paragraphStyle,
+                                      value: paragraphStyle,
+                                      range: NSRange(location: 0, length: attributedString.length))
+        return attributedString
+    }
 }
