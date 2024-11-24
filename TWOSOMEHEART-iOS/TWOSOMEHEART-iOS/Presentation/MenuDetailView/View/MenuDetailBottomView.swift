@@ -46,11 +46,10 @@ class MenuDetailBottomView: BaseView {
     override func setLayout(){
         orderButtonContainerView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            
         }
         
         orderButton.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(16)
+            $0.top.equalToSuperview().inset(40)
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(54)
             $0.bottom.equalTo(orderButtonContainerView.snp.bottom).inset(30)

@@ -42,7 +42,9 @@ enum StringLiterals {
     
     enum MenuDetailType {
         static let noticeText1 = """
-        • 제품 이미지는 실제 제품과 다소 차이가 있을 수 있습니다.(매장 계절에 따라 대체 과일 데코레이션으로 운영될 수 있습니다.)
+        • 제품 이미지는 실제 제품과 다소 차이가 있을 수 있습니다.
+          (매장 계절에 따라 대체 과일 데코레이션으로 운영될 수
+          있습니다.)
         """
         
         static let noticeText2 = """
@@ -50,7 +52,8 @@ enum StringLiterals {
         """
         
         static let noticeText3 = """
-        • 어린이, 임산부 등 카페인 민감자는 섭취에 주의해주시기 바랍니다.     
+        • 어린이, 임산부 등 카페인 민감자는 섭취에 주의해주시기
+          바랍니다.     
         """
         
         static let nutrionInfo = "제품 영양 정보"

@@ -29,7 +29,6 @@ class AllergyTableViewCell: BaseTableViewCell {
         }
         
         allergyLabel.do {
-            $0.text = "우유"
             $0.font = TSFont.b2r
             $0.textColor = UIColor(resource: .tsBlack)
         }
@@ -52,4 +51,8 @@ class AllergyTableViewCell: BaseTableViewCell {
         }
     }
     
+    // MARK: - Bind
+    func bind(allergy: String?) {
+        allergyLabel.text = allergy ?? ""
+    }
 }

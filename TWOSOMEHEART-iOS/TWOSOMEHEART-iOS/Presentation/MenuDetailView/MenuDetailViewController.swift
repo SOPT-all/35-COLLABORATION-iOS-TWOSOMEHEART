@@ -142,6 +142,10 @@ extension MenuDetailViewController: UITableViewDataSource {
                     for: indexPath
                 ) as? AllergyTableViewCell else { return UITableViewCell() }
                 
+                if let allergy = menuItem?.allergy {
+                    allergyInfoCell.bind(allergy: allergy)
+                }
+                
                 allergyInfoCell.selectionStyle = .none
                 return allergyInfoCell
             }
@@ -152,6 +156,10 @@ extension MenuDetailViewController: UITableViewDataSource {
                 for: indexPath
             ) as? AllergyTableViewCell else { return UITableViewCell() }
             allergyInfoCell.selectionStyle = .none
+            
+            if let allergy = menuItem?.allergy {
+                allergyInfoCell.bind(allergy: allergy)
+            }
             
             return allergyInfoCell
             

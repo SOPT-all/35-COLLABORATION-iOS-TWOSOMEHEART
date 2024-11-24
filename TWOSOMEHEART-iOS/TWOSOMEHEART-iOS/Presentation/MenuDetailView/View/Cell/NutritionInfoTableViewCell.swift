@@ -21,7 +21,11 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
     private let nutritionTextLabel = UILabel()
     private let nutritionSeperateLineView = UIView()
     
-    private let noticeLabel = UILabel()
+    private let noticeStackView = UIStackView()
+    private let noticeLabel1 = UILabel()
+    private let noticeLabel2 = UILabel()
+    private let noticeLabel3 = UILabel()
+    
     private let seperateLineView = UIView()
     
     // MARK: - Properties
@@ -101,11 +105,36 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
             $0.backgroundColor = UIColor(resource: .gray30)
         }
         
-        noticeLabel.do {
-            $0.numberOfLines = 0
-            $0.font = TSFont.b2r
-            $0.textColor = UIColor(resource: .gray60)
-            $0.attributedText = StringLiterals.MenuDetailType.noticeText1.setLineSpacing(10)
+        noticeStackView.setStackView(axis: .vertical, distribution: .fill ,spacing: 10)
+        
+        noticeLabel1.do {
+            $0.setLabel(
+                alignment: .left,
+                numberOfLines: 0,
+                textColor: .gray60,
+                font: TSFont.b2r
+            )
+            $0.attributedText = SLMenuDetail.noticeText1.setLineSpacing(3)
+        }
+        
+        noticeLabel2.do {
+            $0.setLabel(
+                text: SLMenuDetail.noticeText2,
+                alignment: .left,
+                numberOfLines: 0,
+                textColor: .gray60,
+                font: TSFont.b2r
+            )
+        }
+        
+        noticeLabel3.do {
+            $0.setLabel(
+                text: SLMenuDetail.noticeText3,
+                alignment: .left,
+                numberOfLines: 0,
+                textColor: .gray60,
+                font: TSFont.b2r
+            )
         }
         
         seperateLineView.do {
@@ -115,6 +144,15 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
     
     
     override func setHierarchy() {
+        noticeStackView
+            .addArrangedSubviews(
+                [
+                    noticeLabel1,
+                    noticeLabel2,
+                    noticeLabel3
+                ]
+            )
+        
         contentView.addSubviews(
             temperatureSegmentControl,
             temperatureUnderLineView,
@@ -124,7 +162,7 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
             sizeSeperateLineView,
             nutritionTextLabel,
             nutritionSeperateLineView,
-            noticeLabel,
+            noticeStackView,
             seperateLineView
         )
     }
@@ -179,13 +217,13 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
             $0.height.equalTo(1)
         }
         
-        noticeLabel.snp.makeConstraints{
+        noticeStackView.snp.makeConstraints{
             $0.top.equalTo(nutritionSeperateLineView.snp.bottom).offset(13)
             $0.horizontalEdges.equalToSuperview().inset(16)
         }
         
         seperateLineView.snp.makeConstraints{
-            $0.top.equalTo(noticeLabel.snp.bottom).offset(62)
+            $0.top.equalTo(noticeStackView.snp.bottom).offset(62)
             $0.horizontalEdges.bottom.equalToSuperview()
             $0.height.equalTo(4)
         }
