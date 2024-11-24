@@ -370,9 +370,9 @@
 		B8B04A892CF0520900B9777B /* MenuDetailView */ = {
 			isa = PBXGroup;
 			children = (
+				B8B04AFD2CF398A700B9777B /* Controller */,
 				B8B04A822CF0520900B9777B /* Model */,
 				B8B04A872CF0520900B9777B /* View */,
-				B8B04A882CF0520900B9777B /* MenuDetailViewController.swift */,
 			);
 			path = MenuDetailView;
 			sourceTree = "<group>";
@@ -386,6 +386,14 @@
 				B8B04A9E2CF0C7E100B9777B /* AllergyTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		B8B04AFD2CF398A700B9777B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B8B04A882CF0520900B9777B /* MenuDetailViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		B8D1B4182CEF8A80008B3871 /* Controller */ = {

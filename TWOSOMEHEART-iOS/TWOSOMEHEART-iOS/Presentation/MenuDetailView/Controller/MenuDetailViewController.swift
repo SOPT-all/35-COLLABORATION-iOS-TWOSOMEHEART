@@ -86,7 +86,13 @@ class MenuDetailViewController: BaseViewController {
 extension MenuDetailViewController: NutritionHeaderTableViewCellDelegate {
     func headerViewTapped() {
         isExpanded.toggle()
-        tableView.reloadData()    }
+        tableView.reloadData()
+        
+        tableView.performBatchUpdates(nil) { _ in
+            let indexPath = IndexPath(row: 1, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
