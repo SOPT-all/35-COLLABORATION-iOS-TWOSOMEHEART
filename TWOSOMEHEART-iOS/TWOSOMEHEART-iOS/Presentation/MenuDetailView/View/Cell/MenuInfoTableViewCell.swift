@@ -117,7 +117,7 @@ class MenuInfoTableViewCell: BaseTableViewCell {
     
     override func setLayout(){
         menuImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(10)
+            $0.top.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
             $0.height.equalTo(375)
         }
