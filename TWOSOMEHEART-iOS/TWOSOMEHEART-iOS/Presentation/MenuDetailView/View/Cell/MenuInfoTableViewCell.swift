@@ -8,7 +8,7 @@
 import UIKit
 
 class MenuInfoTableViewCell: BaseTableViewCell {
-
+    
     // MARK: - UI Components
     
     private let menuImageView = UIImageView()
@@ -24,7 +24,6 @@ class MenuInfoTableViewCell: BaseTableViewCell {
     // MARK: - Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -105,13 +104,13 @@ class MenuInfoTableViewCell: BaseTableViewCell {
     
     override func setHierarchy(){
         contentView.addSubviews(menuImageView,
-                     statusLabel,
-                     menuNameLabel,
-                     menuDescriptionLabel,
-                     priceLabel,
-                     cautionLabel,
-                     cautionLabel2,
-                     seperateLineView
+                                statusLabel,
+                                menuNameLabel,
+                                menuDescriptionLabel,
+                                priceLabel,
+                                cautionLabel,
+                                cautionLabel2,
+                                seperateLineView
         )
     }
     

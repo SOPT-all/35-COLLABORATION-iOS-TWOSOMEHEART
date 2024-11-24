@@ -16,9 +16,6 @@ class MenuDetailBottomView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setStyle()
-        setHierarchy()
-        setLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -39,7 +36,6 @@ class MenuDetailBottomView: BaseView {
     
     override func setHierarchy() {
         orderButtonContainerView.addSubviews(orderButton)
-
         addSubview(orderButtonContainerView)
     }
     

@@ -34,7 +34,6 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
     // MARK: - Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -96,9 +95,11 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
         }
         
         nutritionTextLabel.do {
-            $0.numberOfLines = 0
-            $0.font = TSFont.b2r
-            $0.textColor = UIColor(resource: .gray80)
+            $0.setLabel(
+                numberOfLines: 0,
+                textColor: .gray80,
+                font: TSFont.b2r
+            )
         }
         
         nutritionSeperateLineView.do {

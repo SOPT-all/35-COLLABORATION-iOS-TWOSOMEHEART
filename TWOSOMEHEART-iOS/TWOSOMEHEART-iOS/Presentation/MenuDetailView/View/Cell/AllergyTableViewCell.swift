@@ -8,13 +8,13 @@
 import UIKit
 
 class AllergyTableViewCell: BaseTableViewCell {
+    // MARK: - UI Components
     private let allergyTitleLabel = UILabel()
     private let allergyLabel = UILabel()
     
     // MARK: - Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -23,14 +23,18 @@ class AllergyTableViewCell: BaseTableViewCell {
     
     override func setStyle() {
         allergyTitleLabel.do {
-            $0.text = SLMenuDetail.allergy
-            $0.font = TSFont.t1b
-            $0.textColor = UIColor(resource: .tsBlack)
+            $0.setLabel(
+                text: SLMenuDetail.allergy,
+                textColor: .tsBlack,
+                font: TSFont.t1b
+            )
         }
         
         allergyLabel.do {
-            $0.font = TSFont.b2r
-            $0.textColor = UIColor(resource: .tsBlack)
+            $0.setLabel(
+                textColor: .tsBlack,
+                font: TSFont.b2r
+            )
         }
     }
     
