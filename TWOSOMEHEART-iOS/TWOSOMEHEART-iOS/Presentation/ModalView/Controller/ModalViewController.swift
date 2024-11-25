@@ -72,6 +72,7 @@ class ModalViewController: BaseViewController {
     }
     
     func bindData() {
+        modalView.headerLabel.text = ModalInfo.modalInfo.menuName
         modalView.priceLabel.text = "\(price)원"
         modalView.personalOptionListLabel.text = ModalInfo.modalInfo.personalOption
     }

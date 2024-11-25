@@ -14,7 +14,7 @@ class ModalView: UIView {
     
     private let headerView : UIView = UIView()
     
-    private let headerLabel : UILabel = UILabel()
+    let headerLabel : UILabel = UILabel()
     
     let scrollView : UIScrollView = UIScrollView()
     
@@ -221,8 +221,7 @@ class ModalView: UIView {
     private func setStyle() {
         self.backgroundColor = UIColor(resource: .tsWhite)
         headerLabel.do {
-            $0.setLabel(text: "바닐라샷라떼",
-                        alignment: .center,
+            $0.setLabel(alignment: .center,
                         textColor: UIColor(resource: .tsBlack),
                         font: TSFont.b1b)
         }
