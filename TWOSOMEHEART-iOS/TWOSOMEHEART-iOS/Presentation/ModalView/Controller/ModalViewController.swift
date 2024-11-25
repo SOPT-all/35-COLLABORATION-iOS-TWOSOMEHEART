@@ -22,6 +22,7 @@ class ModalViewController: BaseViewController {
         setStyle()
         setupSegments()
         bindData()
+        updatePrice()
     }
     
     override func setHierarchy() {
@@ -52,6 +53,8 @@ class ModalViewController: BaseViewController {
         }
     }
     
+    var price: Int = ModalInfo.modalInfo.price
+    
     func setupSegments() {
         let segments = [modalView.segmentControlStackView.tempSegmentView,
                         modalView.segmentControlStackView.sizeSegmentView,
@@ -68,8 +71,23 @@ class ModalViewController: BaseViewController {
     }
     
     func bindData() {
-        modalView.priceLabel.text = "\(ModalInfo.modalInfo.price)원"
+        modalView.priceLabel.text = "\(price)원"
         modalView.personalOptionListLabel.text = ModalInfo.modalInfo.personalOption
+    }
+    
+}
+
+// MARK :- 가격 변경 로직
+private extension ModalViewController {
+    
+    func updatePrice() {
+        modalView.counterView.onValueChanged = { [weak self] count in
+            guard let self = self else { return }
+            
+            price = (ModalInfo.modalInfo.price)*count
+            let price =  price - (modalView.personalCupButton.isSelected ? 300 : 0)
+            modalView.priceLabel.text = "\(price)원"
+        }
     }
     
 }
@@ -93,7 +111,7 @@ private extension ModalViewController {
             self?.scrollToBottom()
         }
         
-        let price = ModalInfo.modalInfo.price - (modalView.personalCupButton.isSelected ? 300 : 0)
+        let price = price - (modalView.personalCupButton.isSelected ? 300 : 0)
         modalView.priceLabel.text = "\(price)원"
     }
     

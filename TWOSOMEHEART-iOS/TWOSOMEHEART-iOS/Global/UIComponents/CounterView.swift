@@ -20,7 +20,7 @@ class CounterView : UIView {
     
     private let plusButton: UIButton = UIButton()
     
-    private var numberCount: Int = 0 {
+    var numberCount: Int = 0 {
         didSet {
             updateUI()
             onValueChanged?(numberCount)

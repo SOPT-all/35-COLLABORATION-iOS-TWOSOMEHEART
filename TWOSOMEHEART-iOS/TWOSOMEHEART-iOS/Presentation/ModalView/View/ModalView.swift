@@ -44,7 +44,7 @@ class ModalView: UIView {
     
     var priceLabel : UILabel = UILabel()
     
-    private let counterView : CounterView = CounterView(counterType: .modal)
+    let counterView : CounterView = CounterView(counterType: .modal)
     
     var shopButton : UIButton = UIButton()
     
@@ -282,6 +282,10 @@ class ModalView: UIView {
             $0.setLabel(alignment: .center,
                         textColor: UIColor(resource: .tsBlack),
                         font: TSFont.h3b)
+        }
+        
+        counterView.do {
+            $0.numberCount = 1
         }
         
         shopButton.do {
