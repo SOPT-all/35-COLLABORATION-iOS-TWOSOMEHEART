@@ -33,10 +33,32 @@ class MyMenuViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setAddTargets()
         setCollectionView()
         setModal()
     }
-    
+
+    // MARK: - Actions
+
+    @objc private func deleteButtonTapped() {
+        let alertVC = CustomAlertViewController()
+        alertVC.modalPresentationStyle = .custom
+        present(alertVC, animated: false)
+    }
+
+    // MARK: - Helpers
+
+    private func setAddTargets() {
+        myMenuHeaderView.deleteButton.addTarget(
+            self,
+            action: #selector(deleteButtonTapped),
+            for: .touchUpInside
+        )
+    }
+
+    // MARK: - UI
+
     override func setHierarchy() {
         super.setHierarchy()
         view.addSubviews(myMenuHeaderView,

@@ -369,7 +369,7 @@ extension MenuOptionViewController: PriceUpdateDelegate {
     }
 
     private func updateTotalPrice() {
-        let totalPrice = headerItems.reduce(0) { $0 + $1.price }
+        let totalPrice = headerItems.reduce(0) { $0 + $1.price }.formattedPrice()
         totalPriceLabel.text = "\(totalPrice)"
     }
 

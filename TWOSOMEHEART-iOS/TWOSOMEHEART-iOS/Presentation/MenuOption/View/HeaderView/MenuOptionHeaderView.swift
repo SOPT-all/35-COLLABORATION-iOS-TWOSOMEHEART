@@ -170,7 +170,7 @@ private extension MenuOptionHeaderView {
 
     func updatePrice(price: Int) {
         if price > 0 {
-            priceLabel.text = "+ \(price)"
+            priceLabel.text = "+ \(price.formattedPrice())"
         } else {
             priceLabel.text = "\(price)"
         }
