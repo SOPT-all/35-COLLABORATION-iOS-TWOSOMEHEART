@@ -283,6 +283,7 @@
 				059C45322CEE0B5A00FB00DC /* Application */,
 				059C45482CEE0B5A00FB00DC /* Global */,
 				059C454F2CEE0B5A00FB00DC /* Presentation */,
+				7405D6552CF5055000C1FC64 /* Network */,
 			);
 			path = "TWOSOMEHEART-iOS";
 			sourceTree = "<group>";
@@ -358,6 +359,13 @@
 				059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		7405D6552CF5055000C1FC64 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		742A438B2CE88EA700535185 = {
