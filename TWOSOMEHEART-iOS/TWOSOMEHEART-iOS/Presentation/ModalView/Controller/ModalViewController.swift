@@ -63,8 +63,8 @@ class ModalViewController: BaseViewController {
                         modalView.segmentControlStackView.pickupSegmentView]
         
         segments.enumerated().forEach { index, segment in
-            segment.onSelectedStateChanged = { [weak self] isSelected in
-                self?.segmentStates[index] = isSelected
+            segment.onSelectedStateChanged = { [weak self] selectedIndex in
+                self?.segmentStates[index] = (selectedIndex != -1)
                 self?.checkOrderable()
                 self?.checkLongSheet()
             }

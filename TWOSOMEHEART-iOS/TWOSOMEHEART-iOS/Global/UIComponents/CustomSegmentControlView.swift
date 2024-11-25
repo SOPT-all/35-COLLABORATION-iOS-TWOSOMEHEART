@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class CustomSegmentControlView: UIView {
+class CustomSegmentControlView: BaseView {
     
     private var stackView: UIStackView = UIStackView()
     
@@ -21,17 +21,12 @@ class CustomSegmentControlView: UIView {
     private var selectedIndex : Int = -1 {
         didSet {
             updateSegments()
+            onSelectedStateChanged?(selectedIndex)
         }
     }
     
     // TODO: - 트슛 작성
-    private var isSelected: Bool = false {
-        didSet {
-            onSelectedStateChanged?(isSelected)
-        }
-    }
-        
-    var onSelectedStateChanged: ((Bool) -> Void)?
+    var onSelectedStateChanged: ((Int) -> Void)?
     
     init(buttons: [UIButton], segmentType: SegmentType) {
         self.buttons = buttons
@@ -50,20 +45,15 @@ class CustomSegmentControlView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setLayout() {
+    override func setLayout() {
         stackView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
     }
     
-    private func setStyle() {
+    override func setStyle() {
         stackView.do {
-            switch segmentType {
-            case .size, .pickup:
-                $0.setStackView(spacing: 0)
-            default:
-                $0.setStackView(spacing: -1)
-            }
+            $0.setStackView(spacing: segmentType == .size || segmentType == .pickup ? 0 : -1)
         }
         
         buttons.enumerated().forEach { index, button in
@@ -71,24 +61,13 @@ class CustomSegmentControlView: UIView {
                 $0.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
                 $0.tag = index
                 $0.layer.borderWidth = 1
+                $0.layer.cornerRadius = index == 0 || index == buttons.count - 1 ? 5 : 0
+                $0.layer.maskedCorners = maskedCorners(for: index)
                 setPlainButton($0)
-                
-                if index == 0 {
-                    $0.layer.cornerRadius = 5
-                    $0.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
-                } else if index == buttons.count - 1 {
-                    $0.layer.cornerRadius = 5
-                    $0.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-                }
             }
         }
         
-        switch segmentType {
-        case .option:
-            updateSegments()
-        default:
-            return
-        }
+        if segmentType == .option { updateSegments() }
 
     }
     
@@ -100,7 +79,6 @@ private extension CustomSegmentControlView {
     private func buttonTapped(_ sender: UIButton) {
         guard sender.tag != selectedIndex else { return }
         selectedIndex = sender.tag
-        isSelected = true
     }
     
     func updateSegments() {
@@ -114,47 +92,53 @@ private extension CustomSegmentControlView {
 
 private extension CustomSegmentControlView {
     
-    func setTextStyle(_ button: UIButton, attributes: [NSAttributedString.Key: Any]) {
-        button.do {
-            if segmentType == .pickup, let currentTitle = $0.currentAttributedTitle {
-                let titleComponents = currentTitle.string.components(separatedBy: "\n")
-                if titleComponents.count > 1 {
-                    let titleParagraphStyle = NSMutableParagraphStyle()
-                    titleParagraphStyle.alignment = .center
-                    titleParagraphStyle.lineSpacing = 4
-                    
-                    let attributedString = NSMutableAttributedString(
-                        string: titleComponents[0] + "\n",
-                        attributes: attributes
-                    )
-                    
-                    let subtitleParagraphStyle = NSMutableParagraphStyle()
-                    subtitleParagraphStyle.alignment = .center
-                    
-                    var subtitleAttributes = attributes
-                    subtitleAttributes[.font] = UIFont.systemFont(ofSize: (attributes[.font] as? UIFont)?.pointSize ?? 12 - 2)
-                    
-                    let subtitleString = NSAttributedString(
-                        string: titleComponents[1],
-                        attributes: subtitleAttributes
-                    )
-                    
-                    attributedString.append(subtitleString)
-                    $0.setAttributedTitle(attributedString, for: .normal)
-                }
-            } else if let currentTitle = $0.title(for: .normal) {
-                let paragraphStyle = NSMutableParagraphStyle()
-                paragraphStyle.alignment = .center
-                
-                var newAttributes = attributes
-                newAttributes[.paragraphStyle] = paragraphStyle
-                
-                let attributedString = NSAttributedString(
-                    string: currentTitle,
-                    attributes: newAttributes
-                )
-                $0.setAttributedTitle(attributedString, for: .normal)
-            }
+    func maskedCorners(for index: Int) -> CACornerMask {
+        switch index {
+        case 0:
+            return [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        case buttons.count - 1:
+            return [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+        default:
+            return []
+        }
+    }
+    
+    //TODO: - setTextStyle 트슛 작성
+    func setTextStyle(_ button: UIButton,
+                      attributes: [NSAttributedString.Key: Any],
+                      subTitleAttributes: [NSAttributedString.Key: Any]) {
+        if segmentType == .pickup, let currentTitle = button.currentAttributedTitle {
+            let titleComponents = currentTitle.string.components(separatedBy: "\n")
+
+            guard titleComponents.count > 1 else { return }
+
+            let attributedString = NSMutableAttributedString(
+                string: titleComponents[0] + "\n",
+                attributes: attributes
+            )
+
+            let subtitleAttributes = subTitleAttributes
+           
+            let subtitleString = NSAttributedString(
+                string: titleComponents[1],
+                attributes: subtitleAttributes
+            )
+
+            attributedString.append(subtitleString)
+            button.setAttributedTitle(attributedString, for: .normal)
+        } else if let currentTitle = button.title(for: .normal) {
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+
+            var newAttributes = attributes
+            newAttributes[.paragraphStyle] = paragraphStyle
+
+            let attributedString = NSAttributedString(
+                string: currentTitle,
+                attributes: newAttributes
+            )
+
+            button.setAttributedTitle(attributedString, for: .normal)
         }
     }
     
@@ -169,7 +153,15 @@ private extension CustomSegmentControlView {
             .foregroundColor: segmentType.textColor,
             .font: TSFont.c1r
         ]
-        setTextStyle(button, attributes: plainTextAttributes)
+        
+        let plainSubTitleTextAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: segmentType.textColor,
+            .font: TSFont.c2r,
+        ]
+        
+        setTextStyle(button,
+                     attributes: plainTextAttributes,
+                     subTitleAttributes: plainSubTitleTextAttributes)
     }
     
     func setSelectedButton(_ button: UIButton) {
@@ -178,11 +170,20 @@ private extension CustomSegmentControlView {
             $0.layer.borderColor = segmentType.selectedBorderColor[button.tag].cgColor
             $0.isSelected = true
         }
+        
         let selectedTextAttributes: [NSAttributedString.Key: Any] = [
             .foregroundColor: segmentType.selectedTextColor,
             .font: segmentType.selectedTextFont
         ]
-        setTextStyle(button, attributes: selectedTextAttributes)
+        
+        let selectedSubTitleTextAttributes: [NSAttributedString.Key: Any] = [
+            .foregroundColor: segmentType.selectedTextColor,
+            .font: TSFont.c2r,
+        ]
+        
+        setTextStyle(button,
+                     attributes: selectedTextAttributes,
+                     subTitleAttributes: selectedSubTitleTextAttributes)
     }
     
 }

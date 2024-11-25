@@ -58,7 +58,6 @@ class SegmentButtonFactory {
                 let subtitleString = NSAttributedString(
                     string: subTitle,
                     attributes: [
-                        //TODO: - subTitle 폰트 적용 안됨
                         .font: TSFont.c2r,
                         .paragraphStyle: subtitleParagraphStyle
                     ]
