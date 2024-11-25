@@ -402,7 +402,6 @@
 		7405D65D2CF5090300C1FC64 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				7405D66B2CF513CC00C1FC64 /* DTO.swift */,
 				7405D6612CF50EF200C1FC64 /* TSPlugin.swift */,
 				7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */,
 				7405D65C2CF5090300C1FC64 /* Config.swift */,
@@ -423,6 +422,7 @@
 		7405D66D2CF5148500C1FC64 /* DTO */ = {
 			isa = PBXGroup;
 			children = (
+				7405D66B2CF513CC00C1FC64 /* DTO.swift */,
 				7405D66F2CF514CE00C1FC64 /* Response */,
 				7405D66E2CF514C600C1FC64 /* Request */,
 			);

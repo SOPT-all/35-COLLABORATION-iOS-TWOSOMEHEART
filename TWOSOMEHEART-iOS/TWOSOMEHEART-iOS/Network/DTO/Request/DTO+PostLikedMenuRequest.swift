@@ -25,7 +25,7 @@ extension DTO.PostLikedMenuRequest {
         let size: Int
         let coffeeBean: Int
         let togo: Int
-        let personal: Bool
+        let personal: Bool?
     }
     
 }

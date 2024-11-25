@@ -45,7 +45,13 @@ extension APITarget.Menu: TargetType {
             return .requestPlain
         case .postLikedMenu(let postLikedMenuRequest):
             return .requestParameters(
-                parameters: ["likedMenuInfo": postLikedMenuRequest.likedMenuInfo],
+                parameters: ["name": postLikedMenuRequest.likedMenuInfo.name,
+                             "price": postLikedMenuRequest.likedMenuInfo.price,
+                             "temperature": postLikedMenuRequest.likedMenuInfo.temperature,
+                             "size": postLikedMenuRequest.likedMenuInfo.size,
+                             "coffeeBean": postLikedMenuRequest.likedMenuInfo.coffeeBean,
+                             "togo": postLikedMenuRequest.likedMenuInfo.togo,
+                             "personal": postLikedMenuRequest.likedMenuInfo.personal],
                 encoding: URLEncoding.default
             )
         }

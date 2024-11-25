@@ -24,9 +24,9 @@ extension DTO.GetMenuInfoResponse {
         let status: String
         let description: String
         let price: Int
-        let caution: String
+        let caution: String?
         let nutrition: String
-        let allergy: String
+        let allergy: String?
         let image_url: String
     }
     
