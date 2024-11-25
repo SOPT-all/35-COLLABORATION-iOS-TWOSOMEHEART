@@ -135,6 +135,14 @@
 		B8D1B4262CEF8A97008B3871 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		7405D6582CF5059700C1FC64 /* Base */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Base;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		742A43912CE88EA700535185 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -364,6 +372,7 @@
 		7405D6552CF5055000C1FC64 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				7405D6582CF5059700C1FC64 /* Base */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -535,6 +544,9 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				7405D6582CF5059700C1FC64 /* Base */,
+			);
 			name = "TWOSOMEHEART-iOS";
 			packageProductDependencies = (
 				742A43C92CE8918600535185 /* SnapKit */,
@@ -680,6 +692,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = 223.130.135.50;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JC4Z3JLFF7;
@@ -707,6 +720,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				BASE_URL = 223.130.135.50;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JC4Z3JLFF7;
