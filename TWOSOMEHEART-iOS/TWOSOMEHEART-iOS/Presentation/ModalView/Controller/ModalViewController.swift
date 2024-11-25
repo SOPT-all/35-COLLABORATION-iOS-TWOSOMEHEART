@@ -37,6 +37,7 @@ class ModalViewController: BaseViewController {
     
     override func setStyle() {
         modalView.personalCupButton.addTarget(self, action: #selector(personalCupButtonTapped), for: .touchUpInside)
+        modalView.personalOptionButton.addTarget(self, action: #selector(personalOptionButtonTapped), for: .touchUpInside)
     }
     
     private var segmentStates: [Bool] = Array(repeating: false, count: 4)
@@ -160,4 +161,16 @@ private extension ModalViewController {
         )
         modalView.scrollView.setContentOffset(bottomOffset, animated: true)
     }
+}
+
+// MARK: - MenuOptionVC로 이동
+private extension ModalViewController {
+    
+    @objc
+    func personalOptionButtonTapped() {
+        let menuOptionVC = MenuOptionViewController()
+        menuOptionVC.modalPresentationStyle = .fullScreen
+        present(menuOptionVC, animated: true)
+    }
+    
 }

@@ -30,7 +30,7 @@ class ModalView: UIView {
     
     let personalCupExplainLabel : UILabel = UILabel()
     
-    private let personalOptionButton : UIButton = UIButton()
+    let personalOptionButton : UIButton = UIButton()
     
     private let personalOptionLabel : UILabel = UILabel()
     
