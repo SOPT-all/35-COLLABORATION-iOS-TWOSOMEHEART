@@ -73,7 +73,7 @@ class ModalViewController: BaseViewController {
     
     func bindData() {
         modalView.headerLabel.text = ModalInfo.modalInfo.menuName
-        modalView.priceLabel.text = "\(price)원"
+        modalView.priceLabel.text = "\(price.formattedPrice())원"
         modalView.personalOptionListLabel.text = ModalInfo.modalInfo.personalOption
     }
     
@@ -90,7 +90,7 @@ private extension ModalViewController {
             
             price = (ModalInfo.modalInfo.price)*count
             let price =  price - (modalView.personalCupButton.isSelected ? 300 : 0)
-            modalView.priceLabel.text = "\(price)원"
+            modalView.priceLabel.text = "\(price.formattedPrice())원"
         }
     }
     
@@ -116,7 +116,7 @@ private extension ModalViewController {
         }
         
         let price = price - (modalView.personalCupButton.isSelected ? 300 : 0)
-        modalView.priceLabel.text = "\(price)원"
+        modalView.priceLabel.text = "\(price.formattedPrice())원"
     }
     
 }
