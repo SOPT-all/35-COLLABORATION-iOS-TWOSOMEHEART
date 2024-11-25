@@ -43,6 +43,7 @@
 		059C46412CEF383A00FB00DC /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46402CEF383A00FB00DC /* Aliases.swift */; };
 		059C46432CEF406900FB00DC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46422CEF406900FB00DC /* BaseView.swift */; };
 		05F736BA2CF0659D0030B7F5 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */; };
+		7405D65E2CF5090300C1FC64 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65C2CF5090300C1FC64 /* Config.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
 		74503A202CF420C800FE117F /* SheetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A1F2CF420C200FE117F /* SheetUtils.swift */; };
@@ -109,6 +110,7 @@
 		059C46402CEF383A00FB00DC /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		059C46422CEF406900FB00DC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		7405D65C2CF5090300C1FC64 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74503A1F2CF420C200FE117F /* SheetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetUtils.swift; sourceTree = "<group>"; };
 		74503A232CF4480900FE117F /* ModalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfo.swift; sourceTree = "<group>"; };
@@ -134,14 +136,6 @@
 		B8D1B41E2CEF8A80008B3871 /* MyMenuModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuModalView.swift; sourceTree = "<group>"; };
 		B8D1B4262CEF8A97008B3871 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		7405D6582CF5059700C1FC64 /* Base */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Base;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		742A43912CE88EA700535185 /* Frameworks */ = {
@@ -372,9 +366,17 @@
 		7405D6552CF5055000C1FC64 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7405D6582CF5059700C1FC64 /* Base */,
+				7405D65D2CF5090300C1FC64 /* Base */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		7405D65D2CF5090300C1FC64 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				7405D65C2CF5090300C1FC64 /* Config.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		742A438B2CE88EA700535185 = {
@@ -544,9 +546,6 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				7405D6582CF5059700C1FC64 /* Base */,
-			);
 			name = "TWOSOMEHEART-iOS";
 			packageProductDependencies = (
 				742A43C92CE8918600535185 /* SnapKit */,
@@ -653,6 +652,7 @@
 				059C45872CEE1A9F00FB00DC /* MenuOptionViewController.swift in Sources */,
 				059C45762CEE10D800FB00DC /* MenuOption.swift in Sources */,
 				059C457A2CEE16A200FB00DC /* MenuOptionHeaderView.swift in Sources */,
+				7405D65E2CF5090300C1FC64 /* Config.swift in Sources */,
 				059C455B2CEE0B5A00FB00DC /* SegmentType.swift in Sources */,
 				059C455C2CEE0B5A00FB00DC /* ScreenUtils.swift in Sources */,
 				B8B04A962CF0722400B9777B /* MenuInfoTableViewCell.swift in Sources */,
