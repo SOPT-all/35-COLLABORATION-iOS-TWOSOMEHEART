@@ -24,7 +24,14 @@ class CustomSegmentControlView: UIView {
         }
     }
     
-    private var onSegmentSelect: ((Int)->Void)?
+    // TODO: - 트슛 작성
+    private var isSelected: Bool = false {
+        didSet {
+            onSelectedStateChanged?(isSelected)
+        }
+    }
+        
+    var onSelectedStateChanged: ((Bool) -> Void)?
     
     init(buttons: [UIButton], segmentType: SegmentType) {
         self.buttons = buttons
@@ -37,7 +44,6 @@ class CustomSegmentControlView: UIView {
         
         setLayout()
         setStyle()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -94,6 +100,7 @@ private extension CustomSegmentControlView {
     private func buttonTapped(_ sender: UIButton) {
         guard sender.tag != selectedIndex else { return }
         selectedIndex = sender.tag
+        isSelected = true
     }
     
     func updateSegments() {

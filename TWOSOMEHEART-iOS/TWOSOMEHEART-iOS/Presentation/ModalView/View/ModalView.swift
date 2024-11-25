@@ -20,7 +20,7 @@ class ModalView: UIView {
     
     private let contentView : UIView = UIView()
     
-    private let segmentControlStackView : SegmentControlStackView = SegmentControlStackView()
+    let segmentControlStackView : SegmentControlStackView = SegmentControlStackView()
     
     let personalCupButton : UIButton = UIButton()
     
@@ -46,11 +46,11 @@ class ModalView: UIView {
     
     private let counterView : CounterView = CounterView(counterType: .modal)
     
-    private let shopButton : UIButton = UIButton()
+    var shopButton : UIButton = UIButton()
     
-    private let starButton : UIButton = UIButton()
+    var starButton : UIButton = UIButton()
     
-    private let orderButton : UIButton = UIButton()
+    var orderButton : UIButton = UIButton()
     
     init() {
         super.init(frame: .zero)
@@ -286,23 +286,25 @@ class ModalView: UIView {
         }
         
         shopButton.do {
+            $0.isEnabled = false
             $0.setImage(.modalShopDisable, for: .disabled)
             $0.setImage(.modalShopAble, for: .normal)
-            $0.backgroundColor = UIColor(resource: .red40)
+            $0.backgroundColor = UIColor(resource: .red40).withAlphaComponent(0.4)
         }
         
         starButton.do {
+            $0.isEnabled = false
             $0.setImage(.modalStarDisable, for: .disabled)
             $0.setImage(.modalStarAble, for: .normal)
-            $0.layer.borderColor = UIColor(resource: .red40).cgColor
+            $0.layer.borderColor = UIColor(resource: .red40).withAlphaComponent(0.4).cgColor
             $0.layer.borderWidth = 1
         }
         
         orderButton.do {
-            $0.backgroundColor = UIColor(resource: .tsBlack)
             $0.setTitle("주문하기", for: .normal)
             $0.titleLabel?.font = TSFont.btn1s
-            $0.titleLabel?.textColor = UIColor(resource: .tsWhite)
+            $0.titleLabel?.textColor = UIColor(resource: .gray50)
+            $0.backgroundColor = UIColor(resource: .gray20)
         }
         
     }

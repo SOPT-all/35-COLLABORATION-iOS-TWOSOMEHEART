@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class SegmentControlStackView : UIStackView {
+class SegmentControlStackView: UIStackView {
     
     private var tempSegmentControlView: UIView
     
@@ -19,6 +19,14 @@ class SegmentControlStackView : UIStackView {
     private var beanSegmentControlView: UIView
     
     private var pickupSegmentControlView: UIView
+    
+    lazy var tempSegmentView = CustomSegmentControlView(buttons: tempButtons, segmentType: .temp)
+    
+    lazy var sizeSegmentView = CustomSegmentControlView(buttons: sizeButtons, segmentType: .size)
+    
+    lazy var beanSegmentView = CustomSegmentControlView(buttons: beanButtons, segmentType: .bean)
+    
+    lazy var pickupSegmentView = CustomSegmentControlView(buttons: pickupButtons, segmentType: .pickup)
     
     var tempButtons = [
         SegmentButtonFactory.makeSegmentButton(type: .temp, title: "핫"),
@@ -91,18 +99,19 @@ class SegmentControlStackView : UIStackView {
         self.backgroundColor = UIColor(resource: .tsWhite)
         self.isUserInteractionEnabled = true
         
-        tempSegmentControlView = makeSegmentControlView(text: "온도", buttons: tempButtons, segmentType: .temp)
-        sizeSegmentControlView = makeSegmentControlView(text: "사이즈", buttons: sizeButtons, segmentType: .size)
-        beanSegmentControlView = makeSegmentControlView(text: "원두", buttons: beanButtons, segmentType: .bean)
-        pickupSegmentControlView = makeSegmentControlView(text: "픽업방식", buttons: pickupButtons, segmentType: .pickup)
+        tempSegmentControlView = makeSegmentControlView(text: "온도", segmentType: .temp, segmentView: tempSegmentView)
+        sizeSegmentControlView = makeSegmentControlView(text: "사이즈", segmentType: .size, segmentView: sizeSegmentView)
+        beanSegmentControlView = makeSegmentControlView(text: "원두", segmentType: .bean, segmentView: beanSegmentView)
+        pickupSegmentControlView = makeSegmentControlView(text: "픽업방식", segmentType: .pickup, segmentView: pickupSegmentView)
     }
     
-    private func makeSegmentControlView(text: String, buttons: [UIButton], segmentType: SegmentType) -> UIView {
+    private func makeSegmentControlView(text: String,
+                                        segmentType: SegmentType,
+                                        segmentView: CustomSegmentControlView) -> UIView {
         let view = UIView()
         let label = makeSegmentLabel(text: text)
         let infoImageView = UIImageView(image: .modalCaution)
-        var segmentView = CustomSegmentControlView(buttons: buttons,
-                                                   segmentType: segmentType)
+        let segmentView = segmentView
         
         switch segmentType {
         case .temp, .size:
@@ -146,4 +155,3 @@ class SegmentControlStackView : UIStackView {
     }
 
 }
-
