@@ -18,7 +18,7 @@ class ModalView: UIView {
     
     let scrollView : UIScrollView = UIScrollView()
     
-    private let contentView : UIView = UIView()
+    let contentView : UIView = UIView()
     
     let segmentControlStackView : SegmentControlStackView = SegmentControlStackView()
     

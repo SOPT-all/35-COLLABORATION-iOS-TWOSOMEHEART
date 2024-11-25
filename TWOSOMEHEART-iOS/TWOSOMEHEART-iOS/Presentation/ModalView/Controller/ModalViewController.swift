@@ -37,13 +37,6 @@ class ModalViewController: BaseViewController {
         modalView.personalCupButton.addTarget(self, action: #selector(personalCupButtonTapped), for: .touchUpInside)
     }
     
-    @objc
-    func personalCupButtonTapped() {
-        modalView.personalCupButton.isSelected.toggle()
-        modalView.personalCupPriceLabel.isHidden.toggle()
-        modalView.personalCupExplainLabel.isHidden.toggle()
-    }
-    
     private var segmentStates: [Bool] = Array(repeating: false, count: 4)
     
     var isOrderable: Bool = false {
@@ -58,10 +51,6 @@ class ModalViewController: BaseViewController {
         }
     }
     
-}
-
-// MARK :- OrderUI 활성화 로직
-extension ModalViewController {
     func setupSegments() {
         let segments = [modalView.segmentControlStackView.tempSegmentView,
                         modalView.segmentControlStackView.sizeSegmentView,
@@ -76,15 +65,38 @@ extension ModalViewController {
             }
         }
     }
+    
+}
 
+// MARK :- 체크박스 선택 로직
+private extension ModalViewController {
+    
+    @objc
+    func personalCupButtonTapped() {
+        modalView.personalCupButton.isSelected.toggle()
+        modalView.personalCupPriceLabel.isHidden.toggle()
+        modalView.personalCupExplainLabel.isHidden.toggle()
+        modalView.contentView.snp.remakeConstraints {
+            $0.verticalEdges.equalTo(modalView.scrollView.contentLayoutGuide)
+            $0.width.equalTo(modalView.scrollView.frameLayoutGuide)
+            $0.height.equalTo(modalView.personalCupButton.isSelected ? 572 : 552)
+        }
+        
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.modalView.layoutIfNeeded()
+            self?.scrollToBottom()
+        }
+    }
+    
+}
+
+// MARK :- OrderUI 활성화 로직
+private extension ModalViewController {
+    
     func checkOrderable() {
         isOrderable = segmentStates.allSatisfy { $0 }
     }
     
-    func checkLongSheet() {
-        isLongSheet = (segmentStates.filter { $0 }.count >= 1)
-    }
-
     func updateOrderUI() {
         modalView.shopButton.isEnabled = isOrderable
         modalView.starButton.isEnabled = isOrderable
@@ -100,9 +112,21 @@ extension ModalViewController {
             modalView.orderButton.backgroundColor = UIColor(resource: .gray20)
         }
     }
+}
+
+// MARK :- 하나 이상의 옵션 선택 시 Sheet Layout 변경 로직
+private extension ModalViewController {
+    
+    func checkLongSheet() {
+        isLongSheet = (segmentStates.filter { $0 }.count >= 1)
+    }
     
     func updateSheetLayout() {
         isLongSheet ? setLongSheetLayout() : setSheetLayout()
+        scrollToBottom()
+    }
+    
+    func scrollToBottom() {
         let bottomOffset = CGPoint(
            x: 0,
            y: modalView.scrollView.contentSize.height - modalView.scrollView.bounds.height
