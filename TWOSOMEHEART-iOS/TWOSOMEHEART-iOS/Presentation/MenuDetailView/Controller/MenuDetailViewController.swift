@@ -17,7 +17,7 @@ class MenuDetailViewController: BaseViewController {
     private let menuDetailBottomView = MenuDetailBottomView()
     
     // MARK: - Properties
-    private let menuItem = MenuDetail.menuItems.first
+    private let menuItem = MenuDetail.menuItems[0]
     private var isExpanded: Bool = false
     
     // MARK: - View Lifecycle
@@ -88,7 +88,7 @@ extension MenuDetailViewController: NutritionHeaderTableViewCellDelegate {
         isExpanded.toggle()
         tableView.reloadData()
         
-        tableView.performBatchUpdates(nil) { _ in
+        DispatchQueue.main.async {
             let indexPath = IndexPath(row: 1, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
         }
@@ -109,9 +109,7 @@ extension MenuDetailViewController: UITableViewDataSource {
                 for: indexPath
             ) as? MenuInfoTableViewCell else { return UITableViewCell() }
             
-            if let menuItem = menuItem {
-                menuInfoCell.bind(menuItem)
-            }
+            menuInfoCell.bind(menuItem)
             menuInfoCell.selectionStyle = .none
             
             return menuInfoCell
@@ -125,8 +123,8 @@ extension MenuDetailViewController: UITableViewDataSource {
             headerCell.delegate = self
             headerCell.isExpanded = isExpanded
             headerCell.configureGesture(delegate: self)
-            
             headerCell.selectionStyle = .none
+           
             return headerCell
             
         case 2:
@@ -136,11 +134,9 @@ extension MenuDetailViewController: UITableViewDataSource {
                     for: indexPath
                 ) as? NutritionInfoTableViewCell else { return UITableViewCell() }
                 
-                if let menuItem = menuItem {
-                    nutritionInfoCell.bind(menuItem)
-                }
-                
+                nutritionInfoCell.bind(menuItem)
                 nutritionInfoCell.selectionStyle = .none
+                
                 return nutritionInfoCell
             } else {
                 guard let allergyInfoCell = tableView.dequeueReusableCell(
@@ -148,11 +144,9 @@ extension MenuDetailViewController: UITableViewDataSource {
                     for: indexPath
                 ) as? AllergyTableViewCell else { return UITableViewCell() }
                 
-                if let allergy = menuItem?.allergy {
-                    allergyInfoCell.bind(allergy: allergy)
-                }
-                
+                allergyInfoCell.bind(allergy: menuItem.allergy)
                 allergyInfoCell.selectionStyle = .none
+                
                 return allergyInfoCell
             }
             
@@ -161,11 +155,9 @@ extension MenuDetailViewController: UITableViewDataSource {
                 withIdentifier: AllergyTableViewCell.identifier,
                 for: indexPath
             ) as? AllergyTableViewCell else { return UITableViewCell() }
-            allergyInfoCell.selectionStyle = .none
             
-            if let allergy = menuItem?.allergy {
-                allergyInfoCell.bind(allergy: allergy)
-            }
+            allergyInfoCell.selectionStyle = .none
+            allergyInfoCell.bind(allergy: menuItem.allergy)
             
             return allergyInfoCell
             

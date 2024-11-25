@@ -16,28 +16,18 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
     weak var delegate: NutritionHeaderTableViewCellDelegate?
     
     // MARK: - UI Components
-    private let nutrionInfoLabel = UILabel()
+    private let nutritionInfoLabel = UILabel()
     lazy var detailArrowImageView = UIImageView()
-    private let seperateLineView = UIView()
+    private let seperatorLineView = UIView()
     
     // MARK: - Properties
     
     var isExpanded: Bool = false
     
-    // MARK: - Initializer
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - Style, UI, Layout
     
     override func setStyle(){
-        nutrionInfoLabel.do {
+        nutritionInfoLabel.do {
             $0.setLabel(
                 text: SLMenuDetail.nutrionInfo,
                 alignment: .left,
@@ -51,21 +41,24 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
             $0.isUserInteractionEnabled = true
         }
         
-        seperateLineView.do {
+        seperatorLineView.do {
             $0.backgroundColor = UIColor(resource: .gray10)
         }
     }
     
     override func setHierarchy() {
-        contentView.addSubviews(nutrionInfoLabel, detailArrowImageView, seperateLineView)
+        contentView.addSubviews(
+            nutritionInfoLabel,
+            detailArrowImageView,
+            seperatorLineView
+        )
     }
     
     override func setLayout() {
-        nutrionInfoLabel.snp.makeConstraints {
+        nutritionInfoLabel.snp.makeConstraints {
             $0.top.trailing.equalToSuperview()
             $0.leading.equalToSuperview().inset(16)
             $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().offset(16)
         }
         
         detailArrowImageView.snp.makeConstraints {
@@ -73,7 +66,7 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
             $0.trailing.equalToSuperview().inset(16)
         }
         
-        seperateLineView.snp.makeConstraints{
+        seperatorLineView.snp.makeConstraints{
             $0.height.equalTo(1)
             $0.horizontalEdges.bottom.equalToSuperview()
         }
@@ -96,6 +89,6 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
         
         let imageFile = isExpanded ? UIImage(resource: .detailArrowUp): UIImage(resource: .detailArrowDown)
         detailArrowImageView.image = imageFile
-        seperateLineView.isHidden = isExpanded
+        seperatorLineView.isHidden = isExpanded
     }
 }

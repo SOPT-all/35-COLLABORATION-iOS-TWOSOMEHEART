@@ -18,17 +18,7 @@ class MenuInfoTableViewCell: BaseTableViewCell {
     private let priceLabel = UILabel()
     private let cautionLabel = UILabel()
     private let cautionLabel2 = UILabel()
-    private let seperateLineView = UIView()
-    
-    
-    // MARK: - Initializer
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    private let seperatorLineView = UIView()
     
     // MARK: - Style, UI, Layout
     override func setStyle(){
@@ -97,7 +87,7 @@ class MenuInfoTableViewCell: BaseTableViewCell {
             $0.clipsToBounds = true
         }
         
-        seperateLineView.do {
+        seperatorLineView.do {
             $0.backgroundColor = UIColor(resource: .gray20)
         }
     }
@@ -110,7 +100,7 @@ class MenuInfoTableViewCell: BaseTableViewCell {
                                 priceLabel,
                                 cautionLabel,
                                 cautionLabel2,
-                                seperateLineView
+                                seperatorLineView
         )
     }
     
@@ -157,26 +147,28 @@ class MenuInfoTableViewCell: BaseTableViewCell {
             $0.height.equalTo(20)
         }
         
-        seperateLineView.snp.makeConstraints {
+        seperatorLineView.snp.makeConstraints {
             $0.top.equalTo(cautionLabel2.snp.bottom).offset(12)
             $0.horizontalEdges.bottom.equalToSuperview()
             $0.height.equalTo(4)
         }
     }
     
+    // MARK: - Helper
+    private func configureCautionLabels(with caution: [CautionType]){
+        cautionLabel.isHidden = caution.isEmpty
+        cautionLabel.text = caution[0].rawValue
+        cautionLabel2.isHidden = caution.count <= 1
+        cautionLabel2.text = caution.count > 1 ? caution[1].rawValue : nil
+    }
+    
     // MARK: - Bind
     func bind(_ menuDetail: MenuDetail) {
         menuImageView.image = menuDetail.imageURL
-        statusLabel.text = menuDetail.status
-        statusLabel.text = menuDetail.status
+        statusLabel.text = menuDetail.status.rawValue
         menuNameLabel.text = menuDetail.name
         menuDescriptionLabel.text = menuDetail.description
         priceLabel.text = "\(menuDetail.price.formattedPrice())원"
-        
-        let cautions = menuDetail.caution.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
-        cautionLabel.isHidden = cautions.isEmpty
-        cautionLabel.text = cautions.first
-        cautionLabel2.isHidden = cautions.count <= 1
-        cautionLabel2.text = cautions.count > 1 ? cautions[1] : nil
+        configureCautionLabels(with: menuDetail.caution)
     }
 }
