@@ -21,6 +21,7 @@ class ModalViewController: BaseViewController {
         setLayout()
         setStyle()
         setupSegments()
+        bindData()
     }
     
     override func setHierarchy() {
@@ -66,6 +67,11 @@ class ModalViewController: BaseViewController {
         }
     }
     
+    func bindData() {
+        modalView.priceLabel.text = "\(ModalInfo.modalInfo.price)원"
+        modalView.personalOptionListLabel.text = ModalInfo.modalInfo.personalOption
+    }
+    
 }
 
 // MARK :- 체크박스 선택 로직
@@ -86,6 +92,9 @@ private extension ModalViewController {
             self?.modalView.layoutIfNeeded()
             self?.scrollToBottom()
         }
+        
+        let price = ModalInfo.modalInfo.price - (modalView.personalCupButton.isSelected ? 300 : 0)
+        modalView.priceLabel.text = "\(price)원"
     }
     
 }

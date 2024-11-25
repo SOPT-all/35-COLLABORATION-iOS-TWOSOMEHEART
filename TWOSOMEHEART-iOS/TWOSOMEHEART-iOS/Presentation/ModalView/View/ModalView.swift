@@ -42,7 +42,7 @@ class ModalView: UIView {
     
     private let blackLineView : UIView = UIView()
     
-    private var priceLabel : UILabel = UILabel()
+    var priceLabel : UILabel = UILabel()
     
     private let counterView : CounterView = CounterView(counterType: .modal)
     
@@ -279,8 +279,7 @@ class ModalView: UIView {
         }
         
         priceLabel.do {
-            $0.setLabel(text: "5900원",
-                        alignment: .center,
+            $0.setLabel(alignment: .center,
                         textColor: UIColor(resource: .tsBlack),
                         font: TSFont.h3b)
         }
