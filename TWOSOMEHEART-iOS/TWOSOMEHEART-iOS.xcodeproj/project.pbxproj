@@ -44,6 +44,7 @@
 		059C46432CEF406900FB00DC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46422CEF406900FB00DC /* BaseView.swift */; };
 		05F736BA2CF0659D0030B7F5 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */; };
 		7405D65E2CF5090300C1FC64 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65C2CF5090300C1FC64 /* Config.swift */; };
+		7405D6602CF50DCA00C1FC64 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
 		74503A202CF420C800FE117F /* SheetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A1F2CF420C200FE117F /* SheetUtils.swift */; };
@@ -111,6 +112,7 @@
 		059C46422CEF406900FB00DC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		7405D65C2CF5090300C1FC64 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74503A1F2CF420C200FE117F /* SheetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetUtils.swift; sourceTree = "<group>"; };
 		74503A232CF4480900FE117F /* ModalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfo.swift; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 		7405D65D2CF5090300C1FC64 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */,
 				7405D65C2CF5090300C1FC64 /* Config.swift */,
 			);
 			path = Base;
@@ -670,6 +673,7 @@
 				059C46432CEF406900FB00DC /* BaseView.swift in Sources */,
 				059C45852CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift in Sources */,
 				059C457E2CEE18EF00FB00DC /* MenuOptionShotCell.swift in Sources */,
+				7405D6602CF50DCA00C1FC64 /* NetworkResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
