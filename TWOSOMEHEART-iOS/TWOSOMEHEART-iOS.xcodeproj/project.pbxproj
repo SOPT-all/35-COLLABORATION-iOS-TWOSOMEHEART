@@ -55,6 +55,13 @@
 		B8B04B032CF4900800B9777B /* MenuDetailSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04B012CF4900800B9777B /* MenuDetailSectionType.swift */; };
 		B8B04B052CF4960600B9777B /* MenuStatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04B042CF4960600B9777B /* MenuStatusType.swift */; };
 		B8B04B072CF4962F00B9777B /* CautionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04B062CF4962F00B9777B /* CautionType.swift */; };
+		74503A202CF420C800FE117F /* SheetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A1F2CF420C200FE117F /* SheetUtils.swift */; };
+		74503A242CF4481000FE117F /* ModalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A232CF4480900FE117F /* ModalInfo.swift */; };
+		746401E92CF0E7CF0042A302 /* SegmentButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746401E82CF0E7C60042A302 /* SegmentButtonFactory.swift */; };
+		74AEDF342CEFA0F800EB13A2 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEDF312CEFA0F800EB13A2 /* ModalView.swift */; };
+		74AEDF352CEFA0F800EB13A2 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEDF2E2CEFA0F800EB13A2 /* ModalViewController.swift */; };
+		74AEDF372CEFA43800EB13A2 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEDF362CEFA43800EB13A2 /* UIViewController+.swift */; };
+		74AEDF3B2CF0951700EB13A2 /* SegmentControlStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEDF3A2CF0951000EB13A2 /* SegmentControlStackView.swift */; };
 		B8D1B4212CEF8A80008B3871 /* MyMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41D2CEF8A80008B3871 /* MyMenuHeaderView.swift */; };
 		B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41B2CEF8A80008B3871 /* MyMenuCollectionViewCell.swift */; };
 		B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */; };
@@ -112,6 +119,13 @@
 		B8B04B012CF4900800B9777B /* MenuDetailSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailSectionType.swift; sourceTree = "<group>"; };
 		B8B04B042CF4960600B9777B /* MenuStatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStatusType.swift; sourceTree = "<group>"; };
 		B8B04B062CF4962F00B9777B /* CautionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CautionType.swift; sourceTree = "<group>"; };
+		74503A1F2CF420C200FE117F /* SheetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetUtils.swift; sourceTree = "<group>"; };
+		74503A232CF4480900FE117F /* ModalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfo.swift; sourceTree = "<group>"; };
+		746401E82CF0E7C60042A302 /* SegmentButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentButtonFactory.swift; sourceTree = "<group>"; };
+		74AEDF2E2CEFA0F800EB13A2 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		74AEDF312CEFA0F800EB13A2 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		74AEDF362CEFA43800EB13A2 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		74AEDF3A2CF0951000EB13A2 /* SegmentControlStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlStackView.swift; sourceTree = "<group>"; };
 		B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
 		B8D1B4192CEF8A80008B3871 /* MyMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuItem.swift; sourceTree = "<group>"; };
 		B8D1B41B2CEF8A80008B3871 /* MyMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -153,6 +167,7 @@
 				B8D1B4262CEF8A97008B3871 /* Int+.swift */,
 				059C45362CEE0B5A00FB00DC /* UIView+.swift */,
 				059C45672CEE0E6600FB00DC /* ReusableIdentifier+.swift */,
+				74AEDF362CEFA43800EB13A2 /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -199,6 +214,8 @@
 		059C45472CEE0B5A00FB00DC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				74503A1F2CF420C200FE117F /* SheetUtils.swift */,
+				746401E82CF0E7C60042A302 /* SegmentButtonFactory.swift */,
 				059C45442CEE0B5A00FB00DC /* Enums */,
 				059C46402CEF383A00FB00DC /* Aliases.swift */,
 				059C45452CEE0B5A00FB00DC /* ScreenUtils.swift */,
@@ -249,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				B8B04A892CF0520900B9777B /* MenuDetailView */,
+				74AEDF332CEFA0F800EB13A2 /* ModalView */,
 				B8D1B4202CEF8A80008B3871 /* MyMenuView */,
 				059C45692CEE0F3A00FB00DC /* MenuOption */,
 				059C454B2CEE0B5A00FB00DC /* Base */,
@@ -413,6 +431,41 @@
 			path = Type;
 			sourceTree = "<group>";
 		};
+		74AEDF2F2CEFA0F800EB13A2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				74AEDF2E2CEFA0F800EB13A2 /* ModalViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		74AEDF302CEFA0F800EB13A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				74503A232CF4480900FE117F /* ModalInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		74AEDF322CEFA0F800EB13A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74AEDF3A2CF0951000EB13A2 /* SegmentControlStackView.swift */,
+				74AEDF312CEFA0F800EB13A2 /* ModalView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		74AEDF332CEFA0F800EB13A2 /* ModalView */ = {
+			isa = PBXGroup;
+			children = (
+				74AEDF2F2CEFA0F800EB13A2 /* Controller */,
+				74AEDF302CEFA0F800EB13A2 /* Model */,
+				74AEDF322CEFA0F800EB13A2 /* View */,
+			);
+			path = ModalView;
+			sourceTree = "<group>";
+		};
 		B8D1B4182CEF8A80008B3871 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -559,16 +612,19 @@
 				B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */,
 				B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */,
 				B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */,
+				74503A202CF420C800FE117F /* SheetUtils.swift in Sources */,
 				B8D1B4242CEF8A80008B3871 /* MyMenuModalView.swift in Sources */,
 				B8D1B4252CEF8A80008B3871 /* MyMenuItem.swift in Sources */,
 				059C45572CEE0B5A00FB00DC /* TSFont.swift in Sources */,
 				059C45742CEE107700FB00DC /* MenuOptionHeader.swift in Sources */,
+				74AEDF3B2CF0951700EB13A2 /* SegmentControlStackView.swift in Sources */,
 				059C45582CEE0B5A00FB00DC /* CounterView.swift in Sources */,
 				B8B04B032CF4900800B9777B /* MenuDetailSectionType.swift in Sources */,
 				059C45592CEE0B5A00FB00DC /* CustomSegmentControlView.swift in Sources */,
 				05F736BA2CF0659D0030B7F5 /* CustomAlertViewController.swift in Sources */,
 				059C45812CEE199300FB00DC /* MenuOptionSyrupCell.swift in Sources */,
 				059C455A2CEE0B5A00FB00DC /* CounterType.swift in Sources */,
+				746401E92CF0E7CF0042A302 /* SegmentButtonFactory.swift in Sources */,
 				B8D1B4272CEF8A97008B3871 /* Int+.swift in Sources */,
 				059C45872CEE1A9F00FB00DC /* MenuOptionViewController.swift in Sources */,
 				059C45762CEE10D800FB00DC /* MenuOption.swift in Sources */,
@@ -580,9 +636,13 @@
 				B8B04A8A2CF0520900B9777B /* MenuDetailViewController.swift in Sources */,
 				B8B04A8F2CF0520900B9777B /* MenuDetail.swift in Sources */,
 				059C455E2CEE0B5A00FB00DC /* BaseNavViewController.swift in Sources */,
+				74503A242CF4481000FE117F /* ModalInfo.swift in Sources */,
 				059C455F2CEE0B5A00FB00DC /* BaseViewController.swift in Sources */,
 				B8B04A9A2CF0772300B9777B /* NutritionHeaderTableViewCell.swift in Sources */,
 				059C45602CEE0B5A00FB00DC /* ViewController.swift in Sources */,
+				74AEDF342CEFA0F800EB13A2 /* ModalView.swift in Sources */,
+				74AEDF352CEFA0F800EB13A2 /* ModalViewController.swift in Sources */,
+				74AEDF372CEFA43800EB13A2 /* UIViewController+.swift in Sources */,
 				059C46432CEF406900FB00DC /* BaseView.swift in Sources */,
 				059C45852CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift in Sources */,
 				059C457E2CEE18EF00FB00DC /* MenuOptionShotCell.swift in Sources */,
