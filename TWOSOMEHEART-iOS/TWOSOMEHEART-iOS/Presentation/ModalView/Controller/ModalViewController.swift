@@ -52,6 +52,12 @@ class ModalViewController: BaseViewController {
         }
     }
     
+    var isLongSheet: Bool = false {
+        didSet {
+            updateSheetLayout()
+        }
+    }
+    
 }
 
 // MARK :- OrderUI 활성화 로직
@@ -66,6 +72,7 @@ extension ModalViewController {
             segment.onSelectedStateChanged = { [weak self] isSelected in
                 self?.segmentStates[index] = isSelected
                 self?.checkOrderable()
+                self?.checkLongSheet()
             }
         }
     }
@@ -74,6 +81,10 @@ extension ModalViewController {
         isOrderable = segmentStates.allSatisfy { $0 }
     }
     
+    func checkLongSheet() {
+        isLongSheet = (segmentStates.filter { $0 }.count >= 1)
+    }
+
     func updateOrderUI() {
         modalView.shopButton.isEnabled = isOrderable
         modalView.starButton.isEnabled = isOrderable
@@ -88,5 +99,14 @@ extension ModalViewController {
             modalView.orderButton.titleLabel?.textColor = UIColor(resource: .gray50)
             modalView.orderButton.backgroundColor = UIColor(resource: .gray20)
         }
+    }
+    
+    func updateSheetLayout() {
+        isLongSheet ? setLongSheetLayout() : setSheetLayout()
+        let bottomOffset = CGPoint(
+           x: 0,
+           y: modalView.scrollView.contentSize.height - modalView.scrollView.bounds.height
+        )
+        modalView.scrollView.setContentOffset(bottomOffset, animated: true)
     }
 }

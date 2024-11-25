@@ -16,7 +16,7 @@ class ModalView: UIView {
     
     private let headerLabel : UILabel = UILabel()
     
-    private let scrollView : UIScrollView = UIScrollView()
+    let scrollView : UIScrollView = UIScrollView()
     
     private let contentView : UIView = UIView()
     
