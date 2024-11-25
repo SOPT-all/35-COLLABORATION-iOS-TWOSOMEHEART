@@ -16,10 +16,8 @@ class ModalViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setHierarchy()
-        setLayout()
-        setStyle()
+
+        addTargets()
         setupSegments()
         bindData()
         updatePrice()
@@ -33,11 +31,6 @@ class ModalViewController: BaseViewController {
         modalView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-    }
-    
-    override func setStyle() {
-        modalView.personalCupButton.addTarget(self, action: #selector(personalCupButtonTapped), for: .touchUpInside)
-        modalView.personalOptionButton.addTarget(self, action: #selector(personalOptionButtonTapped), for: .touchUpInside)
     }
     
     private var segmentStates: [Bool] = Array(repeating: false, count: 4)
@@ -78,6 +71,16 @@ class ModalViewController: BaseViewController {
     }
     
     // TODO: - personalOptionListLabel text 받아와서 업데이트해주기
+    
+}
+
+// MARK: - 타겟 추가
+private extension ModalViewController {
+    
+    func addTargets() {
+        modalView.personalCupButton.addTarget(self, action: #selector(personalCupButtonTapped), for: .touchUpInside)
+        modalView.personalOptionButton.addTarget(self, action: #selector(personalOptionButtonTapped), for: .touchUpInside)
+    }
     
 }
 

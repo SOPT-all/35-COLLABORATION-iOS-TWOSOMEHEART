@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class ModalView: UIView {
+class ModalView: BaseView {
     
     private let headerView : UIView = UIView()
     
@@ -52,19 +52,7 @@ class ModalView: UIView {
     
     var orderButton : UIButton = UIButton()
     
-    init() {
-        super.init(frame: .zero)
-        
-        setHierarchy()
-        setLayout()
-        setStyle()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setHierarchy() {
+    override func setHierarchy() {
         self.addSubviews(headerView,
                          scrollView,
                          footerView)
@@ -92,7 +80,7 @@ class ModalView: UIView {
                                orderButton)
     }
     
-    private func setLayout() {
+    override func setLayout() {
         headerView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
@@ -218,7 +206,7 @@ class ModalView: UIView {
         
     }
     
-    private func setStyle() {
+    override func setStyle() {
         self.backgroundColor = UIColor(resource: .tsWhite)
         headerLabel.do {
             $0.setLabel(alignment: .center,
