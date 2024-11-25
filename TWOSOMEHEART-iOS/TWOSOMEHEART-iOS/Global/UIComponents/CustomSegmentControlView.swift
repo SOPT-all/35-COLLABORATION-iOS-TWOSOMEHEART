@@ -33,16 +33,15 @@ class CustomSegmentControlView: BaseView {
         self.segmentType = segmentType
         
         super.init(frame: .zero)
-        
-        self.addSubviews(stackView)
-        buttons.forEach { stackView.addArrangedSubview($0) }
-        
-        setLayout()
-        setStyle()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func setHierarchy() {
+        self.addSubviews(stackView)
+        buttons.forEach { stackView.addArrangedSubview($0) }
     }
     
     override func setLayout() {
