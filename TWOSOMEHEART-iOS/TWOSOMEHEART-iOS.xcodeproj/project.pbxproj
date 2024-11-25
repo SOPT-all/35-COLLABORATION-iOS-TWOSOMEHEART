@@ -53,6 +53,10 @@
 		7405D6752CF5151800C1FC64 /* DTO+PostLikedMenuRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6742CF5150900C1FC64 /* DTO+PostLikedMenuRequest.swift */; };
 		7405D6772CF5152600C1FC64 /* DTO+GetMenuInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6762CF5151E00C1FC64 /* DTO+GetMenuInfoResponse.swift */; };
 		7405D6792CF5153600C1FC64 /* DTO+PostLikedMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6782CF5152C00C1FC64 /* DTO+PostLikedMenuResponse.swift */; };
+		7405D67B2CF51B6300C1FC64 /* APITarget+Likes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D67A2CF51B5D00C1FC64 /* APITarget+Likes.swift */; };
+		7405D67F2CF51BE600C1FC64 /* DTO+DeleteLikedMenuRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D67E2CF51BD800C1FC64 /* DTO+DeleteLikedMenuRequest.swift */; };
+		7405D6812CF51C4D00C1FC64 /* DTO+GetLikedMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6802CF51C3D00C1FC64 /* DTO+GetLikedMenuResponse.swift */; };
+		7405D6832CF51C5700C1FC64 /* DTO+DeleteLikedMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6822CF51C4F00C1FC64 /* DTO+DeleteLikedMenuResponse.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
 		74503A202CF420C800FE117F /* SheetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A1F2CF420C200FE117F /* SheetUtils.swift */; };
@@ -129,6 +133,10 @@
 		7405D6742CF5150900C1FC64 /* DTO+PostLikedMenuRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DTO+PostLikedMenuRequest.swift"; sourceTree = "<group>"; };
 		7405D6762CF5151E00C1FC64 /* DTO+GetMenuInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DTO+GetMenuInfoResponse.swift"; sourceTree = "<group>"; };
 		7405D6782CF5152C00C1FC64 /* DTO+PostLikedMenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DTO+PostLikedMenuResponse.swift"; sourceTree = "<group>"; };
+		7405D67A2CF51B5D00C1FC64 /* APITarget+Likes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APITarget+Likes.swift"; sourceTree = "<group>"; };
+		7405D67E2CF51BD800C1FC64 /* DTO+DeleteLikedMenuRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DTO+DeleteLikedMenuRequest.swift"; sourceTree = "<group>"; };
+		7405D6802CF51C3D00C1FC64 /* DTO+GetLikedMenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DTO+GetLikedMenuResponse.swift"; sourceTree = "<group>"; };
+		7405D6822CF51C4F00C1FC64 /* DTO+DeleteLikedMenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DTO+DeleteLikedMenuResponse.swift"; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74503A1F2CF420C200FE117F /* SheetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetUtils.swift; sourceTree = "<group>"; };
 		74503A232CF4480900FE117F /* ModalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfo.swift; sourceTree = "<group>"; };
@@ -405,6 +413,7 @@
 		7405D6662CF5108900C1FC64 /* APITarget */ = {
 			isa = PBXGroup;
 			children = (
+				7405D67A2CF51B5D00C1FC64 /* APITarget+Likes.swift */,
 				7405D6692CF510AA00C1FC64 /* APITarget+Menu.swift */,
 				7405D6672CF5109400C1FC64 /* APITarget.swift */,
 			);
@@ -423,6 +432,7 @@
 		7405D66E2CF514C600C1FC64 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				7405D67E2CF51BD800C1FC64 /* DTO+DeleteLikedMenuRequest.swift */,
 				7405D6742CF5150900C1FC64 /* DTO+PostLikedMenuRequest.swift */,
 				7405D6722CF514F800C1FC64 /* DTO+GetMenuInfoRequest.swift */,
 			);
@@ -432,6 +442,8 @@
 		7405D66F2CF514CE00C1FC64 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				7405D6822CF51C4F00C1FC64 /* DTO+DeleteLikedMenuResponse.swift */,
+				7405D6802CF51C3D00C1FC64 /* DTO+GetLikedMenuResponse.swift */,
 				7405D6782CF5152C00C1FC64 /* DTO+PostLikedMenuResponse.swift */,
 				7405D6762CF5151E00C1FC64 /* DTO+GetMenuInfoResponse.swift */,
 			);
@@ -674,7 +686,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7405D6812CF51C4D00C1FC64 /* DTO+GetLikedMenuResponse.swift in Sources */,
 				059C45512CEE0B5A00FB00DC /* AppDelegate.swift in Sources */,
+				7405D67F2CF51BE600C1FC64 /* DTO+DeleteLikedMenuRequest.swift in Sources */,
 				059C45522CEE0B5A00FB00DC /* SceneDelegate.swift in Sources */,
 				059C46412CEF383A00FB00DC /* Aliases.swift in Sources */,
 				059C45892CEE1BBB00FB00DC /* CounterViewDelegate.swift in Sources */,
@@ -684,6 +698,7 @@
 				B8B04A942CF0664700B9777B /* NutritionInfoTableViewCell.swift in Sources */,
 				B8B04B072CF4962F00B9777B /* CautionType.swift in Sources */,
 				059C45532CEE0B5A00FB00DC /* String+.swift in Sources */,
+				7405D67B2CF51B6300C1FC64 /* APITarget+Likes.swift in Sources */,
 				059C45722CEE0F9B00FB00DC /* BaseTableViewCell.swift in Sources */,
 				059C45542CEE0B5A00FB00DC /* UILabel+.swift in Sources */,
 				059C45552CEE0B5A00FB00DC /* UIStackView+.swift in Sources */,
@@ -695,6 +710,7 @@
 				B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */,
 				B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */,
 				74503A202CF420C800FE117F /* SheetUtils.swift in Sources */,
+				7405D6832CF51C5700C1FC64 /* DTO+DeleteLikedMenuResponse.swift in Sources */,
 				B8D1B4242CEF8A80008B3871 /* MyMenuModalView.swift in Sources */,
 				B8D1B4252CEF8A80008B3871 /* MyMenuItem.swift in Sources */,
 				059C45572CEE0B5A00FB00DC /* TSFont.swift in Sources */,
