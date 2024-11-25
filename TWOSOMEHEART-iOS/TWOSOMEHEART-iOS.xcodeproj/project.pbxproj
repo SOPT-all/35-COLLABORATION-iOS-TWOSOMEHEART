@@ -46,6 +46,7 @@
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
 		74503A1E2CF400D500FE117F /* ObservablePattern.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A1D2CF400CC00FE117F /* ObservablePattern.swift */; };
 		74503A202CF420C800FE117F /* SheetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A1F2CF420C200FE117F /* SheetUtils.swift */; };
+		74503A242CF4481000FE117F /* ModalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A232CF4480900FE117F /* ModalInfo.swift */; };
 		746401E92CF0E7CF0042A302 /* SegmentButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746401E82CF0E7C60042A302 /* SegmentButtonFactory.swift */; };
 		74AEDF342CEFA0F800EB13A2 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEDF312CEFA0F800EB13A2 /* ModalView.swift */; };
 		74AEDF352CEFA0F800EB13A2 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEDF2E2CEFA0F800EB13A2 /* ModalViewController.swift */; };
@@ -99,6 +100,7 @@
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74503A1D2CF400CC00FE117F /* ObservablePattern.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservablePattern.swift; sourceTree = "<group>"; };
 		74503A1F2CF420C200FE117F /* SheetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetUtils.swift; sourceTree = "<group>"; };
+		74503A232CF4480900FE117F /* ModalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfo.swift; sourceTree = "<group>"; };
 		746401E82CF0E7C60042A302 /* SegmentButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentButtonFactory.swift; sourceTree = "<group>"; };
 		74AEDF2E2CEFA0F800EB13A2 /* ModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		74AEDF312CEFA0F800EB13A2 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 		74AEDF302CEFA0F800EB13A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				74503A232CF4480900FE117F /* ModalInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				059C455C2CEE0B5A00FB00DC /* ScreenUtils.swift in Sources */,
 				059C455D2CEE0B5A00FB00DC /* StringLiterals.swift in Sources */,
 				059C455E2CEE0B5A00FB00DC /* BaseNavViewController.swift in Sources */,
+				74503A242CF4481000FE117F /* ModalInfo.swift in Sources */,
 				059C455F2CEE0B5A00FB00DC /* BaseViewController.swift in Sources */,
 				059C45602CEE0B5A00FB00DC /* ViewController.swift in Sources */,
 				74AEDF342CEFA0F800EB13A2 /* ModalView.swift in Sources */,
