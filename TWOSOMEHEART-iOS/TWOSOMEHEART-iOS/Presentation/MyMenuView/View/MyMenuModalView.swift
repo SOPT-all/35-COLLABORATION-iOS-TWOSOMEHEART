@@ -80,7 +80,7 @@ class MyMenuModalView: UIView {
         }
     }
     
-    private func         setHierarchy(){
+    private func setHierarchy(){
         addSubview(containerView)
         containerView.addSubviews(
             storeLabel,
