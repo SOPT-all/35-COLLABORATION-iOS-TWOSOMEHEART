@@ -30,41 +30,23 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
     
     // MARK: - UI
     override func setStyle() {
-        temperatureSegmentControl.do {
-            $0.insertSegment(withTitle: SLMenuDetail.temperatureHot, at: 0, animated: true)
-            $0.insertSegment(withTitle: SLMenuDetail.temperatureIce, at: 1, animated: true)
-            $0.selectedSegmentIndex = 0
-            $0.selectedSegmentTintColor = .clear
-            $0.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
-            $0.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-            $0.setTitleTextAttributes([
-                NSAttributedString.Key.font: TSFont.t1r,
-                .foregroundColor: UIColor(resource: .gray90)
-                
-            ], for: .normal)
-            $0.setTitleTextAttributes([
-                NSAttributedString.Key.font: TSFont.t1b
-            ], for: .selected)
-            $0.addTarget(self, action: #selector(temperatureSegmentChanged), for: .valueChanged)
-        }
+        configureSegmentControl(
+            temperatureSegmentControl,
+            items: [SLMenuDetail.temperatureHot, SLMenuDetail.temperatureIce],
+            selectedFont: TSFont.t1b,
+            defaultFont: TSFont.t1r,
+            defaultColor: UIColor(resource: .gray90),
+            action: #selector(temperatureSegmentChanged)
+        )
         
-        sizeSegmentControl.do {
-            $0.insertSegment(withTitle: SLMenuDetail.sizeRegular, at: 0, animated: true)
-            $0.insertSegment(withTitle: SLMenuDetail.sizeLarge, at: 1, animated: true)
-            $0.selectedSegmentIndex = 0
-            $0.selectedSegmentTintColor = .clear
-            $0.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
-            $0.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-            
-            $0.setTitleTextAttributes([
-                NSAttributedString.Key.font: TSFont.b2r,
-                .foregroundColor: UIColor(resource: .gray60)
-            ], for: .normal)
-            $0.setTitleTextAttributes([
-                NSAttributedString.Key.font: TSFont.b2b
-            ], for: .selected)
-            $0.addTarget(self, action: #selector(sizeSegmentChanged), for: .valueChanged)
-        }
+        configureSegmentControl(
+            sizeSegmentControl,
+            items: [SLMenuDetail.sizeRegular, SLMenuDetail.sizeLarge],
+            selectedFont: TSFont.b2b,
+            defaultFont: TSFont.b2r,
+            defaultColor: UIColor(resource: .gray60),
+            action: #selector(sizeSegmentChanged)
+        )
         
         temperatureSeperatorLineView.do {
             $0.backgroundColor = UIColor(resource: .gray20)
@@ -237,6 +219,32 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
             }
             self.layoutIfNeeded()
         }
+    }
+    
+    // MARK: - SegmentControl
+    private func configureSegmentControl(
+        _ segmentControl: UISegmentedControl,
+        items: [String],
+        selectedFont: UIFont,
+        defaultFont: UIFont,
+        defaultColor: UIColor,
+        action: Selector
+    ) {
+        for (index, item) in items.enumerated() {
+            segmentControl.insertSegment(withTitle: item, at: index, animated: true)
+        }
+        segmentControl.selectedSegmentIndex = 0
+        segmentControl.selectedSegmentTintColor = .clear
+        segmentControl.setBackgroundImage(UIImage(), for: .normal, barMetrics: .default)
+        segmentControl.setDividerImage(UIImage(), forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
+        segmentControl.setTitleTextAttributes([
+            .font: defaultFont,
+            .foregroundColor: defaultColor
+        ], for: .normal)
+        segmentControl.setTitleTextAttributes([
+            .font: selectedFont
+        ], for: .selected)
+        segmentControl.addTarget(self, action: action, for: .valueChanged)
     }
     
     // MARK: - Bind
