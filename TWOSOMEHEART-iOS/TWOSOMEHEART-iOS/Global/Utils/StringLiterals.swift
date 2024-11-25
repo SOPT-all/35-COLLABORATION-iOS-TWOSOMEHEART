@@ -83,5 +83,48 @@ enum StringLiterals {
 
     }
 
+    enum ModalType {
+
+        static let personalCup = "개인컵 사용"
+
+        static let personalCupDiscount = "-300원"
+
+        static let personalCupExplain = "개인컵 사용 안내 >"
+
+        static let personalOption = "퍼스널 옵션"
+
+        static let order = "주문하기"
+
+        static let hot = "핫"
+        
+        static let cold = "콜드"
+        
+        static let regular = "레귤러 (325ml)"
+
+        static let large = "라지 (452ml)"
+
+        static let firstBean = "블랙그라운드"
+        
+        static let secondBean = "아로마노트"
+        
+        static let thirdBean = "SWP디카페인"
+        
+        static let takeHome = "포장"
+        
+        static let drinkHere = "매장"
+        
+        static let noReuseCup = "일회용컵"
+        
+        static let reuseCup = "머그컵"
+        
+        static let temp = "온도"
+        
+        static let size = "사이즈"
+        
+        static let bean = "원두"
+        
+        static let pickup = "픽업방식"
+        
+    }
 
 }

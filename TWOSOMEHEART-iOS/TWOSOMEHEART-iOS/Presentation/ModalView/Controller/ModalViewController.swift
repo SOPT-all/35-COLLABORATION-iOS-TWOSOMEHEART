@@ -76,9 +76,11 @@ class ModalViewController: BaseViewController {
         modalView.personalOptionListLabel.text = ModalInfo.modalInfo.personalOption
     }
     
+    // TODO: - personalOptionListLabel text 받아와서 업데이트해주기
+    
 }
 
-// MARK :- 가격 변경 로직
+// MARK: - 가격 변경 로직
 private extension ModalViewController {
     
     func updatePrice() {
@@ -93,7 +95,7 @@ private extension ModalViewController {
     
 }
 
-// MARK :- 체크박스 선택 로직
+// MARK: - 체크박스 선택 로직
 private extension ModalViewController {
     
     @objc
@@ -118,7 +120,7 @@ private extension ModalViewController {
     
 }
 
-// MARK :- OrderUI 활성화 로직
+// MARK: - OrderUI 활성화 로직
 private extension ModalViewController {
     
     func checkOrderable() {
@@ -142,7 +144,7 @@ private extension ModalViewController {
     }
 }
 
-// MARK :- 하나 이상의 옵션 선택 시 Sheet Layout 변경 로직
+// MARK: - 하나 이상의 옵션 선택 시 Sheet Layout 변경 로직
 private extension ModalViewController {
     
     func checkLongSheet() {

@@ -110,7 +110,7 @@ class ModalView: UIView {
             $0.bottom.equalToSuperview().inset(139)
         }
         
-        // TODO :- 트슛 작성 : height 정의해서 Segment Button click 가능해짐
+        // TODO: - 트슛 작성 : height 정의해서 Segment Button click 가능해짐
         contentView.snp.makeConstraints {
             $0.verticalEdges.equalTo(scrollView.contentLayoutGuide)
             $0.width.equalTo(scrollView.frameLayoutGuide)
@@ -233,20 +233,20 @@ class ModalView: UIView {
         }
         
         personalCupLabel.do {
-            $0.setLabel(text: "개인컵 사용",
+            $0.setLabel(text: SLModal.personalCup,
                         textColor: UIColor(resource: .tsBlack),
                         font: TSFont.b2r)
         }
         
         personalCupPriceLabel.do {
-            $0.setLabel(text: "-300원",
+            $0.setLabel(text: SLModal.personalCupDiscount,
                         textColor: UIColor(resource: .blue20),
                         font: TSFont.b2r)
             $0.isHidden = true
         }
         
         personalCupExplainLabel.do {
-            $0.setLabel(text: "개인컵 사용 안내 >",
+            $0.setLabel(text: SLModal.personalCupExplain,
                         textColor: UIColor(resource: .gray50),
                         font: TSFont.b2s)
             $0.isHidden = true
@@ -261,7 +261,7 @@ class ModalView: UIView {
         }
         
         personalOptionLabel.do {
-            $0.setLabel(text: "퍼스널 옵션",
+            $0.setLabel(text: SLModal.personalOption,
                         textColor: UIColor(resource: .tsBlack),
                         font: TSFont.b2r)
         }
@@ -304,7 +304,7 @@ class ModalView: UIView {
         }
         
         orderButton.do {
-            $0.setTitle("주문하기", for: .normal)
+            $0.setTitle(SLModal.order, for: .normal)
             $0.titleLabel?.font = TSFont.btn1s
             $0.titleLabel?.textColor = UIColor(resource: .gray50)
             $0.backgroundColor = UIColor(resource: .gray20)

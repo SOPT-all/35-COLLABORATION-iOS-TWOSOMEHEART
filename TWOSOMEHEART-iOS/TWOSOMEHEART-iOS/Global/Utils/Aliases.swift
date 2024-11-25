@@ -8,3 +8,5 @@
 import Foundation
 
 typealias SLMenuOption = StringLiterals.MenuOptionType
+
+typealias SLModal = StringLiterals.ModalType

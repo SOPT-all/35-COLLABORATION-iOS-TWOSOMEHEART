@@ -29,24 +29,24 @@ class SegmentControlStackView: UIStackView {
     lazy var pickupSegmentView = CustomSegmentControlView(buttons: pickupButtons, segmentType: .pickup)
     
     var tempButtons = [
-        SegmentButtonFactory.makeSegmentButton(type: .temp, title: "핫"),
-        SegmentButtonFactory.makeSegmentButton(type: .temp, title: "콜드")
+        SegmentButtonFactory.makeSegmentButton(type: .temp, title: SLModal.hot),
+        SegmentButtonFactory.makeSegmentButton(type: .temp, title: SLModal.cold)
     ]
     
     var sizeButtons = [
-        SegmentButtonFactory.makeSegmentButton(type: .size, title: "레귤러 (325ml)", image: UIImage(resource: .modalRDiselect), selectedImage: UIImage(resource: .modalRSelect)),
-        SegmentButtonFactory.makeSegmentButton(type: .size, title: "라지 (452ml)", image: UIImage(resource: .modalLDiselect), selectedImage: .modalLSelect),
+        SegmentButtonFactory.makeSegmentButton(type: .size, title: SLModal.regular, image: UIImage(resource: .modalRDiselect), selectedImage: UIImage(resource: .modalRSelect)),
+        SegmentButtonFactory.makeSegmentButton(type: .size, title: SLModal.large, image: UIImage(resource: .modalLDiselect), selectedImage: .modalLSelect),
     ]
     
     var beanButtons = [
-        SegmentButtonFactory.makeSegmentButton(type: .bean, title: "블랙그라운드"),
-        SegmentButtonFactory.makeSegmentButton(type: .bean, title: "아로마노트"),
-        SegmentButtonFactory.makeSegmentButton(type: .bean, title: "SWP디카페인")
+        SegmentButtonFactory.makeSegmentButton(type: .bean, title: SLModal.firstBean),
+        SegmentButtonFactory.makeSegmentButton(type: .bean, title: SLModal.secondBean),
+        SegmentButtonFactory.makeSegmentButton(type: .bean, title: SLModal.thirdBean)
     ]
     
     var pickupButtons = [
-        SegmentButtonFactory.makeSegmentButton(type: .pickup, title: "포장", subTitle: "일회용컵"),
-        SegmentButtonFactory.makeSegmentButton(type: .pickup, title: "매장", subTitle: "머그컵")
+        SegmentButtonFactory.makeSegmentButton(type: .pickup, title: SLModal.takeHome, subTitle: SLModal.noReuseCup),
+        SegmentButtonFactory.makeSegmentButton(type: .pickup, title: SLModal.drinkHere, subTitle: SLModal.reuseCup)
     ]
     
     override init(frame: CGRect) {
@@ -99,10 +99,10 @@ class SegmentControlStackView: UIStackView {
         self.backgroundColor = UIColor(resource: .tsWhite)
         self.isUserInteractionEnabled = true
         
-        tempSegmentControlView = makeSegmentControlView(text: "온도", segmentType: .temp, segmentView: tempSegmentView)
-        sizeSegmentControlView = makeSegmentControlView(text: "사이즈", segmentType: .size, segmentView: sizeSegmentView)
-        beanSegmentControlView = makeSegmentControlView(text: "원두", segmentType: .bean, segmentView: beanSegmentView)
-        pickupSegmentControlView = makeSegmentControlView(text: "픽업방식", segmentType: .pickup, segmentView: pickupSegmentView)
+        tempSegmentControlView = makeSegmentControlView(text: SLModal.temp, segmentType: .temp, segmentView: tempSegmentView)
+        sizeSegmentControlView = makeSegmentControlView(text: SLModal.size, segmentType: .size, segmentView: sizeSegmentView)
+        beanSegmentControlView = makeSegmentControlView(text: SLModal.bean, segmentType: .bean, segmentView: beanSegmentView)
+        pickupSegmentControlView = makeSegmentControlView(text: SLModal.pickup, segmentType: .pickup, segmentView: pickupSegmentView)
     }
     
     private func makeSegmentControlView(text: String,
