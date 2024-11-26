@@ -50,7 +50,7 @@ extension APITarget.Likes: TargetType {
     var headers: [String : String]? {
         return [
             "Content-Type": "application/json",
-            "memberId": "1" //임시
+            "Authorization": "1"
         ]
     }
 }
