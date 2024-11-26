@@ -27,7 +27,19 @@ extension DTO.GetMenuInfoResponse {
         let caution: String?
         let nutrition: String
         let allergy: String?
-        let image_url: String
+        let imageURL: String
+        
+        private enum CodingKeys: String, CodingKey {
+            case id
+            case name
+            case status
+            case description
+            case price
+            case caution
+            case nutrition
+            case allergy
+            case imageURL = "image_url"
+        }
     }
     
 }
