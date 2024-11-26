@@ -67,6 +67,8 @@
 		74AEDF372CEFA43800EB13A2 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEDF362CEFA43800EB13A2 /* UIViewController+.swift */; };
 		74AEDF3B2CF0951700EB13A2 /* SegmentControlStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AEDF3A2CF0951000EB13A2 /* SegmentControlStackView.swift */; };
 		74B7821D2CF501B900E46589 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 74B7821C2CF501B900E46589 /* Moya */; };
+		74BF3D4C2CF5AD5600BD2246 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BF3D4B2CF5AD5100BD2246 /* NetworkService.swift */; };
+		74BF3D4E2CF5B2A300BD2246 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BF3D4D2CF5B29E00BD2246 /* EmptyResponse.swift */; };
 		B8B04A8A2CF0520900B9777B /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A882CF0520900B9777B /* MenuDetailViewController.swift */; };
 		B8B04A8F2CF0520900B9777B /* MenuDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A812CF0520900B9777B /* MenuDetail.swift */; };
 		B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A902CF056C500B9777B /* MenuDetailBottomView.swift */; };
@@ -145,6 +147,8 @@
 		74AEDF312CEFA0F800EB13A2 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
 		74AEDF362CEFA43800EB13A2 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		74AEDF3A2CF0951000EB13A2 /* SegmentControlStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlStackView.swift; sourceTree = "<group>"; };
+		74BF3D4B2CF5AD5100BD2246 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		74BF3D4D2CF5B29E00BD2246 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
 		B8B04A812CF0520900B9777B /* MenuDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetail.swift; sourceTree = "<group>"; };
 		B8B04A882CF0520900B9777B /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		B8B04A902CF056C500B9777B /* MenuDetailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailBottomView.swift; sourceTree = "<group>"; };
@@ -402,6 +406,8 @@
 		7405D65D2CF5090300C1FC64 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				74BF3D4D2CF5B29E00BD2246 /* EmptyResponse.swift */,
+				74BF3D4B2CF5AD5100BD2246 /* NetworkService.swift */,
 				7405D6612CF50EF200C1FC64 /* TSPlugin.swift */,
 				7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */,
 				7405D65C2CF5090300C1FC64 /* Config.swift */,
@@ -694,6 +700,7 @@
 				059C45892CEE1BBB00FB00DC /* CounterViewDelegate.swift in Sources */,
 				059C45782CEE113D00FB00DC /* MenuOptionSectionType.swift in Sources */,
 				059C45682CEE0E6600FB00DC /* ReusableIdentifier+.swift in Sources */,
+				74BF3D4E2CF5B2A300BD2246 /* EmptyResponse.swift in Sources */,
 				B8B04B052CF4960600B9777B /* MenuStatusType.swift in Sources */,
 				B8B04A942CF0664700B9777B /* NutritionInfoTableViewCell.swift in Sources */,
 				B8B04B072CF4962F00B9777B /* CautionType.swift in Sources */,
@@ -706,6 +713,7 @@
 				059C45562CEE0B5A00FB00DC /* UIView+.swift in Sources */,
 				B8B04A9F2CF0C7E100B9777B /* AllergyTableViewCell.swift in Sources */,
 				B8D1B4212CEF8A80008B3871 /* MyMenuHeaderView.swift in Sources */,
+				74BF3D4C2CF5AD5600BD2246 /* NetworkService.swift in Sources */,
 				B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */,
 				B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */,
 				B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */,
@@ -776,7 +784,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = 223.130.135.50;
+				BASE_URL = "http://223.130.135.50:8080/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JC4Z3JLFF7;
@@ -804,7 +812,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				BASE_URL = 223.130.135.50;
+				BASE_URL = "http://223.130.135.50:8080/";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = JC4Z3JLFF7;
