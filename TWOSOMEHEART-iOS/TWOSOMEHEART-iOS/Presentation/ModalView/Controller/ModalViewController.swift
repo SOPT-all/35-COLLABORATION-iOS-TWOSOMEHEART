@@ -194,6 +194,11 @@ private extension ModalViewController {
         postLikeData()
     }
     
+    func showToast(_ statusCode: Int) {
+        let message = (statusCode != 400) ? "즐겨찾기에 저장되었습니다" : "이미 저장된 메뉴입니다"
+        modalView.makeToast(message)
+    }
+    
     func postLikeData() {
         let service = NetworkService<APITarget.Menu>()
         let price = price - (modalView.personalCupButton.isSelected ? 300 : 0)
@@ -204,8 +209,9 @@ private extension ModalViewController {
                                                likedMenuInfo: likedMenuInfo)
         service.provider.request(.postLikedMenu(request)) { [weak self] response in
             switch response {
-            case .success:
+            case .success(let response):
                 print("🍀🍀🍀서버 통신 성공🍀🍀🍀")
+                self?.showToast(response.statusCode)
                 return
             case .failure(let error):
                 print(error)
