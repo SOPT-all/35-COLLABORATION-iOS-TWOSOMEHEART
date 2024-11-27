@@ -85,17 +85,17 @@ class BaseNavViewController: UIViewController {
         
         rightButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(ScreenUtils.width*6/375)
+            $0.trailing.equalToSuperview().inset(ScreenUtils.width*6/375)
         }
         
         secondRightButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(ScreenUtils.width*40/375)
+            $0.trailing.equalToSuperview().inset(ScreenUtils.width*40/375)
         }
         
         thirdRightButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().offset(ScreenUtils.width*76/375)
+            $0.trailing.equalToSuperview().inset(ScreenUtils.width*76/375)
         }
         
         titleLabel.snp.makeConstraints {
