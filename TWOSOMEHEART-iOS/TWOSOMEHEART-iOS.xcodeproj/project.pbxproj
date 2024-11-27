@@ -45,6 +45,8 @@
 		05F736BA2CF0659D0030B7F5 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */; };
 		05F737432CF741040030B7F5 /* MenuCategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737422CF741040030B7F5 /* MenuCategoryType.swift */; };
 		05F737452CF741BE0030B7F5 /* MenuSubcategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */; };
+		05F737602CF79DB90030B7F5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F7375F2CF79DB90030B7F5 /* MenuViewController.swift */; };
+		05F737622CF79DEB0030B7F5 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737612CF79DEB0030B7F5 /* PaddedLabel.swift */; };
 		7405D65E2CF5090300C1FC64 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65C2CF5090300C1FC64 /* Config.swift */; };
 		7405D6602CF50DCA00C1FC64 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */; };
 		7405D6622CF50EFB00C1FC64 /* TSPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6612CF50EF200C1FC64 /* TSPlugin.swift */; };
@@ -129,6 +131,8 @@
 		05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 		05F737422CF741040030B7F5 /* MenuCategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryType.swift; sourceTree = "<group>"; };
 		05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSubcategoryType.swift; sourceTree = "<group>"; };
+		05F7375F2CF79DB90030B7F5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		05F737612CF79DEB0030B7F5 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
 		7405D65C2CF5090300C1FC64 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		7405D6612CF50EF200C1FC64 /* TSPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPlugin.swift; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 				059C46402CEF383A00FB00DC /* Aliases.swift */,
 				059C45452CEE0B5A00FB00DC /* ScreenUtils.swift */,
 				059C45462CEE0B5A00FB00DC /* StringLiterals.swift */,
+				05F737612CF79DEB0030B7F5 /* PaddedLabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -411,6 +416,7 @@
 		05F7373E2CF740E30030B7F5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				05F7375F2CF79DB90030B7F5 /* MenuViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -755,6 +761,7 @@
 				7405D67B2CF51B6300C1FC64 /* APITarget+Likes.swift in Sources */,
 				059C45722CEE0F9B00FB00DC /* BaseTableViewCell.swift in Sources */,
 				059C45542CEE0B5A00FB00DC /* UILabel+.swift in Sources */,
+				05F737602CF79DB90030B7F5 /* MenuViewController.swift in Sources */,
 				059C45552CEE0B5A00FB00DC /* UIStackView+.swift in Sources */,
 				059C45832CEE19EA00FB00DC /* MenuOptionWhippedCreamCell.swift in Sources */,
 				059C45562CEE0B5A00FB00DC /* UIView+.swift in Sources */,
@@ -787,6 +794,7 @@
 				059C45762CEE10D800FB00DC /* MenuOption.swift in Sources */,
 				059C457A2CEE16A200FB00DC /* MenuOptionHeaderView.swift in Sources */,
 				7405D66C2CF513CE00C1FC64 /* DTO.swift in Sources */,
+				05F737622CF79DEB0030B7F5 /* PaddedLabel.swift in Sources */,
 				7405D65E2CF5090300C1FC64 /* Config.swift in Sources */,
 				7405D6682CF5109700C1FC64 /* APITarget.swift in Sources */,
 				059C455B2CEE0B5A00FB00DC /* SegmentType.swift in Sources */,
