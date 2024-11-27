@@ -11,8 +11,8 @@ import SnapKit
 import Then
 
 final class ToastController {
-    static func show(message: String,
-                     buttonTitle: String = "목록보기",
+    static func show(_ message: String,
+                     buttonTitle: String = SLModal.seeMyMenuList,
                      buttonAction: @escaping () -> Void) {
         
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,

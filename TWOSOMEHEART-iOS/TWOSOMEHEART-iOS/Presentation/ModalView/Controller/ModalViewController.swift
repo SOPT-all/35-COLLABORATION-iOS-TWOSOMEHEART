@@ -194,8 +194,8 @@ private extension ModalViewController {
     }
     
     func showToast(_ statusCode: Int) {
-        let message = (statusCode != 400) ? "즐겨찾기에 저장되었습니다" : "이미 저장된 메뉴입니다"
-        ToastController.show(message: message) {
+        let message = (statusCode != 400) ? SLModal.successToastMessage : SLModal.failToastMessage
+        ToastController.show(message) {
             print("go to mymenuview🏅🏅🏅🏅🏅🏅🏅")
         }
     }
