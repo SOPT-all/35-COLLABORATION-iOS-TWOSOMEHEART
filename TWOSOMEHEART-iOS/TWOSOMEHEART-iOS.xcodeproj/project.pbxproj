@@ -47,6 +47,7 @@
 		05F737452CF741BE0030B7F5 /* MenuSubcategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */; };
 		05F737602CF79DB90030B7F5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F7375F2CF79DB90030B7F5 /* MenuViewController.swift */; };
 		05F737622CF79DEB0030B7F5 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737612CF79DEB0030B7F5 /* PaddedLabel.swift */; };
+		05F737642CF7A11C0030B7F5 /* MenuCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */; };
 		7405D65E2CF5090300C1FC64 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65C2CF5090300C1FC64 /* Config.swift */; };
 		7405D6602CF50DCA00C1FC64 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */; };
 		7405D6622CF50EFB00C1FC64 /* TSPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6612CF50EF200C1FC64 /* TSPlugin.swift */; };
@@ -133,6 +134,7 @@
 		05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSubcategoryType.swift; sourceTree = "<group>"; };
 		05F7375F2CF79DB90030B7F5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		05F737612CF79DEB0030B7F5 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryView.swift; sourceTree = "<group>"; };
 		7405D65C2CF5090300C1FC64 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		7405D6612CF50EF200C1FC64 /* TSPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPlugin.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				05F737412CF740F40030B7F5 /* Type */,
+				05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -815,6 +818,7 @@
 				74AEDF372CEFA43800EB13A2 /* UIViewController+.swift in Sources */,
 				059C46432CEF406900FB00DC /* BaseView.swift in Sources */,
 				059C45852CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift in Sources */,
+				05F737642CF7A11C0030B7F5 /* MenuCategoryView.swift in Sources */,
 				059C457E2CEE18EF00FB00DC /* MenuOptionShotCell.swift in Sources */,
 				7405D6602CF50DCA00C1FC64 /* NetworkResult.swift in Sources */,
 				7405D6792CF5153600C1FC64 /* DTO+PostLikedMenuResponse.swift in Sources */,
