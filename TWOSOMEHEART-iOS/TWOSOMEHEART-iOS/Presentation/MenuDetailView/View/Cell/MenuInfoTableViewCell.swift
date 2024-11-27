@@ -163,9 +163,9 @@ class MenuInfoTableViewCell: BaseTableViewCell {
     }
     
     // MARK: - Bind
-    func bind(_ menuDetail: MenuDetail) {
+    func bind(_ menuDetail: DTO.GetMenuInfoResponse.MenuInfo) {
         menuImageView.image = menuDetail.imageURL
-        statusLabel.text = menuDetail.status.rawValue
+        statusLabel.text = menuDetail.status
         menuNameLabel.text = menuDetail.name
         menuDescriptionLabel.text = menuDetail.description
         priceLabel.text = "\(menuDetail.price.formattedPrice())원"
