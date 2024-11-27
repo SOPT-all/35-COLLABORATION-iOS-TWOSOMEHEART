@@ -56,7 +56,7 @@ final class SelectedStoreView: BaseView {
 
             $0.configuration = config
             $0.setTitle("변경", for: .normal)
-            $0.setTitleColor(.tsWhite, for: .normal)
+            $0.tintColor = .tsWhite
             $0.titleLabel?.font = TSFont.b2r
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 2
