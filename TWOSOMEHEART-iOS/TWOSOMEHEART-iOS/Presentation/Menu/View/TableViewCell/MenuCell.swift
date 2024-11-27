@@ -84,7 +84,7 @@ final class MenuCell: BaseTableViewCell {
         menuPriceLabel.snp.makeConstraints {
             $0.top.equalTo(menuNameLabel.snp.bottom).offset(2)
             $0.horizontalEdges.equalTo(menuNameLabel)
-            $0.bottom.greaterThanOrEqualTo(menuImageView.snp.bottom).inset(43)
+            $0.bottom.lessThanOrEqualTo(menuImageView.snp.bottom).inset(43)
         }
     }
 }
