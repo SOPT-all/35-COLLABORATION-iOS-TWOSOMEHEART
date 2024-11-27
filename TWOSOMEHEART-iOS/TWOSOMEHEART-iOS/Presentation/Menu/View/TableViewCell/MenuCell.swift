@@ -24,7 +24,7 @@ final class MenuCell: BaseTableViewCell {
         menuNameLabel.text = item.menuTitle
 
         menuPriceLabel.setAttributedText(
-            fullText: "\(item.menuPrice.formattedPrice())원",
+            fullText: "\(item.menuPrice.formattedPrice()) 원",
             styles: [
                 (text: item.menuPrice.formattedPrice(), font: TSFont.b1b, color: .tsBlack),
                 (text: "원", font: TSFont.b2r, color: .tsBlack)
