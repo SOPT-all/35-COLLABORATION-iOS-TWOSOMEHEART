@@ -43,6 +43,8 @@
 		059C46412CEF383A00FB00DC /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46402CEF383A00FB00DC /* Aliases.swift */; };
 		059C46432CEF406900FB00DC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46422CEF406900FB00DC /* BaseView.swift */; };
 		05F736BA2CF0659D0030B7F5 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */; };
+		05F737432CF741040030B7F5 /* MenuCategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737422CF741040030B7F5 /* MenuCategoryType.swift */; };
+		05F737452CF741BE0030B7F5 /* MenuSubcategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */; };
 		7405D65E2CF5090300C1FC64 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65C2CF5090300C1FC64 /* Config.swift */; };
 		7405D6602CF50DCA00C1FC64 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */; };
 		7405D6622CF50EFB00C1FC64 /* TSPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6612CF50EF200C1FC64 /* TSPlugin.swift */; };
@@ -125,6 +127,8 @@
 		059C46402CEF383A00FB00DC /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		059C46422CEF406900FB00DC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		05F737422CF741040030B7F5 /* MenuCategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryType.swift; sourceTree = "<group>"; };
+		05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSubcategoryType.swift; sourceTree = "<group>"; };
 		7405D65C2CF5090300C1FC64 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		7405D6612CF50EF200C1FC64 /* TSPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPlugin.swift; sourceTree = "<group>"; };
@@ -299,6 +303,7 @@
 		059C454F2CEE0B5A00FB00DC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				05F7373D2CF73FE10030B7F5 /* Menu */,
 				B8B04A892CF0520900B9777B /* MenuDetailView */,
 				74AEDF332CEFA0F800EB13A2 /* ModalView */,
 				B8D1B4202CEF8A80008B3871 /* MyMenuView */,
@@ -391,6 +396,47 @@
 				059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		05F7373D2CF73FE10030B7F5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				05F737402CF740EE0030B7F5 /* Model */,
+				05F7373F2CF740EA0030B7F5 /* View */,
+				05F7373E2CF740E30030B7F5 /* Controller */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		05F7373E2CF740E30030B7F5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		05F7373F2CF740EA0030B7F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05F737412CF740F40030B7F5 /* Type */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05F737402CF740EE0030B7F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		05F737412CF740F40030B7F5 /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				05F737422CF741040030B7F5 /* MenuCategoryType.swift */,
+				05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */,
+			);
+			path = Type;
 			sourceTree = "<group>";
 		};
 		7405D6552CF5055000C1FC64 /* Network */ = {
@@ -703,6 +749,7 @@
 				74BF3D4E2CF5B2A300BD2246 /* EmptyResponse.swift in Sources */,
 				B8B04B052CF4960600B9777B /* MenuStatusType.swift in Sources */,
 				B8B04A942CF0664700B9777B /* NutritionInfoTableViewCell.swift in Sources */,
+				05F737452CF741BE0030B7F5 /* MenuSubcategoryType.swift in Sources */,
 				B8B04B072CF4962F00B9777B /* CautionType.swift in Sources */,
 				059C45532CEE0B5A00FB00DC /* String+.swift in Sources */,
 				7405D67B2CF51B6300C1FC64 /* APITarget+Likes.swift in Sources */,
@@ -717,6 +764,7 @@
 				B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */,
 				B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */,
 				B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */,
+				05F737432CF741040030B7F5 /* MenuCategoryType.swift in Sources */,
 				74503A202CF420C800FE117F /* SheetUtils.swift in Sources */,
 				7405D6832CF51C5700C1FC64 /* DTO+DeleteLikedMenuResponse.swift in Sources */,
 				B8D1B4242CEF8A80008B3871 /* MyMenuModalView.swift in Sources */,
