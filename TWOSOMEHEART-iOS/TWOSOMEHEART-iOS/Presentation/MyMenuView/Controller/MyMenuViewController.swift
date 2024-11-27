@@ -26,7 +26,7 @@ class MyMenuViewController: BaseViewController {
     
     // MARK: - Properties
     
-    let myMenuItems = MyMenuItem.myMenuItems
+    var myMenuItems = MyMenuItem.myMenuItems
     var selectedIndexes: Set<Int> = []
     
     // MARK: - LifeCycle
@@ -102,6 +102,9 @@ private extension MyMenuViewController {
             $0.register(MyMenuCollectionViewCell.self, forCellWithReuseIdentifier: MyMenuCollectionViewCell.identifier)
             $0.dataSource = self
             $0.showsHorizontalScrollIndicator = false
+            $0.dragDelegate = self
+            $0.dropDelegate = self
+            $0.dragInteractionEnabled = true
         }
     }
     
@@ -140,7 +143,8 @@ private extension MyMenuViewController {
     }
 }
 
-// MARK: - CollectionView Method
+// MARK: - CollectionView DataSource
+
 extension MyMenuViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return myMenuItems.count
@@ -156,9 +160,11 @@ extension MyMenuViewController: UICollectionViewDataSource {
         item.bind(myMenuItems[indexPath.item])
         return item
     }
+    
 }
 
 // MARK: - CollectionView Delegate
+
 extension MyMenuViewController: MyMenuCollectionViewCellDelegate {
     func checkboxTapped(at index: Int, isSelected: Bool) {
         if isSelected {
@@ -169,4 +175,67 @@ extension MyMenuViewController: MyMenuCollectionViewCellDelegate {
         
         selectedIndexes.isEmpty ? hideModal() : showModal()
     }
+}
+
+//MARK: - Drag Delegate
+
+extension MyMenuViewController: UICollectionViewDragDelegate {
+    func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: any UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        print("dragging")
+        return [UIDragItem(itemProvider: NSItemProvider())]
+    }
+}
+
+//MARK: - Drop Delegate
+extension MyMenuViewController: UICollectionViewDropDelegate {
+    
+    // 드래그 중일 때만 드랍
+    func collectionView(_ collectionView: UICollectionView, dropSessionDidUpdate session: any UIDropSession, withDestinationIndexPath destinationIndexPath: IndexPath?) -> UICollectionViewDropProposal {
+        guard collectionView.hasActiveDrag else {
+            return UICollectionViewDropProposal(operation: .forbidden)
+        }
+        return UICollectionViewDropProposal(operation: .move, intent: .insertAtDestinationIndexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: any UICollectionViewDropCoordinator) {
+        guard let destinationIndexPath = coordinator.destinationIndexPath,
+                  coordinator.proposal.operation == .move
+        else { return }
+        
+        move(coordinator: coordinator,
+             destinationIndexPath: destinationIndexPath,
+             collectionView: collectionView)
+    }
+    
+    private func move(coordinator: UICollectionViewDropCoordinator, destinationIndexPath: IndexPath, collectionView: UICollectionView) {
+        guard
+            let sourceItem = coordinator.items.first,
+            let sourceIndexPath = sourceItem.sourceIndexPath
+        else { return }
+        
+        collectionView.performBatchUpdates { [weak self] in
+            self?.moveData(sourceIndexPath: sourceIndexPath, destinationIndexPath: destinationIndexPath)
+        } completion: { finish in
+            print("finish:", finish)
+            coordinator.drop(sourceItem.dragItem, toItemAt: destinationIndexPath)
+        }
+    }
+    
+    private func moveData(sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
+        let sourceItem = myMenuItems[sourceIndexPath.item]
+                
+        DispatchQueue.main.async {
+            self.myMenuItems.remove(at: sourceIndexPath.item)
+            self.myMenuItems.insert(sourceItem, at: destinationIndexPath.item)
+            let indexPaths = self.myMenuItems
+                .enumerated()
+                .map(\.offset)
+                .map { IndexPath(row: $0, section: 0) }
+            UIView.animate(withDuration: 0) {
+                self.myMenuCollectionView.reloadItems(at: indexPaths)
+            }
+        }
+    }
+
+    
 }
