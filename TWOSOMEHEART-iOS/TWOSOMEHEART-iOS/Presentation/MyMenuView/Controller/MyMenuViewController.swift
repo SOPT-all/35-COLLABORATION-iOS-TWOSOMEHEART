@@ -182,6 +182,12 @@ extension MyMenuViewController: MyMenuCollectionViewCellDelegate {
 extension MyMenuViewController: UICollectionViewDragDelegate {
     func collectionView(_ collectionView: UICollectionView, itemsForBeginning session: any UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         print("dragging")
+        let location = session.location(in: collectionView)
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) as? MyMenuCollectionViewCell else { return [] }
+        let dragHandleFrame = cell.dragMenuButton.convert(cell.dragMenuButton.bounds, to: collectionView)
+        guard dragHandleFrame.contains(location) else { return [] }
+        
         return [UIDragItem(itemProvider: NSItemProvider())]
     }
 }
