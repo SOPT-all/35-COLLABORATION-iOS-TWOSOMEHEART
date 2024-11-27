@@ -51,6 +51,7 @@
 		05F737662CF7A1620030B7F5 /* MenuSubcategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737652CF7A1620030B7F5 /* MenuSubcategoryView.swift */; };
 		05F737682CF7A3970030B7F5 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737672CF7A3970030B7F5 /* MyButton.swift */; };
 		05F7376A2CF7AA2D0030B7F5 /* SelectedStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737692CF7AA2D0030B7F5 /* SelectedStoreView.swift */; };
+		05F7376C2CF7B02F0030B7F5 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F7376B2CF7B02F0030B7F5 /* MenuCell.swift */; };
 		05F737712CF7B0E80030B7F5 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737702CF7B0E80030B7F5 /* Menu.swift */; };
 		7405D65E2CF5090300C1FC64 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65C2CF5090300C1FC64 /* Config.swift */; };
 		7405D6602CF50DCA00C1FC64 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */; };
@@ -142,6 +143,7 @@
 		05F737652CF7A1620030B7F5 /* MenuSubcategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSubcategoryView.swift; sourceTree = "<group>"; };
 		05F737672CF7A3970030B7F5 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
 		05F737692CF7AA2D0030B7F5 /* SelectedStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStoreView.swift; sourceTree = "<group>"; };
+		05F7376B2CF7B02F0030B7F5 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		05F737702CF7B0E80030B7F5 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		7405D65C2CF5090300C1FC64 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
@@ -435,10 +437,9 @@
 			isa = PBXGroup;
 			children = (
 				05F737412CF740F40030B7F5 /* Type */,
-				05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */,
-				05F737652CF7A1620030B7F5 /* MenuSubcategoryView.swift */,
-				05F737672CF7A3970030B7F5 /* MyButton.swift */,
-				05F737692CF7AA2D0030B7F5 /* SelectedStoreView.swift */,
+				05F7376E2CF7B04E0030B7F5 /* HeaderView */,
+				05F7376D2CF7B03B0030B7F5 /* TableViewCell */,
+				05F7376F2CF7B0810030B7F5 /* FooterView */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -458,6 +459,32 @@
 				05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */,
 			);
 			path = Type;
+			sourceTree = "<group>";
+		};
+		05F7376D2CF7B03B0030B7F5 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				05F7376B2CF7B02F0030B7F5 /* MenuCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		05F7376E2CF7B04E0030B7F5 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */,
+				05F737652CF7A1620030B7F5 /* MenuSubcategoryView.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		05F7376F2CF7B0810030B7F5 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				05F737672CF7A3970030B7F5 /* MyButton.swift */,
+				05F737692CF7AA2D0030B7F5 /* SelectedStoreView.swift */,
+			);
+			path = FooterView;
 			sourceTree = "<group>";
 		};
 		7405D6552CF5055000C1FC64 /* Network */ = {
@@ -787,6 +814,7 @@
 				B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */,
 				B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */,
 				B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */,
+				05F7376C2CF7B02F0030B7F5 /* MenuCell.swift in Sources */,
 				05F737432CF741040030B7F5 /* MenuCategoryType.swift in Sources */,
 				05F737682CF7A3970030B7F5 /* MyButton.swift in Sources */,
 				74503A202CF420C800FE117F /* SheetUtils.swift in Sources */,
