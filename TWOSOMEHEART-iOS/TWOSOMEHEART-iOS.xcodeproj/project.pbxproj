@@ -50,6 +50,7 @@
 		05F737642CF7A11C0030B7F5 /* MenuCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */; };
 		05F737662CF7A1620030B7F5 /* MenuSubcategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737652CF7A1620030B7F5 /* MenuSubcategoryView.swift */; };
 		05F737682CF7A3970030B7F5 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737672CF7A3970030B7F5 /* MyButton.swift */; };
+		05F7376A2CF7AA2D0030B7F5 /* SelectedStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737692CF7AA2D0030B7F5 /* SelectedStoreView.swift */; };
 		7405D65E2CF5090300C1FC64 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65C2CF5090300C1FC64 /* Config.swift */; };
 		7405D6602CF50DCA00C1FC64 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */; };
 		7405D6622CF50EFB00C1FC64 /* TSPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6612CF50EF200C1FC64 /* TSPlugin.swift */; };
@@ -139,6 +140,7 @@
 		05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryView.swift; sourceTree = "<group>"; };
 		05F737652CF7A1620030B7F5 /* MenuSubcategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSubcategoryView.swift; sourceTree = "<group>"; };
 		05F737672CF7A3970030B7F5 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		05F737692CF7AA2D0030B7F5 /* SelectedStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStoreView.swift; sourceTree = "<group>"; };
 		7405D65C2CF5090300C1FC64 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		7405D6612CF50EF200C1FC64 /* TSPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPlugin.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 				05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */,
 				05F737652CF7A1620030B7F5 /* MenuSubcategoryView.swift */,
 				05F737672CF7A3970030B7F5 /* MyButton.swift */,
+				05F737692CF7AA2D0030B7F5 /* SelectedStoreView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -802,6 +805,7 @@
 				746401E92CF0E7CF0042A302 /* SegmentButtonFactory.swift in Sources */,
 				B8D1B4272CEF8A97008B3871 /* Int+.swift in Sources */,
 				059C45872CEE1A9F00FB00DC /* MenuOptionViewController.swift in Sources */,
+				05F7376A2CF7AA2D0030B7F5 /* SelectedStoreView.swift in Sources */,
 				059C45762CEE10D800FB00DC /* MenuOption.swift in Sources */,
 				059C457A2CEE16A200FB00DC /* MenuOptionHeaderView.swift in Sources */,
 				7405D66C2CF513CE00C1FC64 /* DTO.swift in Sources */,
