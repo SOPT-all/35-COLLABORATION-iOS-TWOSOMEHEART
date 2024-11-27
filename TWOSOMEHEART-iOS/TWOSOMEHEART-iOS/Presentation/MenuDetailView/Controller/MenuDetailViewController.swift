@@ -17,9 +17,9 @@ final class MenuDetailViewController: BaseViewController {
     private let menuDetailBottomView = MenuDetailBottomView()
     
     // MARK: - Properties
-    private var menuInfo: DTO.GetMenuInfoResponse.MenuInfo?
+    private var service: NetworkService<APITarget.Menu>?
     
-    private let menuItem = MenuDetail.menuItems[0]
+    private var menuInfo: DTO.GetMenuInfoResponse.MenuInfo?
     private var isExpanded: Bool = false
     
     // MARK: - View Lifecycle
@@ -28,6 +28,12 @@ final class MenuDetailViewController: BaseViewController {
         
         setDelegates()
         registerCells()
+        fetchMenuDetail(menuID: 1)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        service = nil
     }
     
     override func setStyle() {
@@ -86,34 +92,31 @@ final class MenuDetailViewController: BaseViewController {
 
 // MARK: - Network
 private extension MenuDetailViewController {
-    func fetchMenuDetail(menuID: Int){
-        let service = NetworkService<APITarget.Menu>()
+    func fetchMenuDetail(menuID: Int) {
+        service = NetworkService<APITarget.Menu>()
         let request = DTO.GetMenuInfoRequest(menuId: menuID)
         
-        service.request(type: DTO.GetMenuInfoResponse.self, target: .getMenuInfo(request)){
-            [weak self] response in
+        service?.request(type: DTO.GetMenuInfoResponse.self, target: .getMenuInfo(request)) { [weak self] response in
+            guard let self = self else { return }
+            
             switch response {
             case .success(let data):
-                print("🍀🍀🍀서버 통신 성공🍀🍀🍀")
-                print("받은 데이터: \(data)")
-
-                self?.menuInfo = data.data
-                
+                print("✅ 서버 통신 성공: \(data)")
+                self.menuInfo = data.data
                 DispatchQueue.main.async {
-                    self?.tableView.reloadData()
+                    self.tableView.reloadData()
                 }
             case .requestErr:
-                print("❌ 요청 오류 발생: 클라이언트 에러")
-            case .serverErr:
-                print("❌ 서버 오류 발생")
-                 
-            case .networkFail:
-                print("❌ 네트워크 오류 발생")
-                
+                print("요청 에러")
             case .decodedErr:
-                print("❌ 디코딩 오류 발생")
+                print("디코딩 에러")
             case .pathErr:
-                print("❌ 경로 오류 발생")
+                print("경로 에러")
+            case .serverErr:
+                print("서버 에러")
+            case .networkFail:
+                print("네트워크 에러")
+                
             }
         }
     }
@@ -128,7 +131,7 @@ extension MenuDetailViewController: NutritionHeaderTableViewCellDelegate {
         
         DispatchQueue.main.async {
             let indexPath = IndexPath(row: 1, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
 }
@@ -141,7 +144,7 @@ extension MenuDetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let menuInfo = menuInfo else { return UITableViewCell() }
-
+        
         
         switch indexPath.row {
         case 0:
@@ -165,7 +168,7 @@ extension MenuDetailViewController: UITableViewDataSource {
             headerCell.isExpanded = isExpanded
             headerCell.configureGesture(delegate: self)
             headerCell.selectionStyle = .none
-           
+            
             return headerCell
             
         case 2:

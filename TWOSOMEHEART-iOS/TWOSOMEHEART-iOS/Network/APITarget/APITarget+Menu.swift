@@ -41,7 +41,7 @@ extension APITarget.Menu: TargetType {
 
     var task: Moya.Task {
         switch self {
-        case .getMenuInfo(let menuId):
+        case .getMenuInfo:
             return .requestPlain
         case .postLikedMenu(let postLikedMenuRequest):
             return .requestParameters(
