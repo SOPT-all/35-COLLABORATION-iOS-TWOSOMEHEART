@@ -9,7 +9,7 @@ import Foundation
 
 enum MenuSubcategoryType: String, CaseIterable {
     case coffee = "커피"
-    case decaffeinatedCoffee = "디카페인 커피"
+    case decaffeinatedCoffee = "디카페인커피"
     case beverages = "음료"
     case teaAndTeaLatte = "티/티라떼"
     case iceCreamAndShavedIce = "아이스크림/빙수"
