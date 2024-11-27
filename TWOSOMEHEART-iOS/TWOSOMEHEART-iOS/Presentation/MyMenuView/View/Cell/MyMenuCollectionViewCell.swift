@@ -29,7 +29,7 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
     private let menuNameLabel = UILabel()
     private let menuPriceLabel = UILabel()
     private let menuOptionsLabel = UILabel()
-    private let dragMenuButton = UIButton(type: .custom)
+    let dragMenuButton = UIButton(type: .custom)
     private lazy var cartButton = UIButton()
     private lazy var orderNowButton = UIButton()
     
