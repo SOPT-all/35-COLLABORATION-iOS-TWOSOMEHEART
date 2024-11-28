@@ -119,9 +119,7 @@ private extension MenuCategoryView {
     func initializeUnderlinePosition() {
         guard let button = categoryStackView
             .arrangedSubviews[selectedCategoryIndex] as? UIButton
-        else {
-            return
-        }
+        else { return }
 
         updateUnderlinePosition(for: button)
     }

@@ -45,12 +45,16 @@ final class MenuViewController: BaseNavViewController {
     // MARK: - UI
 
     override func setStyle() {
+        super.setStyle()
+
         view.backgroundColor = .tsWhite
         tableView.separatorStyle = .none
     }
 
     override func setHierarchy() {
-        view.addSubviews(
+        super.setHierarchy()
+
+        contentView.addSubviews(
             categoryView,
             subcategoryView,
             tableView,
@@ -60,8 +64,10 @@ final class MenuViewController: BaseNavViewController {
     }
 
     override func setLayout() {
+        super.setLayout()
+
         categoryView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.top.equalToSuperview()
             $0.horizontalEdges.equalToSuperview()
         }
 
