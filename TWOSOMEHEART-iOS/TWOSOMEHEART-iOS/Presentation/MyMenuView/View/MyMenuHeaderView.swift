@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
+protocol MyMenuHeaderViewDelegate: AnyObject {
+    func selectAllCheckboxTapped(isSelected: Bool)
+}
+
 class MyMenuHeaderView: UIView {
     // MARK: - UI Properties
     
@@ -21,7 +25,13 @@ class MyMenuHeaderView: UIView {
     
     // MARK: Properties
     private var isAllSelected: Bool = false
-    
+    weak var delegate: MyMenuHeaderViewDelegate?
+    var likedItemsCount: Int = 0 {
+         didSet {
+             updateTotalQuantityLabel()
+         }
+     }
+
     // MARK: - Initializer
     
     override init(frame: CGRect) {
@@ -38,31 +48,6 @@ class MyMenuHeaderView: UIView {
     // MARK: - Style, UI, Layout
     
     private func setStyle() {
-        totalQuantityLabel.do {
-            let fullText = "총 3개"
-            let attributedString = NSMutableAttributedString(string: fullText)
-            
-            let totalText = (fullText as NSString).range(of: "총")
-            attributedString.addAttributes([
-                .font: TSFont.c2r,
-                .foregroundColor: UIColor(resource: .gray90)
-            ], range: totalText)
-            
-            let countText = (fullText as NSString).range(of: "3")
-            attributedString.addAttributes([
-                .font: TSFont.c2b,
-                .foregroundColor: UIColor(resource: .gray90)
-            ], range: countText)
-            
-            let unitText = (fullText as NSString).range(of: "개")
-            attributedString.addAttributes([
-                .font: TSFont.c2r,
-                .foregroundColor: UIColor(resource: .gray90)
-            ], range: unitText)
-            
-            $0.attributedText = attributedString
-        }
-        
         selectAllCheckbox.do {
             $0.setImage(UIImage(resource: .modalCheckboxDeselect), for: .normal)
             $0.setImage(UIImage(resource: .mymenuCheckboxSelect), for: .selected)
@@ -133,5 +118,18 @@ class MyMenuHeaderView: UIView {
     @objc private func selectAllCheckboxTapped() {
         isAllSelected.toggle()
         selectAllCheckbox.isSelected = isAllSelected
+        delegate?.selectAllCheckboxTapped(isSelected: isAllSelected)
+    }
+    
+    private func updateTotalQuantityLabel() {
+        let fullText = "총 \(likedItemsCount)개"
+        
+        let styles: [(text: String, font: UIFont, color: UIColor)] = [
+            (text: "총", font: TSFont.c2r, color: UIColor(resource: .gray90)),
+            (text: "\(likedItemsCount)", font: TSFont.c2b, color: UIColor(resource: .gray90)),
+            (text: "개", font: TSFont.c2r, color: UIColor(resource: .gray90))
+        ]
+    
+        totalQuantityLabel.setAttributedText(fullText: fullText, styles: styles)
     }
 }

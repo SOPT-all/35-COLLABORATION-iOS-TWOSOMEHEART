@@ -14,6 +14,8 @@ enum StringLiterals {
         static let title = "투썸오더"
         
         static let detail = "커피/음료"
+        
+        static let myMenu = "My 투썸"
 
     }
 
@@ -109,6 +111,9 @@ enum StringLiterals {
         
         static let goOrder = "주문하기"
         
+        static let personalCup = "개인컵"
+        
+        static let noReuseCup = "일회용컵"
     }
 
     enum MenuOptionType {

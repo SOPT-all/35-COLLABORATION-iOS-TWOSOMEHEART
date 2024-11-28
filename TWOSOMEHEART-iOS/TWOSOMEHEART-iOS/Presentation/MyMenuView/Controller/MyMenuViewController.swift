@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-class MyMenuViewController: BaseViewController {
+class MyMenuViewController: BaseNavViewController {
     // MARK: - UI Properties
     
     private let myMenuHeaderView = MyMenuHeaderView()
@@ -26,29 +26,38 @@ class MyMenuViewController: BaseViewController {
     
     // MARK: - Properties
     
-    var myMenuItems = MyMenuItem.myMenuItems
+    private var likedItems: [DTO.GetLikedMenuResponse.FavoriteList] = [] {
+        didSet {
+            myMenuHeaderView.likedItemsCount = likedItems.count
+        }
+    }
+    
+    private var service: NetworkService<APITarget.Likes>?
     var selectedIndexes: Set<Int> = []
     
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setAddTargets()
+        setDelegates()
         setCollectionView()
         setModal()
+        setNavigationBarStyle()
+        fetchLikedMenuList()
     }
-
+    
     // MARK: - Actions
-
+    
     @objc private func deleteButtonTapped() {
         let alertVC = CustomAlertViewController()
         alertVC.modalPresentationStyle = .custom
         present(alertVC, animated: false)
     }
-
+    
     // MARK: - Helpers
-
+    
     private func setAddTargets() {
         myMenuHeaderView.deleteButton.addTarget(
             self,
@@ -56,19 +65,31 @@ class MyMenuViewController: BaseViewController {
             for: .touchUpInside
         )
     }
-
+    
+    private func setDelegates(){
+        myMenuHeaderView.delegate = self
+    }
+    
     // MARK: - UI
-
+    override func setStyle() {
+        super.setStyle()
+        
+        view.backgroundColor = .tsWhite
+    }
+    
     override func setHierarchy() {
         super.setHierarchy()
-        view.addSubviews(myMenuHeaderView,
-                         myMenuCollectionView,
-                         myMenuModalView)
+        
+        contentView.addSubviews(myMenuHeaderView,
+                                myMenuCollectionView,
+                                myMenuModalView)
     }
     
     override func setLayout() {
+        super.setLayout()
+        
         myMenuHeaderView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.top.equalToSuperview()
             $0.horizontalEdges.equalToSuperview().inset(16)
             $0.height.equalTo(82)
         }
@@ -84,6 +105,15 @@ class MyMenuViewController: BaseViewController {
             $0.height.equalTo(147)
             $0.bottom.equalToSuperview().offset(147)
         }
+    }
+    
+    // MARK: - Navigation Style
+    private func setNavigationBarStyle() {
+        setBackgroundColor(color: .tsWhite)
+        setBackButton()
+        setHomeButton()
+        setTitleLabelStyle(title: SLNavBar.myMenu, alignment: .center)
+        setBagButton()
     }
 }
 
@@ -117,7 +147,7 @@ private extension MyMenuViewController {
         
         let totalQuantity = selectedIndexes.count
         let totalPrice = selectedIndexes.reduce(0) { result, index in
-            result + myMenuItems[index].price
+            result + likedItems[index].price
         }
         
         myMenuModalView.configure(price: totalPrice, quantity: totalQuantity)
@@ -147,7 +177,7 @@ private extension MyMenuViewController {
 
 extension MyMenuViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return myMenuItems.count
+        return likedItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -157,7 +187,7 @@ extension MyMenuViewController: UICollectionViewDataSource {
         
         item.delegate = self
         item.configure(with: indexPath.row)
-        item.bind(myMenuItems[indexPath.item])
+        item.bind(likedItems[indexPath.item])
         return item
     }
     
@@ -205,7 +235,7 @@ extension MyMenuViewController: UICollectionViewDropDelegate {
     
     func collectionView(_ collectionView: UICollectionView, performDropWith coordinator: any UICollectionViewDropCoordinator) {
         guard let destinationIndexPath = coordinator.destinationIndexPath,
-                  coordinator.proposal.operation == .move
+              coordinator.proposal.operation == .move
         else { return }
         
         move(coordinator: coordinator,
@@ -228,12 +258,12 @@ extension MyMenuViewController: UICollectionViewDropDelegate {
     }
     
     private func moveData(sourceIndexPath: IndexPath, destinationIndexPath: IndexPath) {
-        let sourceItem = myMenuItems[sourceIndexPath.item]
-                
+        let sourceItem = likedItems[sourceIndexPath.item]
+        
         DispatchQueue.main.async {
-            self.myMenuItems.remove(at: sourceIndexPath.item)
-            self.myMenuItems.insert(sourceItem, at: destinationIndexPath.item)
-            let indexPaths = self.myMenuItems
+            self.likedItems.remove(at: sourceIndexPath.item)
+            self.likedItems.insert(sourceItem, at: destinationIndexPath.item)
+            let indexPaths = self.likedItems
                 .enumerated()
                 .map(\.offset)
                 .map { IndexPath(row: $0, section: 0) }
@@ -242,6 +272,63 @@ extension MyMenuViewController: UICollectionViewDropDelegate {
             }
         }
     }
-
+    
     
 }
+
+// MARK: - MyMenuHeaderView Delegate
+extension MyMenuViewController: MyMenuHeaderViewDelegate {
+    func selectAllCheckboxTapped(isSelected: Bool) {
+        if isSelected {
+            selectedIndexes = Set(0..<likedItems.count)
+        } else {
+            selectedIndexes.removeAll()
+        }
+        
+        for index in 0..<likedItems.count {
+            if let cell = myMenuCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? MyMenuCollectionViewCell {
+                print(cell, index)
+                cell.setCheckboxSelected(isSelected)
+            }
+        }
+        
+        selectedIndexes.isEmpty ? hideModal() : showModal()
+    }
+}
+
+
+// MARK: - Network
+private extension MyMenuViewController {
+    func fetchLikedMenuList() {
+        service = NetworkService<APITarget.Likes>()
+        service?.request(type: DTO.GetLikedMenuResponse.self, target: .getLikedMenu) { [weak self] response in
+            guard let self = self else { return }
+            
+            switch response {
+            case .success(let data):
+                print("🍀🍀🍀서버 통신 성공")
+                
+                if let favoriteList = data.data?.favoriteList {
+                    self.likedItems = favoriteList
+                }
+                
+                DispatchQueue.main.async {
+                    self.myMenuCollectionView.reloadData()
+                }
+            case .requestErr:
+                print("요청 에러")
+            case .decodedErr:
+                print("디코딩 에러")
+            case .pathErr:
+                print("경로 에러")
+            case .serverErr:
+                print("서버 에러")
+            case .networkFail:
+                print("네트워크 에러")
+            }
+        }
+    }
+}
+
+
+
