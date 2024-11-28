@@ -16,7 +16,16 @@ class ModalViewController: BaseViewController {
     
     var segments : [CustomSegmentControlView] = []
     
-    let modalInfo = ModalInfo(menuName: "바닐라샷라떼", price: 5900, personalOption: "")
+    var modalInfo: ModalInfo
+        
+    init(modalInfo: ModalInfo) {
+        self.modalInfo = modalInfo
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +65,7 @@ class ModalViewController: BaseViewController {
         }
     }
     
-    var price: Int = ModalInfo.modalInfo.price
+    lazy var price: Int = modalInfo.price
     
     func setupSegments() {
         segments.enumerated().forEach { index, segment in
@@ -69,9 +78,9 @@ class ModalViewController: BaseViewController {
     }
     
     func bindData() {
-        modalView.headerLabel.text = ModalInfo.modalInfo.menuName
+        modalView.headerLabel.text = modalInfo.menuName
         modalView.priceLabel.text = "\(price.formattedPrice())원"
-        modalView.personalOptionListLabel.text = ModalInfo.modalInfo.personalOption
+        modalView.personalOptionListLabel.text = modalInfo.personalOption
     }
     
     // TODO: - personalOptionListLabel text 받아와서 업데이트해주기
@@ -96,7 +105,7 @@ private extension ModalViewController {
         modalView.counterView.onValueChanged = { [weak self] count in
             guard let self = self else { return }
             
-            price = (ModalInfo.modalInfo.price)*count
+            price = (modalInfo.price)*count
             let price =  price - (modalView.personalCupButton.isSelected ? 300 : 0)
             modalView.priceLabel.text = "\(price.formattedPrice())원"
         }
@@ -206,7 +215,7 @@ private extension ModalViewController {
         let likedMenuInfo = DTO.PostLikedMenuRequest.LikedMenuInfo(name: modalInfo.menuName,
                                                                    price: price,
                                                                    temperature: segments[0].selectedIndex, size: segments[1].selectedIndex, coffeeBean: segments[2].selectedIndex, togo: segments[3].selectedIndex, personal: modalView.personalCupButton.isSelected)
-        let request = DTO.PostLikedMenuRequest(menuId: 1,
+        let request = DTO.PostLikedMenuRequest(menuId: modalInfo.id,
                                                likedMenuInfo: likedMenuInfo)
         service.provider.request(.postLikedMenu(request)) { [weak self] response in
             switch response {

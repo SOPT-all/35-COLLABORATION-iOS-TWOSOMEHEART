@@ -9,12 +9,9 @@ import Foundation
 
 struct ModalInfo {
     
+    var id: Int
     var menuName: String
     var price: Int
     var personalOption: String
     
-}
-
-extension ModalInfo {
-    static let modalInfo = ModalInfo(menuName: "바닐라샷라떼", price: 5900, personalOption: "")
 }

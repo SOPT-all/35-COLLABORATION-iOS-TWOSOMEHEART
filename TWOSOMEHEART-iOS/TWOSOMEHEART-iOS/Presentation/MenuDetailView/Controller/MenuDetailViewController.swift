@@ -50,6 +50,8 @@ final class MenuDetailViewController: BaseNavViewController {
             $0.rowHeight = UITableView.automaticDimension
             $0.estimatedRowHeight = 760
         }
+        
+        menuDetailBottomView.orderButton.addTarget(self, action: #selector(goToOrderModal), for: .touchUpInside)
     }
     
     override func setHierarchy() {
@@ -244,4 +246,19 @@ extension MenuDetailViewController: UITableViewDelegate {
             return UITableView.automaticDimension
         }
     }
+}
+
+private extension MenuDetailViewController {
+    
+    @objc
+    func goToOrderModal() {
+        let modalInfo = ModalInfo(id: menuID ?? 1,
+                                      menuName: menuInfo?.name ?? "",
+                                      price: menuInfo?.price ?? 5900,
+                                      personalOption: "")
+        let modalVC = ModalViewController(modalInfo: modalInfo)
+        modalVC.setSheetLayout()
+        present(modalVC, animated: true)
+    }
+    
 }
