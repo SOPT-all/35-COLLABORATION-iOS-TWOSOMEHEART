@@ -203,9 +203,26 @@ private extension ModalViewController {
     }
     
     func showToast(_ statusCode: Int) {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first else { return }
+        
         let message = (statusCode != 400) ? SLModal.successToastMessage : SLModal.failToastMessage
-        ToastController.show(message) {
+        ToastController.show(message) { [weak self] in
             print("go to mymenuview🏅🏅🏅🏅🏅🏅🏅")
+            
+            // TODO: - presentingVC로 안 됨 -> 왜지 + 버튼 클릭 후 바로 Toast 사라지는 로직 구현 필요
+            if let rootViewController = window.rootViewController {
+                var navigationController: UINavigationController?
+                
+                if let nav = rootViewController as? UINavigationController {
+                    navigationController = nav
+                }
+                
+                self?.dismiss(animated: true) {
+                    let myMenuVC = MyMenuViewController()
+                    navigationController?.pushViewController(myMenuVC, animated: true)
+                }
+            }
         }
     }
     
