@@ -191,6 +191,7 @@ final class MenuOptionViewController: BaseViewController {
             $0.setTitle("선택하기", for: .normal)
             $0.setTitleColor(.tsWhite, for: .normal)
             $0.titleLabel?.font = TSFont.btn1s
+            $0.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
         }
     }
 
