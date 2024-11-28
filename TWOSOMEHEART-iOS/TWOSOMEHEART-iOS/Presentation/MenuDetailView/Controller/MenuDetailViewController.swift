@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class MenuDetailViewController: BaseViewController {
+final class MenuDetailViewController: BaseNavViewController {
     // MARK: - UI Components
     
     private let tableView = UITableView()
@@ -18,7 +18,7 @@ final class MenuDetailViewController: BaseViewController {
     
     // MARK: - Properties
     private var service: NetworkService<APITarget.Menu>?
-    
+    var menuID: Int?
     private var menuInfo: DTO.GetMenuInfoResponse.MenuInfo?
     private var isExpanded: Bool = false
     
@@ -28,7 +28,11 @@ final class MenuDetailViewController: BaseViewController {
         
         setDelegates()
         registerCells()
-        fetchMenuDetail(menuID: 1)
+        setNavigationBarStyle()
+        
+        if let menuID = menuID {
+            fetchMenuDetail(menuID: menuID)
+        }
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -37,6 +41,10 @@ final class MenuDetailViewController: BaseViewController {
     }
     
     override func setStyle() {
+        super.setStyle()
+        
+        view.backgroundColor = .tsWhite
+        
         tableView.do {
             $0.separatorStyle = .none
             $0.rowHeight = UITableView.automaticDimension
@@ -45,13 +53,16 @@ final class MenuDetailViewController: BaseViewController {
     }
     
     override func setHierarchy() {
-        view.addSubviews(tableView, menuDetailBottomView)
+        super.setHierarchy()
+        
+        contentView.addSubviews(tableView, menuDetailBottomView)
     }
     
     override func setLayout() {
+        super.setLayout()
+        
         tableView.snp.makeConstraints{
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.horizontalEdges.equalToSuperview()
+            $0.top.horizontalEdges.equalToSuperview()
         }
         
         menuDetailBottomView.snp.makeConstraints{
@@ -59,6 +70,15 @@ final class MenuDetailViewController: BaseViewController {
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: - Navigation Style
+    private func setNavigationBarStyle() {
+        setBackgroundColor(color: .tsWhite)
+        setBackButton()
+        setHomeButton()
+        setTitleLabelStyle(title: SLNavBar.detail, alignment: .center)
+        setBagButton()
     }
     
     // MARK: - Delegates
@@ -101,7 +121,7 @@ private extension MenuDetailViewController {
             
             switch response {
             case .success(let data):
-                print("✅ 서버 통신 성공: \(data)")
+                print("🍀🍀🍀서버 통신 성공🍀🍀🍀")
                 self.menuInfo = data.data
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

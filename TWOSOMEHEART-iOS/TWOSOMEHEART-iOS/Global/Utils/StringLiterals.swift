@@ -12,6 +12,8 @@ enum StringLiterals {
     enum NavigationBarType {
 
         static let title = "투썸오더"
+        
+        static let detail = "커피/음료"
 
     }
 
