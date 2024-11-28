@@ -179,4 +179,8 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         checkboxButton.isSelected = isSelectedCheckbox
         delegate?.checkboxTapped(at: index, isSelected: isSelectedCheckbox)
     }
+    
+    func setCheckboxSelected(_ isSelected: Bool) {
+        checkboxButton.isSelected = isSelected
+    }
 }

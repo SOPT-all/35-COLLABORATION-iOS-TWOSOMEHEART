@@ -10,6 +10,10 @@ import UIKit
 import SnapKit
 import Then
 
+protocol MyMenuHeaderViewDelegate: AnyObject {
+    func selectAllCheckboxTapped(isSelected: Bool)
+}
+
 class MyMenuHeaderView: UIView {
     // MARK: - UI Properties
     
@@ -21,7 +25,8 @@ class MyMenuHeaderView: UIView {
     
     // MARK: Properties
     private var isAllSelected: Bool = false
-    
+    weak var delegate: MyMenuHeaderViewDelegate?
+
     // MARK: - Initializer
     
     override init(frame: CGRect) {
@@ -133,5 +138,6 @@ class MyMenuHeaderView: UIView {
     @objc private func selectAllCheckboxTapped() {
         isAllSelected.toggle()
         selectAllCheckbox.isSelected = isAllSelected
+        delegate?.selectAllCheckboxTapped(isSelected: isAllSelected)
     }
 }

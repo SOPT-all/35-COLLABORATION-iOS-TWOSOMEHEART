@@ -51,7 +51,7 @@ class MyMenuModalView: UIView {
         }
         
         storeNameLabel.do {
-            $0.text = StringLiterals.MyMenuType.orderStore
+            $0.text = StringLiterals.MyMenuType.storeName
             $0.font = TSFont.t1b
             $0.textColor = UIColor(resource: .tsBlack)
         }

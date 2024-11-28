@@ -36,6 +36,7 @@ class MyMenuViewController: BaseNavViewController {
         super.viewDidLoad()
         
         setAddTargets()
+        setDelegates()
         setCollectionView()
         setModal()
         setNavigationBarStyle()
@@ -58,6 +59,10 @@ class MyMenuViewController: BaseNavViewController {
             action: #selector(deleteButtonTapped),
             for: .touchUpInside
         )
+    }
+    
+    private func setDelegates(){
+        myMenuHeaderView.delegate = self
     }
     
     // MARK: - UI
@@ -264,6 +269,25 @@ extension MyMenuViewController: UICollectionViewDropDelegate {
     }
     
     
+}
+
+// MARK: - MyMenuHeaderView Delegate
+extension MyMenuViewController: MyMenuHeaderViewDelegate {
+    func selectAllCheckboxTapped(isSelected: Bool) {
+        if isSelected {
+            selectedIndexes = Set(0..<likedItems.count)
+        } else {
+            selectedIndexes.removeAll()
+        }
+        
+        for index in 0..<likedItems.count {
+            if let cell = myMenuCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? MyMenuCollectionViewCell {
+                cell.setCheckboxSelected(isSelected)
+            }
+        }
+
+        selectedIndexes.isEmpty ? hideModal() : showModal()
+    }
 }
 
 
