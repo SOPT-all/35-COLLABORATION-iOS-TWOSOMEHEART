@@ -97,7 +97,7 @@ final class MenuViewController: BaseNavViewController {
         setBackgroundColor(color: .tsWhite)
         setBackButton()
         setHomeButton()
-        setTitleLabelStyle(title: "투썸오더", alignment: .center)
+        setTitleLabelStyle(title: SLNavBar.title, alignment: .center)
         setSearchButton()
         setReceiptButton()
         setBagButton()

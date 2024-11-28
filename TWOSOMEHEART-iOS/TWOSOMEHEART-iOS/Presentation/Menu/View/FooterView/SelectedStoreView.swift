@@ -27,7 +27,7 @@ final class SelectedStoreView: BaseView {
         }
 
         storeTitleLabel.setLabel(
-            text: "주문 매장",
+            text: SLSelectedStore.title,
             alignment: .left,
             numberOfLines: 1,
             textColor: .tsWhite,
@@ -35,7 +35,7 @@ final class SelectedStoreView: BaseView {
         )
 
         storeNameLabel.setLabel(
-            text: "수원정자점",
+            text: SLSelectedStore.storeName,
             alignment: .left,
             numberOfLines: 1,
             textColor: .tsWhite,
@@ -43,7 +43,7 @@ final class SelectedStoreView: BaseView {
         )
 
         storeDistanceLabel.setLabel(
-            text: "418m",
+            text: SLSelectedStore.distance,
             alignment: .left,
             numberOfLines: 1,
             textColor: .tsWhite,
@@ -55,7 +55,7 @@ final class SelectedStoreView: BaseView {
             config.contentInsets = .init(top: 3, leading: 10, bottom: 3, trailing: 10)
 
             $0.configuration = config
-            $0.setTitle("변경", for: .normal)
+            $0.setTitle(SLSelectedStore.change, for: .normal)
             $0.tintColor = .tsWhite
             $0.titleLabel?.font = TSFont.b2r
             $0.clipsToBounds = true
