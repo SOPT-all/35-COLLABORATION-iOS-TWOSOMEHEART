@@ -69,6 +69,7 @@
 		7405D6832CF51C5700C1FC64 /* DTO+DeleteLikedMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6822CF51C4F00C1FC64 /* DTO+DeleteLikedMenuResponse.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
+		7433D3E82CF7C8370076EED4 /* ToastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433D3E72CF7C82E0076EED4 /* ToastController.swift */; };
 		74503A202CF420C800FE117F /* SheetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A1F2CF420C200FE117F /* SheetUtils.swift */; };
 		74503A242CF4481000FE117F /* ModalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A232CF4480900FE117F /* ModalInfo.swift */; };
 		746401E92CF0E7CF0042A302 /* SegmentButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746401E82CF0E7C60042A302 /* SegmentButtonFactory.swift */; };
@@ -160,6 +161,7 @@
 		7405D6802CF51C3D00C1FC64 /* DTO+GetLikedMenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DTO+GetLikedMenuResponse.swift"; sourceTree = "<group>"; };
 		7405D6822CF51C4F00C1FC64 /* DTO+DeleteLikedMenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DTO+DeleteLikedMenuResponse.swift"; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7433D3E72CF7C82E0076EED4 /* ToastController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastController.swift; sourceTree = "<group>"; };
 		74503A1F2CF420C200FE117F /* SheetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetUtils.swift; sourceTree = "<group>"; };
 		74503A232CF4480900FE117F /* ModalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfo.swift; sourceTree = "<group>"; };
 		746401E82CF0E7C60042A302 /* SegmentButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentButtonFactory.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 		059C45412CEE0B5A00FB00DC /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				7433D3E72CF7C82E0076EED4 /* ToastController.swift */,
 				059C453F2CEE0B5A00FB00DC /* CounterView.swift */,
 				059C45402CEE0B5A00FB00DC /* CustomSegmentControlView.swift */,
 				05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */,
@@ -837,6 +840,7 @@
 				B8D1B4272CEF8A97008B3871 /* Int+.swift in Sources */,
 				059C45872CEE1A9F00FB00DC /* MenuOptionViewController.swift in Sources */,
 				05F7376A2CF7AA2D0030B7F5 /* SelectedStoreView.swift in Sources */,
+				7433D3E82CF7C8370076EED4 /* ToastController.swift in Sources */,
 				059C45762CEE10D800FB00DC /* MenuOption.swift in Sources */,
 				059C457A2CEE16A200FB00DC /* MenuOptionHeaderView.swift in Sources */,
 				7405D66C2CF513CE00C1FC64 /* DTO.swift in Sources */,
