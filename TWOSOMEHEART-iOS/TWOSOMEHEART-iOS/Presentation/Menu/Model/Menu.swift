@@ -22,25 +22,25 @@ extension Menu {
 
     static let sample: [Menu] = [
         Menu(
-            menuImage: .imgList1,
+            menuImage: .imgList2,
             menuStatus: .new,
             menuTitle: "바나나 샷 라떼",
             menuPrice: 5500
         ),
         Menu(
-            menuImage: .imgList2,
+            menuImage: .imgList1,
             menuStatus: .new,
             menuTitle: "바나나 샷 아메리카노",
             menuPrice: 5800
         ),
         Menu(
-            menuImage: .imgList3,
+            menuImage: .imgList4,
             menuStatus: .best,
             menuTitle: "디카페인 오틀리 콜드브루",
             menuPrice: 6300
         ),
         Menu(
-            menuImage: .imgList4,
+            menuImage: .imgList3,
             menuStatus: .best,
             menuTitle: "레몬 아샷추",
             menuPrice: 5500
