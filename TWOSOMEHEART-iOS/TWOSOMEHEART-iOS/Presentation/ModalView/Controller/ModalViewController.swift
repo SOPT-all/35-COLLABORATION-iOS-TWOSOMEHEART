@@ -14,9 +14,18 @@ class ModalViewController: BaseViewController {
     
     let modalView = ModalView()
     
+    var segments : [CustomSegmentControlView] = []
+    
+    let modalInfo = ModalInfo(menuName: "바닐라샷라떼", price: 5900, personalOption: "")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        segments = [modalView.segmentControlStackView.tempSegmentView,
+                    modalView.segmentControlStackView.sizeSegmentView,
+                    modalView.segmentControlStackView.beanSegmentView,
+                    modalView.segmentControlStackView.pickupSegmentView]
+        
         addTargets()
         setupSegments()
         bindData()
@@ -50,11 +59,6 @@ class ModalViewController: BaseViewController {
     var price: Int = ModalInfo.modalInfo.price
     
     func setupSegments() {
-        let segments = [modalView.segmentControlStackView.tempSegmentView,
-                        modalView.segmentControlStackView.sizeSegmentView,
-                        modalView.segmentControlStackView.beanSegmentView,
-                        modalView.segmentControlStackView.pickupSegmentView]
-        
         segments.enumerated().forEach { index, segment in
             segment.onSelectedStateChanged = { [weak self] selectedIndex in
                 self?.segmentStates[index] = (selectedIndex != -1)
@@ -80,6 +84,7 @@ private extension ModalViewController {
     func addTargets() {
         modalView.personalCupButton.addTarget(self, action: #selector(personalCupButtonTapped), for: .touchUpInside)
         modalView.personalOptionButton.addTarget(self, action: #selector(personalOptionButtonTapped), for: .touchUpInside)
+        modalView.starButton.addTarget(self, action: #selector(starButtonTapped), for: .touchUpInside)
     }
     
 }
@@ -177,6 +182,42 @@ private extension ModalViewController {
         let menuOptionVC = MenuOptionViewController()
         menuOptionVC.modalPresentationStyle = .fullScreen
         present(menuOptionVC, animated: true)
+    }
+    
+}
+
+private extension ModalViewController {
+    
+    @objc
+    func starButtonTapped() {
+        postLikeData()
+    }
+    
+    func showToast(_ statusCode: Int) {
+        let message = (statusCode != 400) ? SLModal.successToastMessage : SLModal.failToastMessage
+        ToastController.show(message) {
+            print("go to mymenuview🏅🏅🏅🏅🏅🏅🏅")
+        }
+    }
+    
+    func postLikeData() {
+        let service = NetworkService<APITarget.Menu>()
+        let price = price - (modalView.personalCupButton.isSelected ? 300 : 0)
+        let likedMenuInfo = DTO.PostLikedMenuRequest.LikedMenuInfo(name: modalInfo.menuName,
+                                                                   price: price,
+                                                                   temperature: segments[0].selectedIndex, size: segments[1].selectedIndex, coffeeBean: segments[2].selectedIndex, togo: segments[3].selectedIndex, personal: modalView.personalCupButton.isSelected)
+        let request = DTO.PostLikedMenuRequest(menuId: 1,
+                                               likedMenuInfo: likedMenuInfo)
+        service.provider.request(.postLikedMenu(request)) { [weak self] response in
+            switch response {
+            case .success(let response):
+                print("🍀🍀🍀서버 통신 성공🍀🍀🍀")
+                self?.showToast(response.statusCode)
+                return
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
 }

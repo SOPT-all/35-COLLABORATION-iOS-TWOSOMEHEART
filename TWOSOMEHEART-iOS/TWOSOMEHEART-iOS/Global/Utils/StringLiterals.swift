@@ -8,9 +8,27 @@
 import Foundation
 
 enum StringLiterals {
-    
+
+    enum NavigationBarType {
+
+        static let title = "투썸오더"
+
+    }
+
+    enum SelectedStoreType {
+
+        static let title = "주문 매장"
+
+        static let storeName = "수원정자점"
+
+        static let distance = "418m"
+
+        static let change = "변경"
+
+    }
+
     enum MenuType {
-        
+
         static let new = "NEW"
         
         static let recommend = "추천세트"
@@ -38,7 +56,6 @@ enum StringLiterals {
         static let icecream = "아이스크림/빙수"
         
     }
-    
     
     enum MenuDetailType {
         static let noticeText1 = """
@@ -91,7 +108,6 @@ enum StringLiterals {
         static let goOrder = "주문하기"
         
     }
-
 
     enum MenuOptionType {
 
@@ -156,6 +172,12 @@ enum StringLiterals {
         static let bean = "원두"
         
         static let pickup = "픽업방식"
+        
+        static let seeMyMenuList = "목록 보기"
+        
+        static let successToastMessage = "즐겨찾기에 저장되었습니다"
+        
+        static let failToastMessage = "이미 저장된 메뉴입니다"
         
     }
 

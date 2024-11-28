@@ -18,7 +18,7 @@ class CustomSegmentControlView: BaseView {
     
     private var segmentType: SegmentType
     
-    private var selectedIndex : Int = -1 {
+    var selectedIndex : Int = -1 {
         didSet {
             updateSegments()
             onSelectedStateChanged?(selectedIndex)

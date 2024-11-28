@@ -43,6 +43,16 @@
 		059C46412CEF383A00FB00DC /* Aliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46402CEF383A00FB00DC /* Aliases.swift */; };
 		059C46432CEF406900FB00DC /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059C46422CEF406900FB00DC /* BaseView.swift */; };
 		05F736BA2CF0659D0030B7F5 /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */; };
+		05F737432CF741040030B7F5 /* MenuCategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737422CF741040030B7F5 /* MenuCategoryType.swift */; };
+		05F737452CF741BE0030B7F5 /* MenuSubcategoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */; };
+		05F737602CF79DB90030B7F5 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F7375F2CF79DB90030B7F5 /* MenuViewController.swift */; };
+		05F737622CF79DEB0030B7F5 /* PaddedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737612CF79DEB0030B7F5 /* PaddedLabel.swift */; };
+		05F737642CF7A11C0030B7F5 /* MenuCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */; };
+		05F737662CF7A1620030B7F5 /* MenuSubcategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737652CF7A1620030B7F5 /* MenuSubcategoryView.swift */; };
+		05F737682CF7A3970030B7F5 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737672CF7A3970030B7F5 /* MyButton.swift */; };
+		05F7376A2CF7AA2D0030B7F5 /* SelectedStoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737692CF7AA2D0030B7F5 /* SelectedStoreView.swift */; };
+		05F7376C2CF7B02F0030B7F5 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F7376B2CF7B02F0030B7F5 /* MenuCell.swift */; };
+		05F737712CF7B0E80030B7F5 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05F737702CF7B0E80030B7F5 /* Menu.swift */; };
 		7405D65E2CF5090300C1FC64 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65C2CF5090300C1FC64 /* Config.swift */; };
 		7405D6602CF50DCA00C1FC64 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */; };
 		7405D6622CF50EFB00C1FC64 /* TSPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6612CF50EF200C1FC64 /* TSPlugin.swift */; };
@@ -59,6 +69,7 @@
 		7405D6832CF51C5700C1FC64 /* DTO+DeleteLikedMenuResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7405D6822CF51C4F00C1FC64 /* DTO+DeleteLikedMenuResponse.swift */; };
 		742A43CA2CE8918600535185 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43C92CE8918600535185 /* SnapKit */; };
 		742A43CF2CE8919300535185 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 742A43CE2CE8919300535185 /* Then */; };
+		7433D3E82CF7C8370076EED4 /* ToastController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7433D3E72CF7C82E0076EED4 /* ToastController.swift */; };
 		74503A202CF420C800FE117F /* SheetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A1F2CF420C200FE117F /* SheetUtils.swift */; };
 		74503A242CF4481000FE117F /* ModalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74503A232CF4480900FE117F /* ModalInfo.swift */; };
 		746401E92CF0E7CF0042A302 /* SegmentButtonFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746401E82CF0E7C60042A302 /* SegmentButtonFactory.swift */; };
@@ -126,6 +137,16 @@
 		059C46402CEF383A00FB00DC /* Aliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aliases.swift; sourceTree = "<group>"; };
 		059C46422CEF406900FB00DC /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
+		05F737422CF741040030B7F5 /* MenuCategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryType.swift; sourceTree = "<group>"; };
+		05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSubcategoryType.swift; sourceTree = "<group>"; };
+		05F7375F2CF79DB90030B7F5 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		05F737612CF79DEB0030B7F5 /* PaddedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedLabel.swift; sourceTree = "<group>"; };
+		05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCategoryView.swift; sourceTree = "<group>"; };
+		05F737652CF7A1620030B7F5 /* MenuSubcategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSubcategoryView.swift; sourceTree = "<group>"; };
+		05F737672CF7A3970030B7F5 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		05F737692CF7AA2D0030B7F5 /* SelectedStoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedStoreView.swift; sourceTree = "<group>"; };
+		05F7376B2CF7B02F0030B7F5 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		05F737702CF7B0E80030B7F5 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		7405D65C2CF5090300C1FC64 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		7405D65F2CF50DC600C1FC64 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		7405D6612CF50EF200C1FC64 /* TSPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TSPlugin.swift; sourceTree = "<group>"; };
@@ -141,6 +162,7 @@
 		7405D6802CF51C3D00C1FC64 /* DTO+GetLikedMenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DTO+GetLikedMenuResponse.swift"; sourceTree = "<group>"; };
 		7405D6822CF51C4F00C1FC64 /* DTO+DeleteLikedMenuResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DTO+DeleteLikedMenuResponse.swift"; sourceTree = "<group>"; };
 		742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TWOSOMEHEART-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7433D3E72CF7C82E0076EED4 /* ToastController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastController.swift; sourceTree = "<group>"; };
 		74503A1F2CF420C200FE117F /* SheetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetUtils.swift; sourceTree = "<group>"; };
 		74503A232CF4480900FE117F /* ModalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalInfo.swift; sourceTree = "<group>"; };
 		746401E82CF0E7C60042A302 /* SegmentButtonFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentButtonFactory.swift; sourceTree = "<group>"; };
@@ -231,6 +253,7 @@
 		059C45412CEE0B5A00FB00DC /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				7433D3E72CF7C82E0076EED4 /* ToastController.swift */,
 				059C453F2CEE0B5A00FB00DC /* CounterView.swift */,
 				059C45402CEE0B5A00FB00DC /* CustomSegmentControlView.swift */,
 				05F736B92CF0659D0030B7F5 /* CustomAlertViewController.swift */,
@@ -256,6 +279,7 @@
 				059C46402CEF383A00FB00DC /* Aliases.swift */,
 				059C45452CEE0B5A00FB00DC /* ScreenUtils.swift */,
 				059C45462CEE0B5A00FB00DC /* StringLiterals.swift */,
+				05F737612CF79DEB0030B7F5 /* PaddedLabel.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -301,6 +325,7 @@
 		059C454F2CEE0B5A00FB00DC /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				05F7373D2CF73FE10030B7F5 /* Menu */,
 				B8B04A892CF0520900B9777B /* MenuDetailView */,
 				74AEDF332CEFA0F800EB13A2 /* ModalView */,
 				B8D1B4202CEF8A80008B3871 /* MyMenuView */,
@@ -393,6 +418,78 @@
 				059C45882CEE1BBB00FB00DC /* CounterViewDelegate.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		05F7373D2CF73FE10030B7F5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				05F737402CF740EE0030B7F5 /* Model */,
+				05F7373F2CF740EA0030B7F5 /* View */,
+				05F7373E2CF740E30030B7F5 /* Controller */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		05F7373E2CF740E30030B7F5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				05F7375F2CF79DB90030B7F5 /* MenuViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		05F7373F2CF740EA0030B7F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				05F737412CF740F40030B7F5 /* Type */,
+				05F7376E2CF7B04E0030B7F5 /* HeaderView */,
+				05F7376D2CF7B03B0030B7F5 /* TableViewCell */,
+				05F7376F2CF7B0810030B7F5 /* FooterView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		05F737402CF740EE0030B7F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05F737702CF7B0E80030B7F5 /* Menu.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		05F737412CF740F40030B7F5 /* Type */ = {
+			isa = PBXGroup;
+			children = (
+				05F737422CF741040030B7F5 /* MenuCategoryType.swift */,
+				05F737442CF741BE0030B7F5 /* MenuSubcategoryType.swift */,
+			);
+			path = Type;
+			sourceTree = "<group>";
+		};
+		05F7376D2CF7B03B0030B7F5 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				05F7376B2CF7B02F0030B7F5 /* MenuCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
+		05F7376E2CF7B04E0030B7F5 /* HeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				05F737632CF7A11C0030B7F5 /* MenuCategoryView.swift */,
+				05F737652CF7A1620030B7F5 /* MenuSubcategoryView.swift */,
+			);
+			path = HeaderView;
+			sourceTree = "<group>";
+		};
+		05F7376F2CF7B0810030B7F5 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				05F737672CF7A3970030B7F5 /* MyButton.swift */,
+				05F737692CF7AA2D0030B7F5 /* SelectedStoreView.swift */,
+			);
+			path = FooterView;
 			sourceTree = "<group>";
 		};
 		7405D6552CF5055000C1FC64 /* Network */ = {
@@ -704,14 +801,17 @@
 				059C45892CEE1BBB00FB00DC /* CounterViewDelegate.swift in Sources */,
 				059C45782CEE113D00FB00DC /* MenuOptionSectionType.swift in Sources */,
 				059C45682CEE0E6600FB00DC /* ReusableIdentifier+.swift in Sources */,
+				05F737662CF7A1620030B7F5 /* MenuSubcategoryView.swift in Sources */,
 				74BF3D4E2CF5B2A300BD2246 /* EmptyResponse.swift in Sources */,
 				B8B04B052CF4960600B9777B /* MenuStatusType.swift in Sources */,
 				B8B04A942CF0664700B9777B /* NutritionInfoTableViewCell.swift in Sources */,
+				05F737452CF741BE0030B7F5 /* MenuSubcategoryType.swift in Sources */,
 				B8B04B072CF4962F00B9777B /* CautionType.swift in Sources */,
 				059C45532CEE0B5A00FB00DC /* String+.swift in Sources */,
 				7405D67B2CF51B6300C1FC64 /* APITarget+Likes.swift in Sources */,
 				059C45722CEE0F9B00FB00DC /* BaseTableViewCell.swift in Sources */,
 				059C45542CEE0B5A00FB00DC /* UILabel+.swift in Sources */,
+				05F737602CF79DB90030B7F5 /* MenuViewController.swift in Sources */,
 				059C45552CEE0B5A00FB00DC /* UIStackView+.swift in Sources */,
 				059C45832CEE19EA00FB00DC /* MenuOptionWhippedCreamCell.swift in Sources */,
 				059C45562CEE0B5A00FB00DC /* UIView+.swift in Sources */,
@@ -721,6 +821,9 @@
 				B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */,
 				B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */,
 				B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */,
+				05F7376C2CF7B02F0030B7F5 /* MenuCell.swift in Sources */,
+				05F737432CF741040030B7F5 /* MenuCategoryType.swift in Sources */,
+				05F737682CF7A3970030B7F5 /* MyButton.swift in Sources */,
 				74503A202CF420C800FE117F /* SheetUtils.swift in Sources */,
 				7405D6832CF51C5700C1FC64 /* DTO+DeleteLikedMenuResponse.swift in Sources */,
 				B8D1B4242CEF8A80008B3871 /* MyMenuModalView.swift in Sources */,
@@ -740,9 +843,12 @@
 				746401E92CF0E7CF0042A302 /* SegmentButtonFactory.swift in Sources */,
 				B8D1B4272CEF8A97008B3871 /* Int+.swift in Sources */,
 				059C45872CEE1A9F00FB00DC /* MenuOptionViewController.swift in Sources */,
+				05F7376A2CF7AA2D0030B7F5 /* SelectedStoreView.swift in Sources */,
+				7433D3E82CF7C8370076EED4 /* ToastController.swift in Sources */,
 				059C45762CEE10D800FB00DC /* MenuOption.swift in Sources */,
 				059C457A2CEE16A200FB00DC /* MenuOptionHeaderView.swift in Sources */,
 				7405D66C2CF513CE00C1FC64 /* DTO.swift in Sources */,
+				05F737622CF79DEB0030B7F5 /* PaddedLabel.swift in Sources */,
 				7405D65E2CF5090300C1FC64 /* Config.swift in Sources */,
 				7405D6682CF5109700C1FC64 /* APITarget.swift in Sources */,
 				059C455B2CEE0B5A00FB00DC /* SegmentType.swift in Sources */,
@@ -762,7 +868,9 @@
 				74AEDF352CEFA0F800EB13A2 /* ModalViewController.swift in Sources */,
 				74AEDF372CEFA43800EB13A2 /* UIViewController+.swift in Sources */,
 				059C46432CEF406900FB00DC /* BaseView.swift in Sources */,
+				05F737712CF7B0E80030B7F5 /* Menu.swift in Sources */,
 				059C45852CEE1A3700FB00DC /* MenuOptionDrizzleCell.swift in Sources */,
+				05F737642CF7A11C0030B7F5 /* MenuCategoryView.swift in Sources */,
 				059C457E2CEE18EF00FB00DC /* MenuOptionShotCell.swift in Sources */,
 				7405D6602CF50DCA00C1FC64 /* NetworkResult.swift in Sources */,
 				7405D6792CF5153600C1FC64 /* DTO+PostLikedMenuResponse.swift in Sources */,
