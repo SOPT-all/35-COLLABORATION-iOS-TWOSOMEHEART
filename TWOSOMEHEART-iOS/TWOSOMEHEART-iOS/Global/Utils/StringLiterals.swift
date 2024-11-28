@@ -157,7 +157,7 @@ enum StringLiterals {
         
         static let pickup = "픽업방식"
         
-        static let seeMyMenuList = "목록보기"
+        static let seeMyMenuList = "목록 보기"
         
         static let successToastMessage = "즐겨찾기에 저장되었습니다"
         
