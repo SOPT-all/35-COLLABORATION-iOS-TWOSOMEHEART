@@ -45,7 +45,7 @@ extension DTO.GetLikedMenuResponse {
         }
         
         var formattedOptions: String {
-            let personalCup = personal == true ? "개인컵" : "일회용컵"
+            let personalCup = personal == true ? SLMyMenu.personalCup : SLMyMenu.noReuseCup
             return "\(temperature)/\(size)/\(coffeeBean)/\(togo)/\(personalCup)"
         }
     }

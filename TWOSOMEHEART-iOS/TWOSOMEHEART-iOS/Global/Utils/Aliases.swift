@@ -14,3 +14,4 @@ typealias SLMenu = StringLiterals.MenuType
 typealias SLNavBar = StringLiterals.NavigationBarType
 typealias SLSelectedStore = StringLiterals.SelectedStoreType
 typealias SLModal = StringLiterals.ModalType
+typealias SLMyMenu = StringLiterals.MyMenuType

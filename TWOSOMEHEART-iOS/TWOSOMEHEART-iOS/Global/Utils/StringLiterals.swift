@@ -111,6 +111,9 @@ enum StringLiterals {
         
         static let goOrder = "주문하기"
         
+        static let personalCup = "개인컵"
+        
+        static let noReuseCup = "일회용컵"
     }
 
     enum MenuOptionType {
