@@ -26,7 +26,12 @@ class MyMenuViewController: BaseNavViewController {
     
     // MARK: - Properties
     
-    private var likedItems: [DTO.GetLikedMenuResponse.FavoriteList] = []
+    private var likedItems: [DTO.GetLikedMenuResponse.FavoriteList] = [] {
+        didSet {
+            myMenuHeaderView.likedItemsCount = likedItems.count
+        }
+    }
+
     private var service: NetworkService<APITarget.Likes>?
     var selectedIndexes: Set<Int> = []
     
@@ -280,8 +285,11 @@ extension MyMenuViewController: MyMenuHeaderViewDelegate {
             selectedIndexes.removeAll()
         }
         
+        print("총 아이템 수: \(likedItems.count), 선택된 인덱스 수: \(selectedIndexes.count)")
+        
         for index in 0..<likedItems.count {
             if let cell = myMenuCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? MyMenuCollectionViewCell {
+                print(cell, index)
                 cell.setCheckboxSelected(isSelected)
             }
         }
