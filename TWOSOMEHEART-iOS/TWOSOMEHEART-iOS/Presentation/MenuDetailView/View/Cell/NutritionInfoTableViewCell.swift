@@ -248,7 +248,7 @@ class NutritionInfoTableViewCell: BaseTableViewCell {
     }
     
     // MARK: - Bind
-    func bind(_ menuItem: MenuDetail) {
+    func bind(_ menuItem: DTO.GetMenuInfoResponse.MenuInfo) {
         let formattedNutritionText = menuItem.nutrition.setLineSpacing(19)
         nutritionTextLabel.attributedText = formattedNutritionText
     }

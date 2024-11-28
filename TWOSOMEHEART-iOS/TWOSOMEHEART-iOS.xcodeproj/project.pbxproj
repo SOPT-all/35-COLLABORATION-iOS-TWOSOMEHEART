@@ -81,15 +81,13 @@
 		74BF3D4C2CF5AD5600BD2246 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BF3D4B2CF5AD5100BD2246 /* NetworkService.swift */; };
 		74BF3D4E2CF5B2A300BD2246 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74BF3D4D2CF5B29E00BD2246 /* EmptyResponse.swift */; };
 		B8B04A8A2CF0520900B9777B /* MenuDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A882CF0520900B9777B /* MenuDetailViewController.swift */; };
-		B8B04A8F2CF0520900B9777B /* MenuDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A812CF0520900B9777B /* MenuDetail.swift */; };
 		B8B04A912CF056C500B9777B /* MenuDetailBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A902CF056C500B9777B /* MenuDetailBottomView.swift */; };
 		B8B04A942CF0664700B9777B /* NutritionInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A932CF0664700B9777B /* NutritionInfoTableViewCell.swift */; };
 		B8B04A962CF0722400B9777B /* MenuInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A952CF0722400B9777B /* MenuInfoTableViewCell.swift */; };
 		B8B04A9A2CF0772300B9777B /* NutritionHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A992CF0772300B9777B /* NutritionHeaderTableViewCell.swift */; };
 		B8B04A9F2CF0C7E100B9777B /* AllergyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04A9E2CF0C7E100B9777B /* AllergyTableViewCell.swift */; };
 		B8B04B032CF4900800B9777B /* MenuDetailSectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04B012CF4900800B9777B /* MenuDetailSectionType.swift */; };
-		B8B04B052CF4960600B9777B /* MenuStatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04B042CF4960600B9777B /* MenuStatusType.swift */; };
-		B8B04B072CF4962F00B9777B /* CautionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B04B062CF4962F00B9777B /* CautionType.swift */; };
+		B8B2B80B2CF7362A00C0C51B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B8B2B80A2CF7362A00C0C51B /* Kingfisher */; };
 		B8D1B4212CEF8A80008B3871 /* MyMenuHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41D2CEF8A80008B3871 /* MyMenuHeaderView.swift */; };
 		B8D1B4222CEF8A80008B3871 /* MyMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B41B2CEF8A80008B3871 /* MyMenuCollectionViewCell.swift */; };
 		B8D1B4232CEF8A80008B3871 /* MyMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */; };
@@ -171,7 +169,6 @@
 		74AEDF3A2CF0951000EB13A2 /* SegmentControlStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentControlStackView.swift; sourceTree = "<group>"; };
 		74BF3D4B2CF5AD5100BD2246 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		74BF3D4D2CF5B29E00BD2246 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
-		B8B04A812CF0520900B9777B /* MenuDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetail.swift; sourceTree = "<group>"; };
 		B8B04A882CF0520900B9777B /* MenuDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailViewController.swift; sourceTree = "<group>"; };
 		B8B04A902CF056C500B9777B /* MenuDetailBottomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailBottomView.swift; sourceTree = "<group>"; };
 		B8B04A932CF0664700B9777B /* NutritionInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -179,8 +176,6 @@
 		B8B04A992CF0772300B9777B /* NutritionHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		B8B04A9E2CF0C7E100B9777B /* AllergyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllergyTableViewCell.swift; sourceTree = "<group>"; };
 		B8B04B012CF4900800B9777B /* MenuDetailSectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailSectionType.swift; sourceTree = "<group>"; };
-		B8B04B042CF4960600B9777B /* MenuStatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuStatusType.swift; sourceTree = "<group>"; };
-		B8B04B062CF4962F00B9777B /* CautionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CautionType.swift; sourceTree = "<group>"; };
 		B8D1B4172CEF8A80008B3871 /* MyMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuViewController.swift; sourceTree = "<group>"; };
 		B8D1B4192CEF8A80008B3871 /* MyMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuItem.swift; sourceTree = "<group>"; };
 		B8D1B41B2CEF8A80008B3871 /* MyMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -194,6 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8B2B80B2CF7362A00C0C51B /* Kingfisher in Frameworks */,
 				742A43CA2CE8918600535185 /* SnapKit in Frameworks */,
 				742A43CF2CE8919300535185 /* Then in Frameworks */,
 				74B7821D2CF501B900E46589 /* Moya in Frameworks */,
@@ -607,7 +603,6 @@
 		B8B04A822CF0520900B9777B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B8B04A812CF0520900B9777B /* MenuDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -655,8 +650,6 @@
 			isa = PBXGroup;
 			children = (
 				B8B04B012CF4900800B9777B /* MenuDetailSectionType.swift */,
-				B8B04B042CF4960600B9777B /* MenuStatusType.swift */,
-				B8B04B062CF4962F00B9777B /* CautionType.swift */,
 			);
 			path = Type;
 			sourceTree = "<group>";
@@ -725,6 +718,7 @@
 				742A43C92CE8918600535185 /* SnapKit */,
 				742A43CE2CE8919300535185 /* Then */,
 				74B7821C2CF501B900E46589 /* Moya */,
+				B8B2B80A2CF7362A00C0C51B /* Kingfisher */,
 			);
 			productName = "TWOSOMEHEART-iOS";
 			productReference = 742A43942CE88EA700535185 /* TWOSOMEHEART-iOS.app */;
@@ -758,6 +752,7 @@
 				742A43C82CE8918600535185 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				742A43CD2CE8919300535185 /* XCRemoteSwiftPackageReference "Then" */,
 				74B7821B2CF501B900E46589 /* XCRemoteSwiftPackageReference "moya" */,
+				B8B2B8092CF7362A00C0C51B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 742A43952CE88EA700535185 /* Products */;
@@ -799,10 +794,8 @@
 				059C45682CEE0E6600FB00DC /* ReusableIdentifier+.swift in Sources */,
 				05F737662CF7A1620030B7F5 /* MenuSubcategoryView.swift in Sources */,
 				74BF3D4E2CF5B2A300BD2246 /* EmptyResponse.swift in Sources */,
-				B8B04B052CF4960600B9777B /* MenuStatusType.swift in Sources */,
 				B8B04A942CF0664700B9777B /* NutritionInfoTableViewCell.swift in Sources */,
 				05F737452CF741BE0030B7F5 /* MenuSubcategoryType.swift in Sources */,
-				B8B04B072CF4962F00B9777B /* CautionType.swift in Sources */,
 				059C45532CEE0B5A00FB00DC /* String+.swift in Sources */,
 				7405D67B2CF51B6300C1FC64 /* APITarget+Likes.swift in Sources */,
 				059C45722CEE0F9B00FB00DC /* BaseTableViewCell.swift in Sources */,
@@ -852,7 +845,6 @@
 				B8B04A962CF0722400B9777B /* MenuInfoTableViewCell.swift in Sources */,
 				059C455D2CEE0B5A00FB00DC /* StringLiterals.swift in Sources */,
 				B8B04A8A2CF0520900B9777B /* MenuDetailViewController.swift in Sources */,
-				B8B04A8F2CF0520900B9777B /* MenuDetail.swift in Sources */,
 				059C455E2CEE0B5A00FB00DC /* BaseNavViewController.swift in Sources */,
 				74503A242CF4481000FE117F /* ModalInfo.swift in Sources */,
 				059C455F2CEE0B5A00FB00DC /* BaseViewController.swift in Sources */,
@@ -1110,6 +1102,14 @@
 				minimumVersion = 15.0.3;
 			};
 		};
+		B8B2B8092CF7362A00C0C51B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1127,6 +1127,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 74B7821B2CF501B900E46589 /* XCRemoteSwiftPackageReference "moya" */;
 			productName = Moya;
+		};
+		B8B2B80A2CF7362A00C0C51B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8B2B8092CF7362A00C0C51B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

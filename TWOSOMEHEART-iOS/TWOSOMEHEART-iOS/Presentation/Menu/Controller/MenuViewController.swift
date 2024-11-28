@@ -140,6 +140,7 @@ extension MenuViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menuDetailVC = MenuDetailViewController()
+        menuDetailVC.menuID = indexPath.row + 1
         navigationController?.pushViewController(menuDetailVC, animated: true)
     }
 }

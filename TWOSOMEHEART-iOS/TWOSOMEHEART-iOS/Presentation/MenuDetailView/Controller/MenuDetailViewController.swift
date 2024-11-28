@@ -10,14 +10,16 @@ import UIKit
 import SnapKit
 import Then
 
-class MenuDetailViewController: BaseViewController {
+final class MenuDetailViewController: BaseNavViewController {
     // MARK: - UI Components
     
     private let tableView = UITableView()
     private let menuDetailBottomView = MenuDetailBottomView()
     
     // MARK: - Properties
-    private let menuItem = MenuDetail.menuItems[0]
+    private var service: NetworkService<APITarget.Menu>?
+    var menuID: Int?
+    private var menuInfo: DTO.GetMenuInfoResponse.MenuInfo?
     private var isExpanded: Bool = false
     
     // MARK: - View Lifecycle
@@ -26,9 +28,23 @@ class MenuDetailViewController: BaseViewController {
         
         setDelegates()
         registerCells()
+        setNavigationBarStyle()
+        
+        if let menuID = menuID {
+            fetchMenuDetail(menuID: menuID)
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        service = nil
     }
     
     override func setStyle() {
+        super.setStyle()
+        
+        view.backgroundColor = .tsWhite
+        
         tableView.do {
             $0.separatorStyle = .none
             $0.rowHeight = UITableView.automaticDimension
@@ -37,13 +53,16 @@ class MenuDetailViewController: BaseViewController {
     }
     
     override func setHierarchy() {
-        view.addSubviews(tableView, menuDetailBottomView)
+        super.setHierarchy()
+        
+        contentView.addSubviews(tableView, menuDetailBottomView)
     }
     
     override func setLayout() {
+        super.setLayout()
+        
         tableView.snp.makeConstraints{
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.horizontalEdges.equalToSuperview()
+            $0.top.horizontalEdges.equalToSuperview()
         }
         
         menuDetailBottomView.snp.makeConstraints{
@@ -51,6 +70,15 @@ class MenuDetailViewController: BaseViewController {
             $0.horizontalEdges.equalToSuperview()
             $0.bottom.equalToSuperview()
         }
+    }
+    
+    // MARK: - Navigation Style
+    private func setNavigationBarStyle() {
+        setBackgroundColor(color: .tsWhite)
+        setBackButton()
+        setHomeButton()
+        setTitleLabelStyle(title: SLNavBar.detail, alignment: .center)
+        setBagButton()
     }
     
     // MARK: - Delegates
@@ -82,6 +110,39 @@ class MenuDetailViewController: BaseViewController {
     }
 }
 
+// MARK: - Network
+private extension MenuDetailViewController {
+    func fetchMenuDetail(menuID: Int) {
+        service = NetworkService<APITarget.Menu>()
+        let request = DTO.GetMenuInfoRequest(menuId: menuID)
+        
+        service?.request(type: DTO.GetMenuInfoResponse.self, target: .getMenuInfo(request)) { [weak self] response in
+            guard let self = self else { return }
+            
+            switch response {
+            case .success(let data):
+                print("🍀🍀🍀서버 통신 성공🍀🍀🍀")
+                self.menuInfo = data.data
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            case .requestErr:
+                print("요청 에러")
+            case .decodedErr:
+                print("디코딩 에러")
+            case .pathErr:
+                print("경로 에러")
+            case .serverErr:
+                print("서버 에러")
+            case .networkFail:
+                print("네트워크 에러")
+                
+            }
+        }
+    }
+}
+
+
 // MARK: - TableViewCellDelegate
 extension MenuDetailViewController: NutritionHeaderTableViewCellDelegate {
     func headerViewTapped() {
@@ -90,7 +151,7 @@ extension MenuDetailViewController: NutritionHeaderTableViewCellDelegate {
         
         DispatchQueue.main.async {
             let indexPath = IndexPath(row: 1, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
         }
     }
 }
@@ -102,6 +163,9 @@ extension MenuDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let menuInfo = menuInfo else { return UITableViewCell() }
+        
+        
         switch indexPath.row {
         case 0:
             guard let menuInfoCell = tableView.dequeueReusableCell(
@@ -109,7 +173,7 @@ extension MenuDetailViewController: UITableViewDataSource {
                 for: indexPath
             ) as? MenuInfoTableViewCell else { return UITableViewCell() }
             
-            menuInfoCell.bind(menuItem)
+            menuInfoCell.bind(menuInfo)
             menuInfoCell.selectionStyle = .none
             
             return menuInfoCell
@@ -124,7 +188,7 @@ extension MenuDetailViewController: UITableViewDataSource {
             headerCell.isExpanded = isExpanded
             headerCell.configureGesture(delegate: self)
             headerCell.selectionStyle = .none
-           
+            
             return headerCell
             
         case 2:
@@ -134,7 +198,7 @@ extension MenuDetailViewController: UITableViewDataSource {
                     for: indexPath
                 ) as? NutritionInfoTableViewCell else { return UITableViewCell() }
                 
-                nutritionInfoCell.bind(menuItem)
+                nutritionInfoCell.bind(menuInfo)
                 nutritionInfoCell.selectionStyle = .none
                 
                 return nutritionInfoCell
@@ -144,7 +208,7 @@ extension MenuDetailViewController: UITableViewDataSource {
                     for: indexPath
                 ) as? AllergyTableViewCell else { return UITableViewCell() }
                 
-                allergyInfoCell.bind(allergy: menuItem.allergy)
+                allergyInfoCell.bind(allergy: menuInfo.allergy)
                 allergyInfoCell.selectionStyle = .none
                 
                 return allergyInfoCell
@@ -157,7 +221,7 @@ extension MenuDetailViewController: UITableViewDataSource {
             ) as? AllergyTableViewCell else { return UITableViewCell() }
             
             allergyInfoCell.selectionStyle = .none
-            allergyInfoCell.bind(allergy: menuItem.allergy)
+            allergyInfoCell.bind(allergy: menuInfo.allergy)
             
             return allergyInfoCell
             

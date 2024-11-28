@@ -7,6 +7,10 @@
 
 import UIKit
 
+import SnapKit
+import Then
+import Kingfisher
+
 class MenuInfoTableViewCell: BaseTableViewCell {
     
     // MARK: - UI Components
@@ -49,7 +53,7 @@ class MenuInfoTableViewCell: BaseTableViewCell {
         
         menuDescriptionLabel.do {
             $0.setLabel(
-                alignment: .center,
+                alignment: .left,
                 textColor: .tsBlack,
                 font: TSFont.b1r
             )
@@ -126,6 +130,7 @@ class MenuInfoTableViewCell: BaseTableViewCell {
         menuDescriptionLabel.snp.makeConstraints {
             $0.top.equalTo(menuNameLabel.snp.bottom).offset(5)
             $0.leading.equalToSuperview().offset(22)
+            $0.trailing.equalToSuperview()
         }
         
         priceLabel.snp.makeConstraints {
@@ -155,17 +160,30 @@ class MenuInfoTableViewCell: BaseTableViewCell {
     }
     
     // MARK: - Helper
-    private func configureCautionLabels(with caution: [CautionType]){
-        cautionLabel.isHidden = caution.isEmpty
-        cautionLabel.text = caution[0].rawValue
-        cautionLabel2.isHidden = caution.count <= 1
-        cautionLabel2.text = caution.count > 1 ? caution[1].rawValue : nil
+    private func configureCautionLabels(with caution: String?) {
+        guard let caution = caution, !caution.isEmpty else {
+            cautionLabel.isHidden = true
+            cautionLabel2.isHidden = true
+            return
+        }
+        
+        let cautions = caution
+            .split(separator: ",")
+            .map { $0.trimmingCharacters(in: .whitespaces) }
+        
+        cautionLabel.isHidden = cautions.isEmpty
+        cautionLabel.text = cautions[0]
+        cautionLabel2.isHidden = cautions.count <= 1
+        cautionLabel2.text = cautions.count > 1 ? cautions[1] : nil
     }
     
     // MARK: - Bind
-    func bind(_ menuDetail: MenuDetail) {
-        menuImageView.image = menuDetail.imageURL
-        statusLabel.text = menuDetail.status.rawValue
+    func bind(_ menuDetail: DTO.GetMenuInfoResponse.MenuInfo) {
+        if let imageURL = URL(string: menuDetail.imageURL) {
+            menuImageView.kf.setImage(with: imageURL)
+        }
+        
+        statusLabel.text = menuDetail.status
         menuNameLabel.text = menuDetail.name
         menuDescriptionLabel.text = menuDetail.description
         priceLabel.text = "\(menuDetail.price.formattedPrice())원"

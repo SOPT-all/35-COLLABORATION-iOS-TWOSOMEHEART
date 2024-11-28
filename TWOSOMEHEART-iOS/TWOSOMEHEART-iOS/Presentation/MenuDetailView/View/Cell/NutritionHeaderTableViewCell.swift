@@ -85,10 +85,10 @@ class NutritionHeaderTableViewCell: BaseTableViewCell {
     }
     
     @objc private func headerViewTapped() {
-        delegate?.headerViewTapped()
-        
         let imageFile = isExpanded ? UIImage(resource: .detailArrowUp): UIImage(resource: .detailArrowDown)
         detailArrowImageView.image = imageFile
-        seperatorLineView.isHidden = isExpanded
+        seperatorLineView.isHidden = !isExpanded
+        isExpanded.toggle()
+        delegate?.headerViewTapped()
     }
 }

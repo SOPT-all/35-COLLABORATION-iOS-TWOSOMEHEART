@@ -10,7 +10,7 @@ import Foundation
 extension DTO {
     
     struct GetMenuInfoResponse: Codable {
-        let code: Int
+        let status: Int
         let data: MenuInfo
     }
     
