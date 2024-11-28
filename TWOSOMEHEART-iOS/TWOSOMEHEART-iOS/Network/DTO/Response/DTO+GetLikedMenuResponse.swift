@@ -10,10 +10,13 @@ import Foundation
 extension DTO {
     
     struct GetLikedMenuResponse: Codable {
-        let code: Int
-        let data: [FavoriteList]?
+        let status: Int
+        let data: GetLikedMenuData?
     }
     
+    struct GetLikedMenuData: Codable {
+        let favoriteList: [DTO.GetLikedMenuResponse.FavoriteList]
+    }
 }
 
 extension DTO.GetLikedMenuResponse {
@@ -22,23 +25,28 @@ extension DTO.GetLikedMenuResponse {
         let id: Int
         let name: String
         let price: Int
-        let imageURL: String
-        let temperature: Int
-        let size: Int
-        let coffeeBean: Int
-        let togo: Int
+        let imageUrl: String
+        let temperature: String
+        let size: String
+        let coffeeBean: String
+        let togo: String
         let personal: Bool?
         
         private enum CodingKeys: String, CodingKey {
             case id
             case name
             case price
-            case imageURL = "image_url"
+            case imageUrl = "imageUrl"
             case temperature
             case size
             case coffeeBean
             case togo
             case personal
+        }
+        
+        var formattedOptions: String {
+            let personalCup = personal == true ? "개인컵" : "일회용컵"
+            return "\(temperature)/\(size)/\(coffeeBean)/\(togo)/\(personalCup)"
         }
     }
     

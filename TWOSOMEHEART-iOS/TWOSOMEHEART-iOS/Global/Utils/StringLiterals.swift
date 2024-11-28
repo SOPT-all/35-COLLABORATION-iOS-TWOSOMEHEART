@@ -14,6 +14,8 @@ enum StringLiterals {
         static let title = "투썸오더"
         
         static let detail = "커피/음료"
+        
+        static let myMenu = "My 투썸"
 
     }
 

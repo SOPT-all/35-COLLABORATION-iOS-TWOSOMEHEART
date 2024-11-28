@@ -29,6 +29,7 @@ final class MenuViewController: BaseNavViewController {
         setDelegates()
         registerCells()
         configureNavigationBarStyle()
+        setAddTargets()
     }
 
     // MARK: - Helpers
@@ -40,6 +41,15 @@ final class MenuViewController: BaseNavViewController {
 
     private func registerCells() {
         tableView.register(MenuCell.self, forCellReuseIdentifier: MenuCell.identifier)
+    }
+    
+    private func setAddTargets(){
+        myButton.addTarget(self, action: #selector(myButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func myButtonTapped() {
+        let myMenuVC = MyMenuViewController()
+        navigationController?.pushViewController(myMenuVC, animated: true)
     }
 
     // MARK: - UI

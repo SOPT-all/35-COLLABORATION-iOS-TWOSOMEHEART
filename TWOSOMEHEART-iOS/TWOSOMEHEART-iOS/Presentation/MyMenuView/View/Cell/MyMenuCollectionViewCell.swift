@@ -159,11 +159,13 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
     }
     
     // MARK: - Bind
-    func bind(_ myMenuItem: MyMenuItem){
-        menuImageView.image = myMenuItem.menuImage
+    func bind(_ myMenuItem: DTO.GetLikedMenuResponse.FavoriteList){
+        if let imageURL = URL(string: myMenuItem.imageUrl) {
+            menuImageView.kf.setImage(with: imageURL)
+        }
         menuNameLabel.text = myMenuItem.name
         menuPriceLabel.text = "\(myMenuItem.price.formattedPrice())원"
-        menuOptionsLabel.text = myMenuItem.options.joined(separator: "/")
+        menuOptionsLabel.text = myMenuItem.formattedOptions
     }
     
     func configure(with index: Int) {
