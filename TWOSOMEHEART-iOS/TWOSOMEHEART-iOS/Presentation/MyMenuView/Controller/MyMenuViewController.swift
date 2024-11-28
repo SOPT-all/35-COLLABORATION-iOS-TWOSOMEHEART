@@ -75,6 +75,7 @@ class MyMenuViewController: BaseNavViewController {
         super.setStyle()
         
         view.backgroundColor = .tsWhite
+        myMenuCollectionView.showsVerticalScrollIndicator = false
     }
     
     override func setHierarchy() {

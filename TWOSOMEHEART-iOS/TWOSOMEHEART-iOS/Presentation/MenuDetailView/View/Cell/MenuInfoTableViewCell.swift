@@ -38,7 +38,6 @@ class MenuInfoTableViewCell: BaseTableViewCell {
                 font: TSFont.c3r
             )
             
-            $0.backgroundColor = UIColor(resource: .red40)
             $0.layer.cornerRadius = 2
             $0.clipsToBounds = true
         }
@@ -184,6 +183,7 @@ class MenuInfoTableViewCell: BaseTableViewCell {
         }
         
         statusLabel.text = menuDetail.status
+        statusLabel.backgroundColor = (menuDetail.status == "NEW") ? UIColor(resource: .red40) : UIColor(resource: .tsBlack)
         menuNameLabel.text = menuDetail.name
         menuDescriptionLabel.text = menuDetail.description
         priceLabel.text = "\(menuDetail.price.formattedPrice())원"

@@ -10,7 +10,10 @@ import UIKit
 final class MenuOptionViewController: BaseViewController {
 
     // MARK: - UI Properties
-
+    
+    private let topView = UIView()
+    private let titleLabel = UILabel()
+    private let dismissButton = UIButton()
     private let tableView = UITableView()
     private let bottomView = UIView()
     private let separatorView = UIView()
@@ -50,6 +53,7 @@ final class MenuOptionViewController: BaseViewController {
     // MARK: - Helpers
 
     private func setAddTargets() {
+        dismissButton.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
         resetButton.addTarget(
             self,
             action: #selector(resetAllItems),
@@ -114,9 +118,21 @@ final class MenuOptionViewController: BaseViewController {
 
     override func setStyle() {
         view.backgroundColor = .tsWhite
+        topView.backgroundColor = .tsWhite
         bottomView.backgroundColor = .tsWhite
         separatorView.backgroundColor = .tsBlack
 
+        titleLabel.do {
+            $0.setLabel(text: "퍼스널 옵션",
+                        alignment: .center,
+                        textColor: .tsBlack,
+                        font: TSFont.h3b)
+        }
+        
+        dismissButton.do {
+            $0.setImage(UIImage(resource: .optionX), for: .normal)
+        }
+        
         tableView.do {
             $0.separatorStyle = .none
             $0.sectionHeaderTopPadding = 0
@@ -175,10 +191,13 @@ final class MenuOptionViewController: BaseViewController {
             $0.setTitle("선택하기", for: .normal)
             $0.setTitleColor(.tsWhite, for: .normal)
             $0.titleLabel?.font = TSFont.btn1s
+            $0.addTarget(self, action: #selector(dismissButtonTapped), for: .touchUpInside)
         }
     }
 
     override func setHierarchy() {
+        topView.addSubviews(titleLabel, dismissButton)
+        
         bottomView.addSubviews(
             separatorView,
             totalPriceStackView,
@@ -186,12 +205,30 @@ final class MenuOptionViewController: BaseViewController {
             selectButton
         )
 
-        view.addSubviews(tableView, bottomView)
+        view.addSubviews(topView,
+                         tableView,
+                         bottomView)
     }
 
     override func setLayout() {
+        topView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(48)
+        }
+        
+        titleLabel.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+        
+        dismissButton.snp.makeConstraints {
+            $0.width.height.equalTo(48)
+            $0.verticalEdges.trailing.equalToSuperview()
+        }
+        
         tableView.snp.makeConstraints {
-            $0.top.horizontalEdges.equalToSuperview()
+            $0.top.equalTo(topView.snp.bottom)
+            $0.horizontalEdges.equalToSuperview()
         }
 
         bottomView.snp.makeConstraints {
@@ -228,6 +265,14 @@ final class MenuOptionViewController: BaseViewController {
     }
 }
 
+private extension MenuOptionViewController {
+    
+    @objc
+    func dismissButtonTapped() {
+        self.dismiss(animated: true)
+    }
+    
+}
 // MARK: - UITableViewDataSource
 
 extension MenuOptionViewController: UITableViewDataSource {

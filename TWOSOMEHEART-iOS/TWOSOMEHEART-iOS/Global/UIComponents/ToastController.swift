@@ -30,7 +30,7 @@ final class ToastController {
             $0.horizontalEdges.equalToSuperview().inset(16)
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             UIView.animate(withDuration: 1.0) {
                 toastView.alpha = 0
             } completion: { _ in
@@ -97,7 +97,6 @@ final class ToastView: BaseView {
         actionButton.setTitle(buttonTitle, for: .normal)
         actionButton.addAction(UIAction { _ in
             buttonAction()
-            self.removeFromSuperview()
         }, for: .touchUpInside)
     }
     
