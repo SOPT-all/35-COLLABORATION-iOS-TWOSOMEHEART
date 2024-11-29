@@ -337,16 +337,8 @@ private extension MyMenuViewController {
                 DispatchQueue.main.async {
                     self.myMenuCollectionView.reloadData()
                 }
-            case .requestErr:
-                print("요청 에러")
-            case .decodedErr:
-                print("디코딩 에러")
-            case .pathErr:
-                print("경로 에러")
-            case .serverErr:
-                print("서버 에러")
-            case .networkFail:
-                print("네트워크 에러")
+            default:
+                response.statusCodeDescription()
             }
         }
     }

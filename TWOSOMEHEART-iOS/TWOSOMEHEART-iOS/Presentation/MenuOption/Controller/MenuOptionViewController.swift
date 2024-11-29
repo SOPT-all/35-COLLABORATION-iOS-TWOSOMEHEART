@@ -29,6 +29,8 @@ final class MenuOptionViewController: BaseViewController {
     private var headerItems: [MenuOptionHeader] = []
     private let menuOptions = MenuOption.menuOptions
     private var expandedSection: Int?
+    private var allPersonalOptions: String = ""
+    var completion: ((String, Int) -> Void)?
 
     // MARK: - Lifecycle
 
@@ -267,9 +269,32 @@ final class MenuOptionViewController: BaseViewController {
 
 private extension MenuOptionViewController {
     
+    private func getAllOptions() {
+        for i in 0...3 {
+            allPersonalOptions += (headerItems[i].addedOptions ?? "") + ","
+        }
+        
+        let options = allPersonalOptions
+                        .split(separator: ",")
+                        .map(String.init)
+                        .filter { !$0.isEmpty }
+            
+        if options.isEmpty {
+            allPersonalOptions = ""
+        } else if options.count == 1 {
+            allPersonalOptions = options[0]
+        } else {
+            allPersonalOptions = "\(options[0]) 외 \(options.count - 1)건"
+        }
+    }
+    
     @objc
     func dismissButtonTapped() {
-        self.dismiss(animated: true)
+        getAllOptions()
+        self.dismiss(animated: true) { [weak self] in
+            self?.completion?(self?.allPersonalOptions ?? "",
+                              self?.headerItems.reduce(0) { $0 + ($1.price) } ?? 0)
+        }
     }
     
 }

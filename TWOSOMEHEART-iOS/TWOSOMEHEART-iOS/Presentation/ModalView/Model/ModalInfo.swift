@@ -11,7 +11,6 @@ struct ModalInfo {
     
     var id: Int
     var menuName: String
-    var price: Int
-    var personalOption: String
+    var originalPrice: Int
     
 }
