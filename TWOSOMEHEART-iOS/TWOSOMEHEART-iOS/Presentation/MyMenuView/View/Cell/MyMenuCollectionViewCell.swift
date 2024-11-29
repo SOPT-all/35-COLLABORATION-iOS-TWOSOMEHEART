@@ -22,6 +22,7 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
     private var index: Int = 0
     private var isSelectedCheckbox = false
     private var myMenuItems: MyMenuItem?
+    private var id : Int = 0
     
     // MARK: - Components
     private lazy var checkboxButton = UIButton(type: .custom)
@@ -44,6 +45,12 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        checkboxButton.isSelected = false
     }
     
     // MARK: - Style, UI, Layout
@@ -166,6 +173,7 @@ class MyMenuCollectionViewCell: UICollectionViewCell {
         menuNameLabel.text = myMenuItem.name
         menuPriceLabel.text = "\(myMenuItem.price.formattedPrice())원"
         menuOptionsLabel.text = myMenuItem.formattedOptions
+        self.id = myMenuItem.id
     }
     
     func configure(with index: Int) {
