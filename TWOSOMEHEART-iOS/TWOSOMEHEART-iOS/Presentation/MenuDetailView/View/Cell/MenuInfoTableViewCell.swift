@@ -183,7 +183,7 @@ class MenuInfoTableViewCell: BaseTableViewCell {
         }
         
         statusLabel.text = menuDetail.status
-        statusLabel.backgroundColor = (menuDetail.status == "NEW") ? UIColor(resource: .red40) : UIColor(resource: .tsBlack)
+        statusLabel.backgroundColor = (menuDetail.status == "New") ? UIColor(resource: .red40) : UIColor(resource: .tsBlack)
         menuNameLabel.text = menuDetail.name
         menuDescriptionLabel.text = menuDetail.description
         priceLabel.text = "\(menuDetail.price.formattedPrice())원"

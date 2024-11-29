@@ -52,7 +52,8 @@ extension APITarget.Menu: TargetType {
                              "coffeeBean": postLikedMenuRequest.likedMenuInfo.coffeeBean,
                              "togo": postLikedMenuRequest.likedMenuInfo.togo,
                              "personal": postLikedMenuRequest.likedMenuInfo.personal],
-                encoding: URLEncoding.default
+                encoding: JSONEncoding.default
+                //TODO: 트슛 - URLEncoding.default으로 되어있어서 서버통신 400 떴었음
             )
         }
     }
