@@ -45,9 +45,10 @@ extension DTO.GetLikedMenuResponse {
         }
         
         var formattedOptions: String {
-            let personalCup = personal == true ? SLMyMenu.personalCup : SLMyMenu.noReuseCup
-            return "\(temperature)/\(size)/\(coffeeBean)/\(togo)/\(personalCup)"
+            let options = "\(temperature)/\(size)/\(coffeeBean)/\(togo)"
+            if personal == true {
+                return options + "/" + SLMyMenu.personalCup
+            } else { return options }
         }
     }
-    
 }
