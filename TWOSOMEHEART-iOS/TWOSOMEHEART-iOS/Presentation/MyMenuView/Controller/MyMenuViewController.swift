@@ -58,11 +58,12 @@ class MyMenuViewController: BaseNavViewController {
         alertVC.modalPresentationStyle = .custom
         alertVC.completion = { [weak self] in
             Task {
+                self?.hideModal()
+                self?.myMenuHeaderView.selectAllCheckbox.isSelected = false
                 try? await self?.fetchLikedMenuList()
                 self?.myMenuCollectionView.reloadData()
                 self?.selectedIndexes.removeAll()
                 self?.selectedIds.removeAll()
-                self?.allCheckBoxSelected = false
             }
         }
         present(alertVC, animated: false)
