@@ -88,8 +88,6 @@ class ModalViewController: BaseViewController {
         modalView.priceLabel.text = "\(actualPrice.formattedPrice())원"
     }
     
-    // TODO: - personalOptionListLabel text 받아와서 업데이트해주기
-    
 }
 
 // MARK: - 타겟 추가
