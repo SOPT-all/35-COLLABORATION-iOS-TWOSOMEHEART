@@ -254,8 +254,7 @@ private extension MenuDetailViewController {
     func goToOrderModal() {
         let modalInfo = ModalInfo(id: menuID ?? 1,
                                       menuName: menuInfo?.name ?? "",
-                                      price: menuInfo?.price ?? 5900,
-                                      personalOption: "")
+                                      originalPrice: menuInfo?.price ?? 5900)
         let modalVC = ModalViewController(modalInfo: modalInfo)
         modalVC.setSheetLayout()
         present(modalVC, animated: true)

@@ -38,7 +38,7 @@ class ModalViewController: BaseViewController {
         addTargets()
         setupSegments()
         bindData()
-        updatePrice()
+        updateCount()
     }
     
     override func setHierarchy() {
@@ -65,11 +65,13 @@ class ModalViewController: BaseViewController {
         }
     }
     
-    lazy var price: Int = modalInfo.price {
-        didSet {
-            updatePersonalCupButton()
-        }
-    }
+    lazy var actualPrice: Int = modalInfo.originalPrice
+    
+    lazy var originalPrice: Int = modalInfo.originalPrice
+    
+    lazy var optionPrice : Int = 0
+    
+    lazy var count : Int = 1
     
     func setupSegments() {
         segments.enumerated().forEach { index, segment in
@@ -83,8 +85,7 @@ class ModalViewController: BaseViewController {
     
     func bindData() {
         modalView.headerLabel.text = modalInfo.menuName
-        modalView.priceLabel.text = "\(price.formattedPrice())원"
-        modalView.personalOptionListLabel.text = modalInfo.personalOption
+        modalView.priceLabel.text = "\(actualPrice.formattedPrice())원"
     }
     
     // TODO: - personalOptionListLabel text 받아와서 업데이트해주기
@@ -105,14 +106,20 @@ private extension ModalViewController {
 // MARK: - 가격 변경 로직
 private extension ModalViewController {
     
-    func updatePrice() {
+    func updateCount() {
         modalView.counterView.onValueChanged = { [weak self] count in
             guard let self = self else { return }
             
-            price = (modalInfo.price)*count
-            let price =  price - (modalView.personalCupButton.isSelected ? 300 : 0)
-            modalView.priceLabel.text = "\(price.formattedPrice())원"
+            self.count = count
+            
+            updatePersonalCupButton()
+            updateActualPrice()
         }
+    }
+    
+    func updateActualPrice() {
+        actualPrice = (modalInfo.originalPrice + optionPrice)*count - (modalView.personalCupButton.isSelected ? 300 : 0)
+        modalView.priceLabel.text = "\(actualPrice.formattedPrice())원"
     }
     
 }
@@ -120,14 +127,10 @@ private extension ModalViewController {
 // MARK: - 체크박스 선택 로직
 private extension ModalViewController {
     
-    var isPersonalCupEnabled: Bool {
-        return price != 0
-    }
-    
     func updatePersonalCupButton() {
-        modalView.personalCupButton.isEnabled = isPersonalCupEnabled
+        modalView.personalCupButton.isEnabled = (count != 0)
         
-        if !isPersonalCupEnabled {
+        if count == 0 {
             modalView.personalCupButton.isSelected = false
             modalView.personalCupPriceLabel.isHidden = true
             modalView.personalCupExplainLabel.isHidden = true
@@ -135,6 +138,8 @@ private extension ModalViewController {
             modalView.contentView.snp.updateConstraints { make in
                 make.height.equalTo(552)
             }
+            actualPrice = 0
+            modalView.priceLabel.text = "\(actualPrice.formattedPrice())원"
         }
     }
     
@@ -154,8 +159,7 @@ private extension ModalViewController {
             self?.scrollToBottom()
         }
         
-        let price = price - (modalView.personalCupButton.isSelected ? 300 : 0)
-        modalView.priceLabel.text = "\(price.formattedPrice())원"
+        updateActualPrice()
     }
     
 }
@@ -212,6 +216,11 @@ private extension ModalViewController {
     func personalOptionButtonTapped() {
         let menuOptionVC = MenuOptionViewController()
         menuOptionVC.modalPresentationStyle = .fullScreen
+        menuOptionVC.completion = { [weak self] (allOptions, optionPrice) in
+            self?.modalView.personalOptionListLabel.text = allOptions
+            self?.optionPrice = optionPrice
+            self?.updateActualPrice()
+        }
         present(menuOptionVC, animated: true)
     }
     
@@ -250,9 +259,8 @@ private extension ModalViewController {
     
     func postLikeData() {
         let service = NetworkService<APITarget.Menu>()
-        let price = price - (modalView.personalCupButton.isSelected ? 300 : 0)
         let likedMenuInfo = DTO.PostLikedMenuRequest.LikedMenuInfo(name: modalInfo.menuName,
-                                                                   price: price,
+                                                                   price: actualPrice,
                                                                    temperature: segments[0].selectedIndex, size: segments[1].selectedIndex, coffeeBean: segments[2].selectedIndex, togo: segments[3].selectedIndex, personal: modalView.personalCupButton.isSelected)
         let request = DTO.PostLikedMenuRequest(menuId: modalInfo.id,
                                                likedMenuInfo: likedMenuInfo)
