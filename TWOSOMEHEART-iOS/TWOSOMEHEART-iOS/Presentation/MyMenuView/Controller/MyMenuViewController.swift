@@ -34,6 +34,7 @@ class MyMenuViewController: BaseNavViewController {
     
     private var service: NetworkService<APITarget.Likes>?
     var selectedIndexes: Set<Int> = []
+    var selectedIds: Set<Int> = []
     var allCheckBoxSelected: Bool = false
     
     // MARK: - LifeCycle
@@ -53,7 +54,7 @@ class MyMenuViewController: BaseNavViewController {
     
     @objc private func deleteButtonTapped() {
         let alertVC = CustomAlertViewController(isAllChecked: allCheckBoxSelected,
-                                                checkedMenuList: selectedIndexes)
+                                                checkedMenuList: selectedIds)
         alertVC.modalPresentationStyle = .custom
         present(alertVC, animated: false)
     }
@@ -202,8 +203,10 @@ extension MyMenuViewController: MyMenuCollectionViewCellDelegate {
     func checkboxTapped(at index: Int, isSelected: Bool) {
         if isSelected {
             selectedIndexes.insert(index)
+            selectedIds.insert(likedItems[index].id)
         } else {
             selectedIndexes.remove(index)
+            selectedIds.remove(likedItems[index].id)
         }
         
         selectedIndexes.isEmpty ? hideModal() : showModal()
@@ -285,9 +288,13 @@ extension MyMenuViewController: MyMenuHeaderViewDelegate {
         if isSelected {
             selectedIndexes = Set(0..<likedItems.count)
             allCheckBoxSelected = true
+            for i in selectedIndexes {
+                selectedIds.insert(likedItems[i].id)
+            }
         } else {
             selectedIndexes.removeAll()
             allCheckBoxSelected = false
+            selectedIds.removeAll()
         }
         
         for index in 0..<likedItems.count {
