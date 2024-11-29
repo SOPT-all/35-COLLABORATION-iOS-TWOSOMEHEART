@@ -65,7 +65,11 @@ class ModalViewController: BaseViewController {
         }
     }
     
-    lazy var price: Int = modalInfo.price
+    lazy var price: Int = modalInfo.price {
+        didSet {
+            updatePersonalCupButton()
+        }
+    }
     
     func setupSegments() {
         segments.enumerated().forEach { index, segment in
@@ -115,6 +119,24 @@ private extension ModalViewController {
 
 // MARK: - 체크박스 선택 로직
 private extension ModalViewController {
+    
+    var isPersonalCupEnabled: Bool {
+        return price != 0
+    }
+    
+    func updatePersonalCupButton() {
+        modalView.personalCupButton.isEnabled = isPersonalCupEnabled
+        
+        if !isPersonalCupEnabled {
+            modalView.personalCupButton.isSelected = false
+            modalView.personalCupPriceLabel.isHidden = true
+            modalView.personalCupExplainLabel.isHidden = true
+            
+            modalView.contentView.snp.updateConstraints { make in
+                make.height.equalTo(552)
+            }
+        }
+    }
     
     @objc
     func personalCupButtonTapped() {
