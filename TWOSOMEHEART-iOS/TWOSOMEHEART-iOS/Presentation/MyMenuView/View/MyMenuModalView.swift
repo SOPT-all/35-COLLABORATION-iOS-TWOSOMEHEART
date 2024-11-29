@@ -98,7 +98,7 @@ class MyMenuModalView: UIView {
         }
         
         storeLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(20)
+            $0.top.equalToSuperview().offset(23)
             $0.leading.equalToSuperview().offset(15)
         }
         
@@ -108,7 +108,7 @@ class MyMenuModalView: UIView {
         }
         
         priceTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(storeLabel.snp.bottom).offset(5)
+            $0.top.equalTo(storeLabel.snp.bottom).offset(11)
             $0.leading.equalTo(storeLabel)
         }
         
@@ -123,10 +123,10 @@ class MyMenuModalView: UIView {
         }
         
         orderButton.snp.makeConstraints {
-            $0.top.equalTo(priceTitleLabel.snp.bottom).offset(15)
+           // $0.top.equalTo(priceTitleLabel.snp.bottom).offset(15)
             $0.leading.trailing.equalToSuperview().inset(15)
             $0.height.equalTo(46)
-            $0.bottom.equalToSuperview().offset(-30)
+            $0.bottom.equalToSuperview().inset(16)
         }
     }
 }
