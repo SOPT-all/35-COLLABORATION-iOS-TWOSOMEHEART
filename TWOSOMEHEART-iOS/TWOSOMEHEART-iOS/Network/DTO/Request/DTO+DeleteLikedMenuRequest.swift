@@ -10,8 +10,8 @@ import Foundation
 extension DTO {
     
     struct DeleteLikedMenuRequest: Codable {
-        let favoriteIds: String?
-        let all: String?
+        let favoriteIds: String
+        let all: String
     }
     
 }

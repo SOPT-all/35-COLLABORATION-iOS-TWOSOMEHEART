@@ -39,11 +39,17 @@ extension APITarget.Likes: TargetType {
         case .getLikedMenu:
             return .requestPlain
         case .deleteLikedMenu(let deleteInfoMenuRequest):
-            return .requestParameters(
-                parameters: ["favoriteIds": deleteInfoMenuRequest.favoriteIds,
-                             "all": deleteInfoMenuRequest.all],
-                encoding: URLEncoding.default
-            )
+            if deleteInfoMenuRequest.all == "true" {
+                return .requestParameters(
+                    parameters: ["all": deleteInfoMenuRequest.all],
+                    encoding: URLEncoding.queryString
+                )
+            } else {
+                return .requestParameters(
+                    parameters: ["favoriteIds": deleteInfoMenuRequest.favoriteIds],
+                    encoding: URLEncoding.queryString
+                )
+            }
         }
     }
 

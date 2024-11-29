@@ -18,9 +18,22 @@ final class CustomAlertViewController: BaseViewController {
     private let buttonCenterSeparatorView = UIView()
     private let confirmButton = UIButton(type: .system)
     private let alertButtonStackView = UIStackView()
-
+    
+    private let isAllChecked: Bool
+    private let checkedMenuList: Set<Int>
+    
     // MARK: - Lifecycle
 
+    init(isAllChecked: Bool, checkedMenuList: Set<Int>) {
+        self.isAllChecked = isAllChecked
+        self.checkedMenuList = checkedMenuList
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +47,7 @@ final class CustomAlertViewController: BaseViewController {
     }
 
     @objc private func confirmButtonTapped() {
+        deleteLikedMenu()
         dismiss(animated: false)
     }
 
@@ -137,4 +151,25 @@ final class CustomAlertViewController: BaseViewController {
             $0.bottom.equalTo(alertView.snp.bottom)
         }
     }
+}
+
+private extension CustomAlertViewController {
+
+    func deleteLikedMenu() {
+        let service = NetworkService<APITarget.Likes>()
+        let all = isAllChecked ? "true" : "false"
+        let favoriteIds = checkedMenuList.map { String($0) }.joined(separator: ",")
+
+        let request = DTO.DeleteLikedMenuRequest(favoriteIds: favoriteIds, all: all)
+        service.provider.request(.deleteLikedMenu(request)) { [weak self] response in
+            switch response {
+            case .success(let response):
+                print("🍀🍀🍀서버 통신 성공🍀🍀🍀")
+                return
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
 }
