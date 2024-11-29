@@ -21,6 +21,7 @@ final class CustomAlertViewController: BaseViewController {
     
     private let isAllChecked: Bool
     private let checkedMenuList: Set<Int>
+    var completion: (() -> Void)?
     
     // MARK: - Lifecycle
 
@@ -48,7 +49,9 @@ final class CustomAlertViewController: BaseViewController {
 
     @objc private func confirmButtonTapped() {
         deleteLikedMenu()
-        dismiss(animated: false)
+        dismiss(animated: true) { [weak self] in
+            self?.completion?()
+        }
     }
 
     // MARK: - Helpers
